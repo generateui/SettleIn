@@ -1,0 +1,333 @@
+﻿<UserControl x:Class="SettleIn.UI.Elements.GameMain2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:src="clr-namespace:SettleIn"
+    xmlns:src3="clr-namespace:SettleIn.Engine.ViewPort"
+    xmlns:src2="clr-namespace:SettleIn.UI.Elements.Game"
+    xmlns:src4="clr-namespace:SettleIn.UI.Elements"
+    xmlns:src5="clr-namespace:SettleIn.UI.Game"
+    xmlns:ui3="clr-namespace:SettleIn.UI.Converters"
+    xmlns:sic1="clr-namespace:SettleInCommon.Actions.InGame;assembly=SettleInCommon"
+    xmlns:sic2="clr-namespace:SettleInCommon.Actions.TurnActions;assembly=SettleInCommon"
+    xmlns:sic3="clr-namespace:SettleInCommon.Actions;assembly=SettleInCommon"
+    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  x:Name="root" >
+    <UserControl.Resources>
+        <Style x:Key="imgStyle1" TargetType="{x:Type Image}">
+            <Setter Property="Margin" Value="2,2,2,2"/>
+            <Setter Property="Height" Value="24"/>
+            <Setter Property="Width" Value="24"/>
+        </Style>
+        <Style x:Key="lblLabelStyle" TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}">
+            <Setter Property="Margin" Value="3,0,3,0"/>
+        </Style>
+        <DataTemplate DataType="{x:Type sic1:GameChatAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconChat48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:BuildTownAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource Town3D}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:BuildCityAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource Sea3D}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:ClaimVictoryAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource Sea3D}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:BuyDevcardAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconBuyDevcard48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:StartTradeAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconTrade48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:EndTradeAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconTrade48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:EndTurnAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconEndTurn32}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:LargestArmyAchievedAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <ItemsControl ItemsSource="{Binding Path=GamePlayer.PlayedSoldiers}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{StaticResource IconRobber48}" Style="{StaticResource imgStyle1}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:LongestRouteAchievedAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconLongestRoad48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:MoveShipAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconMoveShip48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:TradeOfferAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconTrade48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:PlacePortAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconRandomPort}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:TradeBankAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconBankTrade48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:BuildShipAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource Ship48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic1:PlacementDoneAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconPlay48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic1:StartingPlayerDeterminedAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconStarterDetermined48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:PlaceRobberPirateAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconRobber48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:BuildRoadAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource Road48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic1:PickGoldAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{StaticResource IconGold}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:RollVolcanoDiceAction}">
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <src4:Dice Number="{Binding Dice}"/>
+                <Image Source="{StaticResource IconVolcano}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:PlayDevcardAction}">
+            <DataTemplate.Resources>
+                <ui3:DevcardConverter x:Key="devcardConverter"/>
+            </DataTemplate.Resources>
+            <StackPanel Orientation="Horizontal" Background="{Binding GamePlayer.Color}">
+                <Image Source="{Binding Path=DevCard, Converter={StaticResource devcardConverter}}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic2:RollDiceAction}">
+            <StackPanel Orientation="Horizontal">
+                <Viewbox Height="32" Width="64">
+                    <StackPanel Orientation="Horizontal">
+                        <src4:Dice Number="{Binding Dice1}"/>
+                        <src4:Dice Number="{Binding Dice2}"/>
+                    </StackPanel>
+                </Viewbox>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic3:MessageFromServerAction}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{StaticResource IconError48}" Style="{StaticResource imgStyle1}"/>
+                <Label Content="{Binding Message}" Style="{StaticResource lblLabelStyle}"/>
+            </StackPanel>
+        </DataTemplate>
+        <ui3:ResourceConverter x:Key="resourceConverter"/>
+        <Style TargetType="Image" x:Key="imgStyle">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <OuterGlowBitmapEffect x:Name="OuterGlowBitmapEffect"
+                GlowColor="Transparent"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter 
+                            Property="BitmapEffect">
+                        <Setter.Value>
+                            <OuterGlowBitmapEffect GlowSize="10"
+                GlowColor="Red" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Canvas x:Name="cvBackground" Width="{Binding ElementName=root, Path=ActualWidth}" 
+            Height="{Binding ElementName=root, Path=ActualHeight}">
+        <Canvas x:Name="cvMain" Canvas.Top="0" Canvas.Left="0" 
+                Width="{Binding ElementName=root, Path=ActualWidth}" 
+                Height="{Binding ElementName=root, Path=ActualHeight}">
+            <src3:GameViewPort3D Canvas.Top="0" Canvas.Left="0"
+        x:Name="gameBoardViewPort" 
+        ClipToBounds="true" 
+        RenderOptions.EdgeMode="Aliased" 
+        Width="{Binding ElementName=root, Path=ActualWidth}" 
+        Height="{Binding ElementName=root, Path=ActualHeight}">
+                <Viewport3D.Camera>
+                    <PerspectiveCamera 
+	          FarPlaneDistance="400"
+	          LookDirection="1,-90,0"
+	          UpDirection="0,1,0"
+	          NearPlaneDistance="10" 
+	          Position="0,70,0" 
+	          FieldOfView="70"
+            x:Name="editorCam"/>
+                </Viewport3D.Camera>
+                <ModelVisual3D>
+                    <ModelVisual3D.Content>
+                        <AmbientLight Color="White"/>
+                    </ModelVisual3D.Content>
+                </ModelVisual3D>
+            </src3:GameViewPort3D>
+            <Grid  x:Name="spGameInfoChat" Canvas.Top="0" Canvas.Left="0" MaxWidth="250" Width="auto" Height="{Binding ElementName=root, Path=ActualHeight}">
+                <Grid.RowDefinitions>
+                    <!-- Players status-->
+                    <RowDefinition Height="{Binding ElementName=uiAllPlayerStatus, Path=ActualHeight}" />
+                    <!-- Bank -->
+                    <RowDefinition Height="100" />
+                    <!-- Chat/Gamelog/errorlog -->
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <src2:AllPlayerStatus x:Name="uiAllPlayerStatus" Width="auto"
+                                      Grid.Row="0"/>
+                <src2:Bank x:Name="uiBank" Grid.Row="1"/>
+                <TabControl x:Name="uiChatLogTabControl" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TabItem  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" >
+                        <TabItem.Header>
+                            <Image Source="{StaticResource IconChat48}" Height="32" Width="32" 
+                           Style="{StaticResource imgStyle}" Mouse.MouseUp="imgChat_MouseUp"
+                           x:Name="imgChat" Grid.Column="0">
+                            </Image>
+                        </TabItem.Header>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <ListBox x:Name="lbxChatBox" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Opacity="0.75">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate DataType="Board">
+                                        <StackPanel Name="stackPanel1" Orientation="Horizontal" >
+                                            <Label x:Name="lblName" Content="{Binding Path=User.Name}" FontWeight="Bold"></Label>
+                                            <Label Margin="3,0,3,0">:</Label>
+                                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Message}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <TextBox x:Name="txtChat" Height="20" Grid.Row="1" HorizontalAlignment="Stretch" Keyboard.KeyUp="txtChat_KeyUp" />
+                        </Grid>
+                    </TabItem>
+                    <TabItem  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                        <TabItem.Header>
+                            <Image Source="{StaticResource IconGameLog48}" Height="32" Width="32" 
+                           Style="{StaticResource imgStyle}" Mouse.MouseUp="imgGameLog_MouseUp"
+                           x:Name="imgGameLog" />
+                        </TabItem.Header>
+                        <ListBox x:Name="lbxGameLog" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Opacity="0.75"/>
+                    </TabItem>
+                    <TabItem HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                        <TabItem.Header>
+                            <Image Source="{StaticResource IconError48}" Style="{StaticResource imgStyle1}"/>
+                        </TabItem.Header>
+                        <ListBox x:Name="lbxErrors"/>
+                    </TabItem> 
+                </TabControl>
+                <!--
+                <Label Content="GameChat" Grid.Row="2" FontSize="50" Foreground="Gray" FontWeight="Bold" FontFamily="Candara">
+                    <Label.RenderTransform>
+                        <RotateTransform Angle="90"/>
+                    </Label.RenderTransform>
+                </Label>
+                -->
+
+            </Grid>
+            <src2:BuildPallette x:Name="uiBuildPalette" Canvas.Bottom="85" Canvas.Right="0" Height="{Binding ElementName=root, Path=ActualHeight}" Width="{Binding ActualHeight, ElementName=root}" />
+            <ItemsControl x:Name="uiPlayerHand" Canvas.Bottom="0" Canvas.Right="100" Height="80"
+                          HorizontalAlignment="Center">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Width="64" Height="64" 
+                       Source="{Binding Converter={StaticResource resourceConverter}}" Margin="0,0,0,0"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+            <Canvas Background="#AAF00000" 
+                    Canvas.Bottom="0" Canvas.Right="0" Width="650" Height="160" 
+                    Visibility="Collapsed" x:Name="cvBuildOverlay">
+            </Canvas>
+        </Canvas>
+        <Grid Width="{Binding ElementName=root, Path=ActualWidth}" 
+                Height="{Binding ElementName=root, Path=ActualHeight}" 
+            x:Name="cvOverlay" Visibility="Collapsed"
+                 Background="#AA000000">
+            <src5:StealCard x:Name="uiStealCard" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <src5:ShowResourcesGained x:Name="uiResourcesGained" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed"/>
+            <src2:Trade x:Name="spTrade" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"  />
+            <src5:BankTrade x:Name="uiBankTrade" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <src2:PickGoldResource x:Name="uiPickGold" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed"/>
+            <src4:NewGame x:Name="uiNewHotSeat" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        Margin="50,50,50,50" Visibility="Collapsed"/>
+            <src5:LooseCards x:Name="uiLooseCards" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
+            <src5:PickGoldAll x:Name="uiPickGoldAll" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
+        </Grid>
+    </Canvas>
+</UserControl>

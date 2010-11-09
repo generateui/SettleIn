@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="SettleIn.UI.Game.PickGoldAll"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ui="clr-namespace:SettleIn.UI.Elements"
+             xmlns:si="clr-namespace:SettleInCommon.Board;assembly=SettleInCommon"
+             xmlns:ui3="clr-namespace:SettleIn.UI.Converters"
+             mc:Ignorable="d" 
+             x:Name="ucPickGZoldAll" 
+             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <UserControl.Resources>
+        <Style x:Key="labelStyle" TargetType="Label">
+            <Setter Property="IsHitTestVisible" Value="false"/>
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <OuterGlowBitmapEffect GlowColor="White" GlowSize="5"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Canvas.Left" Value="15"/>
+            <Setter Property="Canvas.Top" Value="15"/>
+        </Style>
+        <ui3:ResourceConverter x:Key="resourceConverter"/>
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical">
+        <ItemsControl x:Name="uiPlayer" Margin="300,0,0,0" Width="800" Height="600">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Width="800" Background="AliceBlue" x:Name="spMain">
+                        <ItemsControl x:Name="sp" Height="80" Width="300" ItemsSource="{Binding Path=Resources}" >
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Height="40" Width="40" Click="Button_Click_1">
+                                        <Image Width="32" Height="32" Source="{Binding Converter={StaticResource resourceConverter}}"/>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                        <StackPanel Orientation="Horizontal" Height="80" Width="300" x:Name="spSelector">
+                            <Canvas>
+                                <Image x:Name="imgTimber" Source="{StaticResource IconTimber}" Mouse.MouseUp="imgTimber_MouseUp">
+                                    <Image.Tag>
+                                        <si:EResource>Timber</si:EResource>
+                                    </Image.Tag>
+                                </Image>
+                                <Label Style="{StaticResource labelStyle}" Content="{Binding ElementName=ucPickGoldAll, Path=BankResources.Timber}"></Label>
+                            </Canvas>
+                            <Canvas>
+                                <Image x:Name="imgWheat" Source="{StaticResource IconWheat}" Mouse.MouseUp="imgTimber_MouseUp" >
+                                    <Image.Tag>
+                                        <si:EResource>Wheat</si:EResource>
+                                    </Image.Tag>
+                                </Image>
+                                <Label Style="{StaticResource labelStyle}" Content="{Binding ElementName=ucPickGoldAll, Path=BankResources.Wheat}"></Label>
+                            </Canvas>
+                            <Canvas>
+                                <Image x:Name="imgOre" Source="{StaticResource IconOre}" Mouse.MouseUp="imgTimber_MouseUp" >
+                                    <Image.Tag>
+                                        <si:EResource>Ore</si:EResource>
+                                    </Image.Tag>
+                                </Image>
+                                <Label x:Name="lblOre" Style="{StaticResource labelStyle}" Content="{Binding ElementName=ucPickGoldAll, Path=BankResources.Ore}"></Label>
+                            </Canvas>
+                            <Canvas>
+                                <Image x:Name="imgClay" Source="{StaticResource IconClay}" Mouse.MouseUp="imgTimber_MouseUp" >
+                                    <Image.Tag>
+                                        <si:EResource>Clay</si:EResource>
+                                    </Image.Tag>
+                                </Image>
+                                <Label x:Name="lblClay" Style="{StaticResource labelStyle}" Content="{Binding ElementName=ucPickGoldAll, Path=BankResources.Clay}"></Label>
+                            </Canvas>
+                            <Canvas>
+                                <Image x:Name="imgSheep" Source="{StaticResource IconSheep}"  Mouse.MouseUp="imgTimber_MouseUp" >
+                                    <Image.Tag>
+                                        <si:EResource>Sheep</si:EResource>
+                                    </Image.Tag>
+                                </Image>
+                                <Label x:Name="lblSheep" Style="{StaticResource labelStyle}" Content="{Binding ElementName=ucPickGoldAll, Path=BankResources.Sheep}"></Label>
+                            </Canvas>
+                        </StackPanel>
+                        <Label Height="20" HorizontalAlignment="Left" Content="Pick "/>
+                        <Label Height="20" HorizontalAlignment="Left" Content="{Binding Path=Amount}"/>
+                        <Label Height="20" HorizontalAlignment="Left" Content=" resources"/>
+                    </StackPanel>
+                    <DataTemplate.Triggers>
+                        <!-- Hide the stackpanel if the player does not need to pick gold-->
+                        <DataTrigger Binding="{Binding Path=Amount}" Value="0">
+                            <Setter Property="Visibility" TargetName="spMain" Value="Hidden"/>
+                            <Setter Property="Background" TargetName="spMain" Value="Green"/>
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Button x:Name="btnDone" Content="OK" Height="25" Width="50" Click="btnDone_Click"/>
+    </StackPanel>
+</UserControl>

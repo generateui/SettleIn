@@ -1,0 +1,83 @@
+﻿<!--Represents a control in where the user 
+  can specify a list of hexes.-->
+  <UserControl x:Class="SettleIn.UI.Elements.HexListSelector"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  	<UserControl.Resources>
+  		<Style x:Key="lblNumber" TargetType="{x:Type Label}">
+  			<Setter Property="HorizontalAlignment" Value="Center"/>
+  			<Setter Property="VerticalAlignment" Value="Center"/>
+  			<Setter Property="Margin" Value="0,0,0,0"/>
+  			<Setter Property="FontSize" Value="13.333"/>
+  			<Setter Property="FontWeight" Value="Bold"/>
+  		</Style>
+  	</UserControl.Resources>
+  <StackPanel Orientation="Vertical" Margin="10,0,0,0" DataContext="{Binding}">
+    <StackPanel Orientation="Horizontal" Margin="0,10,5,5">
+  		<Image Source="{DynamicResource IconDesert}" Height="48" Width="48"/>
+  		<Label Content="Hexes" FontSize="16" VerticalAlignment="Center" Margin="12,0,0,0" />
+  		<!--Value="{Binding ElementName=mapEditorViewPort, Path=Board.HexesToDiscover.Sea}-->
+  	</StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="11,0,0,0">
+      <Image Source="{StaticResource IconSea}" Height="24" Width="24"/>
+      <Label Content="x" Style="{DynamicResource lblNumber}"/>
+      <Label Content="{Binding Value, ElementName=slSea}" Height="30" Width="25" Style="{DynamicResource lblNumber}"/>
+      <Slider x:Name="slSea" Minimum="0" Maximum="40" Width="132" TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="true" Value="{Binding Sea, Mode=TwoWay}"/>
+      <!--Value="{Binding ElementName=mapEditorViewPort, Path=Board.HexesToDiscover.Sea}-->
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="11,0,0,0">
+      <Image Source="{StaticResource IconTimber}" Height="24" Width="24"/>
+      <Label Content="x" Style="{DynamicResource lblNumber}"/>
+      <Label Content="{Binding Value, ElementName=slTimber}" Height="30" Width="25" Style="{DynamicResource lblNumber}"/>
+      <Slider x:Name="slTimber" Minimum="0" Maximum="10" Width="100" TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="true"  Value="{Binding Timber, Mode=TwoWay}"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="11,0,0,0">
+      <Image Source="{StaticResource IconWheat}" Height="24" Width="24"/>
+      <Label Content="x" Style="{DynamicResource lblNumber}"/>
+      <Label Content="{Binding Value, ElementName=slWheat}" Height="30" Width="25" Style="{DynamicResource lblNumber}"/>
+      <Slider x:Name="slWheat" Minimum="0" Maximum="10" Width="100" TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="true" Value="{Binding Wheat, Mode=TwoWay}"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="11,0,0,0">
+      <Image Source="{StaticResource IconOre}" Height="24" Width="24"/>
+      <Label Content="x" Style="{DynamicResource lblNumber}"/>
+      <Label Content="{Binding Value, ElementName=slOre}" Height="30" Width="25" Style="{DynamicResource lblNumber}"/>
+      <Slider x:Name="slOre" Minimum="0" Maximum="10" Width="100" TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="true" Value="{Binding Ore, Mode=TwoWay}"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="11,0,0,0">
+      <Image Source="{StaticResource IconClay}" Height="24" Width="24"/>
+      <Label Content="x" Style="{DynamicResource lblNumber}"/>
+      <Label Content="{Binding Value, ElementName=slClay}" Height="30" Width="25" Style="{DynamicResource lblNumber}"/>
+      <Slider x:Name="slClay" Minimum="0" Maximum="10" Width="100" TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="true" Value="{Binding Clay, Mode=TwoWay}"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="11,0,0,0">
+      <Image Source="{StaticResource IconSheep}" Height="24" Width="24"/>
+      <Label Content="x" Style="{DynamicResource lblNumber}" VerticalAlignment="Top"/>
+      <Label Content="{Binding Value, ElementName=slSheep}" Height="30" Width="25" Style="{DynamicResource lblNumber}"/>
+      <Slider x:Name="slSheep" Minimum="0" Maximum="10" Width="100" TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="true" Value="{Binding Sheep, Mode=TwoWay}"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="11,0,0,0">
+      <Image Source="{StaticResource IconGold}" Height="24" Width="24"/>
+      <Label Content="x" Style="{DynamicResource lblNumber}"/>
+      <Label Content="{Binding Value, ElementName=slGold}" Height="30" Width="25" Style="{DynamicResource lblNumber}"/>
+      <Slider x:Name="slGold" Minimum="0" Maximum="10" Width="100" TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="true" Value="{Binding Gold, Mode=TwoWay}"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="11,0,0,0">
+      <Image Source="{StaticResource IconJungle}" Height="24" Width="24"/>
+      <Label Content="x" Style="{DynamicResource lblNumber}"/>
+      <Label Content="{Binding Value, ElementName=slJungle}" Height="30" Width="25" Style="{DynamicResource lblNumber}"/>
+      <Slider x:Name="slJungle" Minimum="0" Maximum="10" Width="100" TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="true" Value="{Binding Jungle, Mode=TwoWay}"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" Margin="11,0,0,0">
+      <Image Source="{StaticResource IconVolcano}" Height="24" Width="24"/>
+      <Label Content="x" Style="{DynamicResource lblNumber}"/>
+      <Label Content="{Binding Value, ElementName=slVolcano}" Height="30" Width="25" Style="{DynamicResource lblNumber}"/>
+      <Slider x:Name="slVolcano" Minimum="0" Maximum="10" Width="100" TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="true" Value="{Binding Volcano, Mode=TwoWay}"/>
+    </StackPanel>
+    <Path Fill="White" Stretch="Fill" Stroke="Black" Margin="11,5,5,0" Height="1" Data="M28,272 L207.02514,272"/>
+    <StackPanel Orientation="Horizontal" Margin="11,5,0,0">
+      <Label Margin="0,0,6,0" Width="42" Content="   Total:" VerticalAlignment="Center"/>
+      <Label Content="{Binding CountAll}" Style="{DynamicResource lblNumber}" Height="23" Width="23"/>
+      <Label Margin="0" VerticalAlignment="Center" Content="hexes"/>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="SettleIn.UI.Elements.Game.Bank"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="100" Width="300">
+    <StackPanel Orientation="Horizontal" Height="100" Width="200" DataContext="{Binding}">
+        <Label Content="{Binding Path=Timber}"/>
+        <Label Content="{Binding Path=Wheat}"/>
+        <Label Content="{Binding Path=Ore}"/>
+        <Label Content="{Binding Path=Sheep}"/>
+        <Label Content="{Binding Path=Clay}"/>
+    </StackPanel>
+</UserControl>

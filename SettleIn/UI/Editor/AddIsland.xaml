@@ -1,0 +1,42 @@
+﻿<!-- Dialog box to let the user add a new 
+  territory to the list -->
+<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      x:Class="SettleIn.AddIsland">
+    <StackPanel Orientation="Vertical" Margin="9,12,0,0">
+        <Label FontSize="16" Content="Add a new island"/>
+        <StackPanel Orientation="Horizontal" Margin="0,3">
+            <Label Content="Name:" VerticalAlignment="Center"/>
+            <TextBox Width="161" x:Name="txtName" KeyUp="txtName_KeyUp" Margin="17,0,0,0"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <RadioButton IsChecked="True" GroupName="TerritoryType" x:Name="rbMainland" Margin="10,5,0,5">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{StaticResource IconMainland48}" Width="24" Height="24"/>
+                    <Label VerticalAlignment="Center" Margin="5" Content="Mainland"/>
+                </StackPanel>
+            </RadioButton>
+            <RadioButton GroupName="TerritoryType" x:Name="rbIsland" Margin="10,5,0,5" IsChecked="True">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{StaticResource IconIsland48}" Width="24" Height="24"/>
+                    <Label VerticalAlignment="Center" Margin="5" Content="Island"/>
+                </StackPanel>
+            </RadioButton>
+        </StackPanel>
+        <CheckBox x:Name="chkInital" Margin="0,0,29.81,0">
+            <Label Content="Initial town placement allowed" Margin="0,3" Width="166.19"/>
+        </CheckBox>
+        <StackPanel Orientation="Horizontal" Margin="0,3" >
+            <CheckBox x:Name="chkSecondary">
+                    <Label Content="Secondary town (or city when TSR) allowed" Margin="0,0,5,0"/>
+            </CheckBox>
+        </StackPanel>
+        <Grid HorizontalAlignment="Stretch">
+            <Button Height="24" Width="60" Margin="10,10,10,10" Content="Cancel" Click="Button_Click_1" HorizontalAlignment="Left"/>
+            <Button Height="24" Width="96" Margin="10,10,10,10" Click="Button_Click" x:Name="btnAdd" Content="Add territory" HorizontalAlignment="Right"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.Lobby" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.Lobby" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.User" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming" />
+  <xs:complexType name="LobbyAction">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions" base="q1:GameAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LobbyAction" nillable="true" type="tns:LobbyAction" />
+  <xs:complexType name="LobbyJoinedAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LobbyAction">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SettleInCommon.User" minOccurs="0" name="NewPlayer" nillable="true" type="q2:XmlUser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LobbyJoinedAction" nillable="true" type="tns:LobbyJoinedAction" />
+  <xs:complexType name="UserDisconnectedAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LobbyAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserDisconnectedAction" nillable="true" type="tns:UserDisconnectedAction" />
+  <xs:complexType name="NewGameChangedAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LobbyAction">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming" minOccurs="0" name="NewSettings" nillable="true" type="q3:XmlGameSettings" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NewGameChangedAction" nillable="true" type="tns:NewGameChangedAction" />
+  <xs:complexType name="GameJoinedAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LobbyAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GameID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GameJoinedAction" nillable="true" type="tns:GameJoinedAction" />
+  <xs:complexType name="LobbyChatAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LobbyAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChatMessage" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LobbyChatAction" nillable="true" type="tns:LobbyChatAction" />
+  <xs:complexType name="GameCreatedAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LobbyAction">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming" minOccurs="0" name="Game" nillable="true" type="q4:XmlGameSettings" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GameCreatedAction" nillable="true" type="tns:GameCreatedAction" />
+  <xs:complexType name="EnterLobbyAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LobbyAction">
+        <xs:sequence>
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SettleInCommon.User" minOccurs="0" name="UserEnteringLobby" nillable="true" type="q5:XmlUser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EnterLobbyAction" nillable="true" type="tns:EnterLobbyAction" />
+  <xs:complexType name="TryCreateGameAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LobbyAction">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming" minOccurs="0" name="GameSettings" nillable="true" type="q6:XmlGameSettings" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TryCreateGameAction" nillable="true" type="tns:TryCreateGameAction" />
+  <xs:complexType name="JoinGameAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LobbyAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GameID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="JoinGameAction" nillable="true" type="tns:JoinGameAction" />
+  <xs:complexType name="UserLeftLobbyAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LobbyAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserLeftLobbyAction" nillable="true" type="tns:UserLeftLobbyAction" />
+</xs:schema>

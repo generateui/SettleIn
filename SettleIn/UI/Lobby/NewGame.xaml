@@ -1,0 +1,365 @@
+﻿<UserControl
+    x:Class="SettleIn.UI.Elements.NewGame"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:src2="clr-namespace:SettleIn.Engine.ViewPort"
+    xmlns:sic="clr-namespace:SettleInCommon.Gaming;assembly=SettleInCommon"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" 
+    xmlns:SettleInCommon_Gaming="clr-namespace:SettleInCommon.Gaming;assembly=SettleInCommon"
+             VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+             Background="#FFFFFF">
+    <UserControl.Resources>
+        <sic:XmlGameSettings x:Key="gameSettings" x:Name="_GameSettings" />
+    	<SettleInCommon_Gaming:XmlGameSettings x:Key="XmlGameSettingsDataSource1" d:IsDataSource="True"/>
+    	<SettleInCommon_Gaming:XmlGameSettings x:Key="XmlGameSettingsDataSource" d:IsDataSource="True"/>
+        <ObjectDataProvider x:Key="employeeData" />
+        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}" x:Key="stHeaderLabel">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="5,5,5,5"/>
+        </Style>
+        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}" x:Key="stLabel">
+            <Setter Property="Margin" Value="3,3,3,3"/>
+        </Style>
+        <Style TargetType="{x:Type StackPanel}"  
+               x:Key="rowPanel">
+            <Setter Property="Margin" Value="3,3,3,3"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    	<Storyboard x:Key="OnChecked1">
+    		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="stackPanel" Storyboard.TargetProperty="(FrameworkElement.Height)">
+    			<SplineDoubleKeyFrame KeyTime="00:00:00" Value="50"/>
+    		</DoubleAnimationUsingKeyFrames>
+    		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="image" Storyboard.TargetProperty="(FrameworkElement.Width)">
+    			<SplineDoubleKeyFrame KeyTime="00:00:00" Value="32"/>
+    		</DoubleAnimationUsingKeyFrames>
+    		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="image" Storyboard.TargetProperty="(FrameworkElement.Height)">
+    			<SplineDoubleKeyFrame KeyTime="00:00:00" Value="32"/>
+    		</DoubleAnimationUsingKeyFrames>
+    		<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="label" Storyboard.TargetProperty="(ContentControl.Content)">
+    			<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="towns&#xa;"/>
+    		</ObjectAnimationUsingKeyFrames>
+    		<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="label1" Storyboard.TargetProperty="(ContentControl.Content)">
+    			<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="cities&#xa;"/>
+    		</ObjectAnimationUsingKeyFrames>
+    		<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="label2" Storyboard.TargetProperty="(ContentControl.Content)">
+    			<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="roads&#xa;"/>
+    		</ObjectAnimationUsingKeyFrames>
+    		<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="label3" Storyboard.TargetProperty="(ContentControl.Content)">
+    			<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="ships"/>
+    		</ObjectAnimationUsingKeyFrames>
+    		<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="image" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+    			<SplineThicknessKeyFrame KeyTime="00:00:00" Value="5,0"/>
+    		</ThicknessAnimationUsingKeyFrames>
+    		<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="image_Copy1" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+    			<SplineThicknessKeyFrame KeyTime="00:00:00" Value="5,0"/>
+    		</ThicknessAnimationUsingKeyFrames>
+    		<ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="image_Copy2" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+    			<SplineThicknessKeyFrame KeyTime="00:00:00" Value="5,0"/>
+    		</ThicknessAnimationUsingKeyFrames>
+    	</Storyboard>
+        <!--
+    	<Style x:Key="chkStyle" TargetType="{x:Type CheckBox}">
+    		<Setter Property="SnapsToDevicePixels" Value="true" />
+    		<Setter Property="FocusVisualStyle" Value="{DynamicResource CheckBoxFocusVisual}" />
+    		<Setter Property="Foreground" Value="{StaticResource OutsideFontColor}" />
+    		<Setter Property="FontSize" Value="12" />
+    		<Setter Property="FontFamily" Value="Candara" />
+    		<Setter Property="HorizontalContentAlignment" Value="Left" />
+    		<Setter Property="VerticalContentAlignment" Value="Top" />
+    		<Setter Property="Padding" Value="4,1,0,0" />
+    		<Setter Property="Template" Value="{DynamicResource CheckBoxTemplate}" />
+    	</Style>
+        -->
+    	<Style x:Key="SliderStyle1" TargetType="{x:Type Slider}">
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type Slider}">
+    					<Grid x:Name="GridRoot">
+    						<Grid.RowDefinitions>
+    							<RowDefinition Height="Auto" />
+    							<RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}" />
+    							<RowDefinition Height="Auto" />
+    						</Grid.RowDefinitions>
+
+    						<TickBar Visibility="Collapsed" x:Name="TopTick" Height="4" SnapsToDevicePixels="True" Placement="Top" Fill="#FF405A78" />
+    						<Rectangle Margin="7.5,0,7.5,0" Grid.Column="0" Height="6" RadiusX="3" RadiusY="3" Grid.Row="1" Fill="{DynamicResource SliderBackgroundBrush}"/>
+
+    						<Track Grid.Row="1" x:Name="PART_Track">
+    							<Track.Thumb>
+    								<Thumb Style="{DynamicResource NuclearSliderThumb}" />
+    							</Track.Thumb>
+    							<Track.IncreaseRepeatButton>
+    								<RepeatButton Style="{DynamicResource NuclearScrollRepeatButtonStyle}" Command="Slider.IncreaseLarge" />
+    							</Track.IncreaseRepeatButton>
+    							<Track.DecreaseRepeatButton>
+    								<RepeatButton Style="{DynamicResource NuclearScrollRepeatButtonStyle}" Command="Slider.DecreaseLarge" />
+    							</Track.DecreaseRepeatButton>
+    						</Track>
+
+    						<TickBar Visibility="Collapsed" Grid.Row="2" x:Name="BottomTick" Height="4" SnapsToDevicePixels="True" Placement="Bottom" Fill="{TemplateBinding Foreground}" />
+    					</Grid>
+    					<ControlTemplate.Triggers>
+    						<Trigger Property="TickPlacement" Value="TopLeft">
+    							<Setter Property="Visibility" Value="Visible" TargetName="TopTick" />
+    						</Trigger>
+    						<Trigger Property="TickPlacement" Value="BottomRight">
+    							<Setter Property="Visibility" Value="Visible" TargetName="BottomTick" />
+    						</Trigger>
+    						<Trigger Property="TickPlacement" Value="Both">
+    							<Setter Property="Visibility" Value="Visible" TargetName="TopTick" />
+    							<Setter Property="Visibility" Value="Visible" TargetName="BottomTick" />
+    						</Trigger>
+    						<Trigger Property="IsEnabled" Value="false">
+    							<Setter Property="Opacity" TargetName="GridRoot" Value="0.65" />
+
+    						</Trigger>
+
+    						<Trigger Property="Orientation" Value="Vertical">
+    							<Setter Property="LayoutTransform" TargetName="GridRoot">
+    								<Setter.Value>
+    									<RotateTransform Angle="-90" />
+    								</Setter.Value>
+    							</Setter>
+    							<Setter TargetName="PART_Track" Property="Orientation" Value="Horizontal" />
+    						</Trigger>
+
+    					</ControlTemplate.Triggers>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+
+    	<Style x:Key="lblNumber" TargetType="{x:Type Label}">
+    		<Setter Property="Height" Value="20" />
+    		<Setter Property="Width" Value="15" />
+			<Setter Property="FontSize" Value="11" />
+			<Setter Property="FontWeight" Value="Bold"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type Label}">
+    					<Grid>
+    						<ContentPresenter RecognizesAccessKey="True" VerticalAlignment="Center" HorizontalAlignment="Left" />
+    					</Grid>
+    					<ControlTemplate.Triggers>
+    						<Trigger Property="IsEnabled" Value="false" />
+    					</ControlTemplate.Triggers>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+
+    	<Style x:Key="ImageStyle1" TargetType="{x:Type Image}">
+		
+    		<Style.Triggers>
+    			<Trigger Property="IsEnabled" Value="False">
+    				<Setter Property="Opacity" Value="0.4"/>
+    			</Trigger>
+    		</Style.Triggers>
+    	</Style>
+
+    	<Style x:Key="LabelStyle1" TargetType="{x:Type Label}">
+    		<Setter Property="HorizontalContentAlignment" Value="Left" />
+    		<Setter Property="VerticalContentAlignment" Value="Top" />
+
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type Label}">
+    					<Grid>
+    						<Grid.ColumnDefinitions>
+    							<ColumnDefinition Width="0.461*"/>
+    							<ColumnDefinition Width="0.539*"/>
+    						</Grid.ColumnDefinitions>
+    						<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" Grid.ColumnSpan="2" />
+    					</Grid>
+    					<ControlTemplate.Triggers>
+    						<Trigger Property="IsEnabled" Value="false" >
+    							<Setter Property="Opacity" TargetName="contentPresenter" Value="0.4"/>
+    						</Trigger>
+    					</ControlTemplate.Triggers>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+
+    </UserControl.Resources>
+    <Grid Margin="20,20,20,20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" x:Name="spNewGame" 
+                DataContext="{StaticResource gameSettings}"
+                 Grid.Column="1" Margin="20,0,0,0">
+            <Label Style="{StaticResource stHeaderLabel}" Content="Settings"/>
+            <StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}" Height="34">
+                <Label VerticalAlignment="Center" Width="43.367" Content="Name:"/>
+                <TextBox x:Name="txtName" Width="150"/>
+                <Label Content="Rating:  &#xd;&#xa;" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="13,0,0,0" Height="25"/>
+                <Slider x:Name="slMaxTradesPerTurn1_Copy" Maximum="400" Width="104"  TickFrequency="50" TickPlacement="BottomRight" LargeChange="50" IsSnapToTickEnabled="True" Value="{Binding MaximumTradesPerTurn, Mode=Default}" Height="25" />
+                <Label Content="Rating range&#xa;" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource lblNumber}"/>
+                <Label Content="-&#xa;" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="26.5533333333333" Margin="6,0" FontWeight="Bold"/>
+                <Label Content="Rating range&#xa;" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource lblNumber}"/>
+            </StackPanel>
+        	<StackPanel Orientation="Horizontal"  Style="{StaticResource rowPanel}">
+        		<CheckBox x:Name="chkNo2VPPlayersRobbing1" IsChecked="{Binding No2VPPlayersRobbing}" VerticalAlignment="Center"/>
+        		<Label Content="Allow  " VerticalAlignment="Center"/>
+        		<Slider x:Name="slMaxTradesPerTurn1" Minimum="2" Maximum="6" Width="50"  TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="True" Value="{Binding MaximumTradesPerTurn, Mode=Default}" />
+        		<Label Content="{Binding Value, ElementName=slMinPlayers, Mode=Default}" Margin="3,0,0,0" Style="{DynamicResource lblNumber}"/>
+        		<Label Content="trades per turn" Margin="0,0,3,0" VerticalAlignment="Center"/>
+        	</StackPanel>
+
+            <StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}">
+                <Label VerticalAlignment="Center" Content="Minimum of " Width="65"/>
+                <Slider x:Name="slMinPlayers" Minimum="2" Maximum="6" Width="50"  TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="True" Value="{Binding MinPlayers, Mode=Default}" Margin="0,0,3,0"/>
+                <Label Content="{Binding Value, ElementName=slMinPlayers}" Style="{DynamicResource lblNumber}" Margin="3,0,0,0"/>
+                <Label Margin="0" VerticalAlignment="Center" Content="players"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}" Height="34" Margin="3,0">
+                <Label VerticalAlignment="Center" Content="Maximum of " Width="65"/>
+                <Slider x:Name="slMaxPlayers" Minimum="2" Maximum="6" Width="50"  TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="True" Value="{Binding MaxPlayers, Mode=Default}" Height="25" VerticalAlignment="Bottom" Margin="0,0,3,0" />
+                <Label Content="{Binding Value, ElementName=slMaxPlayers, Mode=Default}" Style="{DynamicResource lblNumber}" Margin="3,0,0,0"/>
+                <Label Margin="0" VerticalAlignment="Center" Content="players"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource rowPanel}">
+                <StackPanel  Style="{StaticResource rowPanel}" Margin="3,3,-3,0" Orientation="Horizontal">
+            		<CheckBox x:Name="chkNoSevensFirstRound_Copy" IsChecked="{Binding NoSevensFirstRound}" VerticalAlignment="Center"/>
+                	<Label Content="Replace  " Margin="3,0,0,0" VerticalAlignment="Center"/>
+                	<Image x:Name="image_Copy3" Width="32" Height="32" Source="/SettleIn;Component/Graphics/Images/desert.png" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                	<Label Content="deserts with:" Margin="8,0,0,0" VerticalAlignment="Center"/>
+            	</StackPanel>
+                <StackPanel  Style="{StaticResource rowPanel}" Margin="20,3,3,3" IsEnabled="{Binding IsChecked, ElementName=chkNoSevensFirstRound_Copy, Mode=Default}">
+                    <RadioButton x:Name="rbJungle" IsChecked="{Binding ReplaceDesertsWithJungles}" Margin="10,3,3,0"  BorderThickness="0,3,0,0"  >
+                    	<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    		<Image x:Name="image_Copy5" Width="32" Height="32" Source="/SettleIn;Component/Graphics/Images/jungle.png" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource ImageStyle1}"/>
+                    		<Label Content="Jungle's" Margin="6,0,5,0" VerticalAlignment="Center" Width="50"/>
+                    		<CheckBox IsEnabled="{Binding IsChecked, ElementName=rbVolcano, Mode=Default}" IsChecked="True" VerticalAlignment="Center" Margin="24,0,0,0">
+                    			<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    				<Image x:Name="image_Copy6" Width="32" Height="32" Source="Gold.png" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource ImageStyle1}"/>
+                    				<Label Content="Limit bank jungle to" Margin="6,0,5,0" VerticalAlignment="Center" Style="{DynamicResource LabelStyle1}"/>
+                    			</StackPanel>
+                    		</CheckBox>
+                    		<Slider x:Name="slMaxTradesPerTurn1_Copy1" Minimum="10" Maximum="100" Width="119"  TickFrequency="5" TickPlacement="BottomRight" LargeChange="5" IsSnapToTickEnabled="True" SmallChange="5" Value="30" VerticalAlignment="Bottom" />
+                    		<Label Content="{Binding Value, ElementName=slMaxTradesPerTurn1_Copy1, Mode=Default}" Margin="6,0,5,0" VerticalAlignment="Center" Style="{DynamicResource lblNumber}" HorizontalAlignment="Center" FontFamily="Tahoma"/>
+                    		<Label Content="tokens" Margin="6,0,5,0" VerticalAlignment="Center" Style="{DynamicResource LabelStyle1}"/>
+                    	</StackPanel>
+                    </RadioButton>
+                    <RadioButton x:Name="rbVolcano" IsChecked="{Binding ReplaceDesertsWithVolcanos}" Margin="10,3,3,0" BorderThickness="0,3,0,0" >
+                    	<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    		<Image x:Name="image_Copy4" Width="32" Height="32" Source="/SettleIn;Component/Graphics/Icons/volcano.png" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource ImageStyle1}"/>
+                    		<Label Content="Volcano's" Margin="6,0,5,0" VerticalAlignment="Center" Width="50"/>
+                    		<CheckBox IsEnabled="{Binding IsChecked, ElementName=rbVolcano, Mode=Default}" IsChecked="True" VerticalAlignment="Center" Margin="24,0,0,0">
+                    			<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    				<Image x:Name="image_Copy8" Width="32" Height="32" Source="Gold.png" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource ImageStyle1}"/>
+                    				<Label Content="With gold" Margin="6,0,5,0" VerticalAlignment="Center" Style="{DynamicResource LabelStyle1}"/>
+                    			</StackPanel>
+                    		</CheckBox>
+                    	</StackPanel>
+                    </RadioButton>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  Style="{StaticResource rowPanel}" DataContext="{Binding Source={StaticResource XmlGameSettingsDataSource1}}">
+            	<Label Margin="3" Content="Start"/>
+            	<RadioButton Margin="10,0,0,0" Height="20" Content="Normal (2x road/ship, 2x town)" IsChecked="{Binding !TournamentStart, Mode=Default}"/>
+            	<RadioButton Height="20" Content="Tournament Starting Rules (3x road/ship, 1x town, 1x city)" Margin="10,0,0,0" IsChecked="{Binding TournamentStart, Mode=Default}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}">
+                <CheckBox x:Name="chkNoSevensFirstRound" IsChecked="{Binding NoSevensFirstRound}" VerticalAlignment="Center"/>
+                <Label Content="No sevens the first round"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}">
+                <CheckBox x:Name="chkTradingAfterBuilding" IsChecked="{Binding TradingAfterBuilding}" VerticalAlignment="Center"/>
+                <Label Content="Trading allowed after building something"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Style="{StaticResource rowPanel}">
+                <CheckBox x:Name="chkNo2VPPlayersRobbing" IsChecked="{Binding No2VPPlayersRobbing}" VerticalAlignment="Center"/>
+                <Label Content="No robbing of players with 2 victory points (VP)"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}" Margin="0,3,21,3">
+                <CheckBox x:Name="xhkLadderGame" IsChecked="{Binding IsLadder, Mode=OneWay, Source={StaticResource XmlGameSettingsDataSource}}" Content="Ladder game" Margin="3,0,0,0" IsEnabled="False" Visibility="Hidden"/>
+            </StackPanel>
+        	<StackPanel Margin="21,4,0,0" IsEnabled="False" Visibility="Hidden">
+        		<StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}" Margin="0,3,-291.669,3" Height="40">
+        			<StackPanel x:Name="label1_Copy1" Orientation="Horizontal" Style="{StaticResource rowPanel}" Margin="0,3" Width="210">
+        				<Slider x:Name="slStockRoads" Maximum="30" Width="100"  TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="True" Value="{Binding StockRoads, Mode=Default}" Style="{DynamicResource SliderStyle1}" Height="25" VerticalAlignment="Bottom"/>
+        				<Label x:Name="lblStockRoads" Content="{Binding Value, ElementName=slStockRoads, Mode=Default}" Width="15" Style="{DynamicResource lblNumber}" FontSize="13.333" FontWeight="Bold"/>
+        				<Label x:Name="label1_Copy2" Margin="0,0,0,3" Content="x&#xa;" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{DynamicResource lblNumber}"/>
+        				<Image x:Name="image_Copy1" Width="32" Height="32" Source="Road48.png" Style="{DynamicResource ImageStyle1}"/>
+        				<Label x:Name="label2" Margin="5,0,0,0" Content="road&#xa;" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="21.79" Style="{DynamicResource LabelStyle1}" Height="23"/>
+        			</StackPanel>
+        			<StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}" Margin="0,3" Width="596.486">
+        				<Slider x:Name="slStockShips" Maximum="30" Width="100"  TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="True" Value="{Binding MinPlayers}" Height="26" VerticalAlignment="Bottom"/>
+        				<Label x:Name="lblStockShips" Content="{Binding Value, ElementName=slStockShips, Mode=Default}" Width="15" Style="{DynamicResource lblNumber}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        				<Label x:Name="label1_Copy3" Margin="0,0,0,3" Content="x&#xa;" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{DynamicResource lblNumber}"/>
+        				<Image x:Name="image_Copy2" Width="32" Height="32" Source="ship48.png" Style="{DynamicResource ImageStyle1}"/>
+        				<Label x:Name="label3" Margin="5,0,0,0" Content="ship" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource LabelStyle1}" Height="23" Width="19.6366666666667"/>
+        			</StackPanel>
+        		</StackPanel>
+        		<StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}" Margin="0,3" HorizontalAlignment="Left" Height="40">
+        			<StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}" Margin="0,3" Width="210">
+        				<Slider x:Name="slStockTowns" Maximum="30" Width="100"  TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="True" Value="{Binding MinPlayers}" Height="25" VerticalAlignment="Bottom"/>
+        				<Label x:Name="lblStockTowns" Content="{Binding Value, ElementName=slStockTowns, Mode=Default}" Width="15" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource lblNumber}"/>
+        				<Label x:Name="label1_Copy4" Margin="0,0,0,3" Content="x&#xa;" Style="{DynamicResource lblNumber}" VerticalAlignment="Bottom"/>
+        				<Image x:Name="image" Width="32" Height="32" Source="town48.png" Style="{DynamicResource ImageStyle1}"/>
+        				<Label x:Name="label" Margin="5,0,0,0" Content="town&#xa;" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{DynamicResource LabelStyle1}" Width="23.95" Height="23"/>
+        			</StackPanel>
+        			<StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}" Margin="0,3" HorizontalAlignment="Left" VerticalAlignment="Top">
+        				<Slider x:Name="slStockCities" Maximum="20" Width="100"  TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="True" Value="{Binding MinPlayers}" Height="26" VerticalAlignment="Bottom"/>
+        				<Label x:Name="lblStockCities" Width="15" Style="{DynamicResource lblNumber}" Content="{Binding Value, ElementName=slStockCities, Mode=Default}"/>
+        				<Label x:Name="label1_Copy" Margin="0,0,0,3" Content="x&#xa;" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{DynamicResource lblNumber}"/>
+        				<Image x:Name="image_Copy" Width="32" Height="32" Source="Cities3D.png" Style="{DynamicResource ImageStyle1}"/>
+        				<Label x:Name="label1" Margin="5,0,0,0" Content="city&#xa;" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource LabelStyle1}" Height="23"/>
+        			</StackPanel>
+        		</StackPanel>
+        		<StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}" Margin="3,3,-294.669,3">
+        			<Label Content="Maximum of " Height="19" VerticalAlignment="Center"/>
+        			<Slider x:Name="slMaxCardsInHand" Minimum="2" Maximum="6" Width="50"  TickFrequency="1" TickPlacement="BottomRight" LargeChange="1" IsSnapToTickEnabled="True" Value="{Binding MaxPlayers}" Margin="9,0,0,0" />
+        			<Label Content="{Binding MaxPlayers}" Style="{DynamicResource lblNumber}"/>
+        			<Label Margin="5,0,0,0" Content="cards in hand, when a 7 rolls&#xa;" VerticalAlignment="Center" Height="17.553"/>
+        		</StackPanel>
+        		<StackPanel Orientation="Horizontal" Style="{StaticResource rowPanel}" Margin="3,3,-18,3">
+        			<CheckBox x:Name="chkNoSevensFirstRound1" IsChecked="{Binding NoSevensFirstRound}" VerticalAlignment="Center"/>
+        			<Label Content="Show all cards of all players at all time"/>
+        		</StackPanel>
+        	</StackPanel>
+
+        </StackPanel>
+        <StackPanel x:Name="stackPanel" Orientation="Vertical" VerticalAlignment="Bottom" Grid.Column="1" Height="80">
+            <Button Margin="0,40,0,5" Width="154.817" Height="40" x:Name="btnOK" Click="btnOK_Click" Content="Use settings" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        </StackPanel>
+            <Grid Grid.Column="0" Grid.Row="0" >
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="300"/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+        		<Label Style="{StaticResource stHeaderLabel}" Grid.Row="0" Content="Maps" Margin="5,0"/>
+        		<ListBox x:Name="cbxMaps" ItemsSource="{Binding}" 
+        			SelectionChanged="cbxMaps_SelectionChanged"
+        			Margin="0,10" Grid.Row="1">
+        			<ListBox.ItemTemplate>
+        				<DataTemplate>
+        					<Label Content="{Binding Name}"/>
+        				</DataTemplate>
+        			</ListBox.ItemTemplate>
+        		</ListBox>
+        		<src2:GameViewPort3D x:Name="mainViewport" ClipToBounds="true" 
+        			 Margin="0,0,0,0"
+        			 Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+        			<src2:GameViewPort3D.Camera>
+        				<PerspectiveCamera 
+        					FarPlaneDistance="150"
+        					LookDirection="1,-90,0"
+        					UpDirection="0,1,0"
+        					NearPlaneDistance="10" 
+        					Position="0,70,0" 
+        					FieldOfView="70"
+        					x:Name="cam"/>
+        			</src2:GameViewPort3D.Camera>
+        		</src2:GameViewPort3D>
+        	</Grid>
+    </Grid>
+
+</UserControl>

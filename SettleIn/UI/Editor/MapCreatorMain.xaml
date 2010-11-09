@@ -1,0 +1,501 @@
+﻿<!--Main window of the application. 
+  Code should be cleaned up and seperated into more controls.-->
+<UserControl x:Class="SettleIn.UI.Editor.MapCreatorMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:src="clr-namespace:SettleIn"
+    xmlns:src2="clr-namespace:SettleIn.Engine.ViewPort"
+    xmlns:ui="clr-namespace:SettleIn.UI.Elements"
+             xmlns:ui3="clr-namespace:SettleIn"
+    xmlns:ui2="clr-namespace:SettleIn.UI" x:Name="root"
+             xmlns:conv="clr-namespace:SettleIn.UI"
+             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <UserControl.Resources>
+        <!--
+        <conv:BehaviourConverter x:Key="behaviourConverter" />
+        <conv:BrokenRuleConverter x:Key="brokenRuleConverter" />
+        -->
+        <Storyboard x:Key="OnMouseEnter1">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetProperty="(FrameworkElement.Width)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="100"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"  Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Timeline1">
+            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFFFFFFF"/>
+                <SplineColorKeyFrame KeyTime="00:00:00.2000000" Value="#FFD2D3EB"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Timeline2">
+            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFD2D3EB"/>
+                <SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="#FFFFFFFF"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Style TargetType="{x:Type Label}" x:Key="labelStyle">
+            <Setter Property="FontFamily" Value="Candara" />
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Margin" Value="-2,-2,-2,-2"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="Width" Value="Auto"/>
+        </Style>
+        <Style TargetType="{x:Type StackPanel}" x:Key="panelStyle">
+            <Setter Property="Margin" Value="-2,-2,0,0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="CommandButtonStyle"
+            BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Margin" Value="2,2,2,2"/>
+            <Setter Property="Height" Value="50"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="ResourceButtonStyle" 
+           BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="Width" Value="36"/>
+            <Setter Property="Margin" Value="2,2,2,2"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="ChitButtonStyle"
+            BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Width" Value="32"/>
+            <Setter Property="Margin" Value="2,2,2,2"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="PortButtonStyle"
+            BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="38"/>
+            <Setter Property="Margin" Value="2,2,2,2"/>
+        </Style>
+        <Style TargetType="{x:Type Image}" x:Key="ImageStyle">
+            <Setter Property="Height" Value="24"/>
+            <Setter Property="Width" Value="24"/>
+        </Style>
+        <Style TargetType="{x:Type TreeViewItem}" x:Key="tviStyle">
+            <Setter Property="FontFamily" Value="Candara"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="IsExpanded" Value="True"/>
+        </Style>
+        <Style TargetType="{x:Type StackPanel}" x:Key="spMenu">
+            <Setter Property="Margin" Value="20,0,0,0"/>
+        </Style>
+        <Style TargetType="{x:Type DockPanel}" x:Key="dpPane">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <BeginStoryboard Storyboard="{StaticResource Timeline1}"/>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <BeginStoryboard Storyboard="{StaticResource Timeline2}"/>
+                </EventTrigger>
+            </Style.Triggers>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Margin" Value="0,120,0,0"/>
+            <Setter Property="Visibility" Value="Collapsed"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="1000"/>
+        </Style>
+        <ui2:TerritoryConverter x:Key="territoryConverter"/>
+        <ui2:RuleSeverityConverter x:Key="ruleSeverityConverter"/>
+    </UserControl.Resources>
+    <Canvas x:Name="canv" Height="{Binding ElementName=root, Path=ActualHeight}"
+              Width="{Binding ElementName=root, Path=ActualWidth}">
+        <DockPanel Canvas.Top="0">
+            <src2:MapEditorViewPort3D 
+        x:Name="mapEditorViewPort" 
+        ClipToBounds="true" 
+        RenderOptions.EdgeMode="Aliased" 
+        Width="{Binding ElementName=canv, Path=ActualWidth}"
+        Height="{Binding ElementName=canv, Path=ActualHeight}"
+        >
+                <Viewport3D.Camera>
+                    <PerspectiveCamera 
+	          FarPlaneDistance="300"
+	          LookDirection="1,-90,0"
+	          UpDirection="0,1,0"
+	          NearPlaneDistance="10" 
+	          Position="0,70,0" 
+	          FieldOfView="70"
+            x:Name="editorCam"/>
+                </Viewport3D.Camera>
+                <ModelVisual3D>
+                    <ModelVisual3D.Content>
+                        <AmbientLight Color="White"/>
+                    </ModelVisual3D.Content>
+                </ModelVisual3D>
+            </src2:MapEditorViewPort3D>
+        </DockPanel>
+        <!-- The map editor instance -->
+        <DockPanel  Visibility="Visible" Height="120"  Background="White" Width="{Binding ElementName=root, Path=ActualWidth}">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Background="Transparent">
+                <StackPanel Orientation="Vertical" Width="211">
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource spMenu}">
+                        <Button Width="38" Name="btnNewBoard" Style="{StaticResource CommandButtonStyle}" Click="btnNewBoard_Click">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}" >
+                                <Label Style="{StaticResource labelStyle}">New</Label>
+                                <Image Source="{StaticResource New24}" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                            </StackPanel>
+                        </Button>
+                        <Button Width="38" x:Name="btnSave" Style="{StaticResource CommandButtonStyle}" Click="btnSave_Click">
+                            <StackPanel Orientation="Vertical">
+                                <Label Style="{StaticResource labelStyle}" Content="Save"/>
+                                <Image Source="{StaticResource Save}" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                            </StackPanel>
+                        </Button>
+                        <Button Width="38" Name="btnShowBoardRules" Style="{StaticResource CommandButtonStyle}" Click="btnShowBoardRules_Click">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}" >
+                                <Label Style="{StaticResource labelStyle}">Rules</Label>
+                                <Image Source="{StaticResource IconRule}" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                            </StackPanel>
+                        </Button>
+                        <Button Width="50" Name="btnShowBoardValidation" Style="{StaticResource CommandButtonStyle}" Click="btnShowBoardValidation_Click_1">
+                            <StackPanel Orientation="Vertical">
+                                <Label Style="{StaticResource labelStyle}" Content="Check"/>
+                                <Image Source="{StaticResource Validate24}" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Width="62" Name="btnShowTerritories" Style="{StaticResource CommandButtonStyle}" Click="btnShowHidden_Click" >
+                            <StackPanel Orientation="Vertical">
+                                <Label Style="{StaticResource labelStyle}" Content="Territories" Width="58"/>
+                                <Image Source="{DynamicResource IconMainland48}" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                            </StackPanel>
+                        </Button>
+                        <Button Width="76" Name="btnShowDevStack" Style="{StaticResource CommandButtonStyle}" Click="btnShowDevStack_Click" >
+                            <StackPanel Orientation="Vertical" Width="72">
+                                <Label Style="{StaticResource labelStyle}" Content="Development" Width="72"/>
+                                <Image Source="{DynamicResource IconRobber48}" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                            </StackPanel>
+                        </Button>
+                        <Button Width="62" x:Name="btnShowProperties" Style="{StaticResource CommandButtonStyle}" Click="btnShowProperties_Click">
+                            <StackPanel Orientation="Vertical">
+                                <Label Style="{StaticResource labelStyle}" Content="Properties"/>
+                                <Image Source="{StaticResource Properties24}" Height="24" Width="24" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+                <!-- The commands menu -->
+                <StackPanel Orientation="Horizontal" Width="223">
+                    <StackPanel Orientation="Vertical" Style="{StaticResource spMenu}">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="btnTimber" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconTimber}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnWheat" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconWheat}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnOre" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconOre}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnClay" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconClay}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnSheep" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconSheep}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="btnGold" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconGold}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnJungle" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconJungle}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnVolcano" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconVolcano}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="btnDesert" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconDesert}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnSea" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconSea}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnNone" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconNone}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button  Name="btnDiscover" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconUnknown}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnRandom" Style="{StaticResource ResourceButtonStyle}" Click="ResourceButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Image Source="{StaticResource IconRandom}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <!-- Other hexes -->
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnChit2" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource IconChit2}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="btnChit3" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource IconChit3}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="btnChit4" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource IconChit4}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="btnChit5" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource IconChit5}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="btnChit6" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource IconChit6}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnChit12" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource IconChit12}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="btnChit11" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource IconChit11}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="btnChit10" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource IconChit10}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="btnChit9" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource IconChit9}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="btnChit8" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource IconChit8}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnChitRandom" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource IconChitRandom}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Name="btnChitNone" Style="{StaticResource ChitButtonStyle}" Click="ChitButtonMouseDown">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                <Image Source="{StaticResource Icon32Chit}" Style="{StaticResource ImageStyle}"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+                <!-- Chits -->
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Style="{StaticResource spMenu}">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Width="44" Name="btnTimberPort" Style="{StaticResource PortButtonStyle}"  Click="PortButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Label Style="{StaticResource labelStyle}">Timber</Label>
+                                    <Image Source="{StaticResource IconTimberPort}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Width="42" Name="btnWheatPort" Style="{StaticResource PortButtonStyle}" Click="PortButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Label Style="{StaticResource labelStyle}">Wheat</Label>
+                                    <Image Source="{StaticResource IconWheatPort}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnOrePort" Style="{StaticResource PortButtonStyle}" Click="PortButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Label Style="{StaticResource labelStyle}">Ore</Label>
+                                    <Image Source="{StaticResource IconOrePort}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnClayPort" Style="{StaticResource PortButtonStyle}" Click="PortButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Label Style="{StaticResource labelStyle}">Clay</Label>
+                                    <Image Source="{StaticResource IconClayPort}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Width="40" Name="btnSheepPort" Style="{StaticResource PortButtonStyle}" Click="PortButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Label Style="{StaticResource labelStyle}">Sheep</Label>
+                                    <Image Source="{StaticResource IconSheepPort}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="btn31Port" Style="{StaticResource PortButtonStyle}" Click="PortButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Label Style="{StaticResource labelStyle}">3 : 1</Label>
+                                    <Image Source="{StaticResource Icon31Port}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Name="btnNoPort" Style="{StaticResource PortButtonStyle}" Click="PortButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Label Style="{StaticResource labelStyle}">Clear</Label>
+                                    <Image Source="{StaticResource Icon31Port}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Width="50" Name="btnRandomPort" Style="{StaticResource PortButtonStyle}" Click="PortButtonMouseDown">
+                                <StackPanel Orientation="Vertical" Style="{StaticResource panelStyle}">
+                                    <Label Style="{StaticResource labelStyle}">Random</Label>
+                                    <Image Source="{StaticResource IconRandomPort}" Style="{StaticResource ImageStyle}"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <!-- Ports -->
+                <StackPanel Orientation="Horizontal">
+                    <ui:TerritoryMenu x:Name="tmTerritories" ui:TerritoryMenu.Territories="{Binding ElementName=mapEditorViewPort, Path=Board.Territories}"/>
+                </StackPanel>
+                <!-- Rules -->
+            </StackPanel>
+        </DockPanel>
+        <DockPanel x:Name="dpDevStack" Style="{StaticResource dpPane}">
+            <ui:DevCardSelector x:Name="dsDevs" DevCardStack="{Binding ElementName=mapEditorViewPort, Path=Board.Board.DevCards}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        </DockPanel>
+        <DockPanel x:Name="dpRules" Style="{StaticResource dpPane}">
+            <ui:BoardRules x:Name="brRules" Board="{Binding ElementName=mapEditorViewPort.Board, Path=Board}" Margin="10,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        </DockPanel>
+        <DockPanel x:Name="dpProperties" Style="{StaticResource dpPane}" >
+            <ui:BoardProperties x:Name="bpProperties" Board="{Binding ElementName=mapEditorViewPort.Board, Path=Board}" Margin="10,0,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        </DockPanel>
+        <DockPanel x:Name="dpValidation" Style="{StaticResource dpPane}">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" >
+                <StackPanel Orientation="Horizontal" Margin="10,20,10,10">
+                    <Image Source="{StaticResource Validate24}" Height="48" Width="48"/>
+                    <Label FontSize="16" Content="Validation result" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+                <ListBox Name="lbxRules" Margin="0,20,0,0" ItemsSource="{Binding}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Height="50">
+                                <Image Source="{Binding Path=Severity, Converter={StaticResource ruleSeverityConverter}}" Height="16" Width="16"/>
+                                <Label>
+                                    <TextBlock x:Name="tb" Text="{Binding Path=Problem}" TextWrapping="WrapWithOverflow" Width="250"/>
+                                </Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </DockPanel>
+        <Grid x:Name="gridOverlay" Visibility="collapsed" Background="#AA000000" 
+              Height="{Binding ElementName=root, Path=ActualHeight}"
+              Width="{Binding ElementName=root, Path=ActualWidth}">
+            <ui3:AddIsland HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           x:Name="uiAddTerritory" Visibility="Collapsed" 
+                           Background="AliceBlue"/>
+            <src:TerritorySettings VerticalAlignment="Center" HorizontalAlignment="Center"  
+                                   x:Name="uiTerritorySettings" 
+                                   Board="{Binding ElementName=mapEditorViewPort.Board, Path=Board}" 
+                                   Background="AliceBlue" Visibility="Collapsed" />
+            <src:ucNewBoard x:Name="nbNewBoard" VerticalAlignment="Center"
+                            HorizontalAlignment="Center" Background="AliceBlue" Visibility="Collapsed"  />
+        </Grid>
+        <Grid Background="AliceBlue" Height="48"
+             Canvas.Left="0" Canvas.Bottom="0"
+              Width="{Binding ElementName=root, Path=ActualWidth}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="DarkBlue" BorderThickness="4" Grid.ColumnSpan="5" ></Border>
+            <StackPanel Orientation="Horizontal" x:Name="spEditState" Grid.Column="0">
+                <Label Margin="10" Content="{Binding ElementName=mapEditorViewPort, Path=InteractionBehaviour.Name}" Width="150" Height="20" VerticalAlignment="Center" />
+                <Image Height="32" Width="32" VerticalAlignment="Center" Margin="5,0,5,0">
+                    <Image.Source>
+                        <!--
+                        <Binding ElementName="mapEditorViewPort" Path="InteractionBehaviour" Converter="{StaticResource behaviourConverter}"/>
+                        -->
+                        <Binding ElementName="mapEditorViewPort" Path="InteractionBehaviour" />
+                    </Image.Source>
+                </Image>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <StackPanel.Style>
+                    <Style TargetType="{x:Type StackPanel}">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="LightBlue"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+                <Line X1="0" X2="0" Y1="0" Y2="48" StrokeThickness="4" Stroke="DarkBlue"/>
+                <!-- <Image Height="32" Width="32" Margin="5,0,5,0" HorizontalAlignment="Right" Source="{Binding ElementName=mapEditorViewPort, Path=BrokenRules.Count, Converter={StaticResource brokenRuleConverter}}"/> -->
+                <Image Height="32" Width="32" Margin="5,0,5,0" HorizontalAlignment="Right" Source="{Binding ElementName=mapEditorViewPort, Path=BrokenRules.Count}"/>
+                <Label FontSize="12" FontWeight="Bold" Width="15" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Content="{Binding ElementName=mapEditorViewPort, Path=BrokenRules.Count}"/>
+                <Label FontSize="12" Content="broken rule(s)" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button Content="Check now" Height="32" Width="60" Margin="5,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Center" Click="Button_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Validation -->
+
+        <!--
+    <StackPanel>
+      <src2:MapEditorViewPort3D x:Name="mainViewport" ClipToBounds="true" RenderOptions.EdgeMode="Aliased" >
+        <Viewport3D.Camera>
+          <PerspectiveCamera 
+            FarPlaneDistance="300"
+            LookDirection="1,-90,0"
+            UpDirection="0,1,0"
+            NearPlaneDistance="10" 
+            Position="0,70,0" 
+            FieldOfView="70"
+            x:Name="cam"/>
+        </Viewport3D.Camera>
+        <ModelVisual3D>
+          <ModelVisual3D.Content>
+            <AmbientLight Color="White"/>
+          </ModelVisual3D.Content>
+        </ModelVisual3D>
+      </src2:MapEditorViewPort3D>
+    </StackPanel> -->
+    </Canvas>
+</UserControl>

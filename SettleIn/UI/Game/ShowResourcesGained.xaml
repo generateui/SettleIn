@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="SettleIn.UI.Game.ShowResourcesGained"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:src="clr-namespace:SettleIn.UI.Game"
+             xmlns:src2="clr-namespace:SettleIn.UI.Elements"
+    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+             x:Name="uiShowResgained">
+    <Canvas Width="{Binding ElementName=uiShowResGained, Path=ActualWidth}" Height="{Binding ElementName=uiShowResGained, Path=ActualHeight}">
+        <StackPanel Orientation="Vertical" Width="400"  x:Name="basePanel" Canvas.Left="300" Background="#AA000000">
+        </StackPanel>
+        <Button x:Name="btnDoneDice" Width="50" Height="25" Content="OK" Click="Button_Click" Canvas.Right="0" Canvas.Bottom="200"/>
+    </Canvas>
+</UserControl>

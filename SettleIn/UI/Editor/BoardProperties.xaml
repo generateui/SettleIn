@@ -1,0 +1,46 @@
+﻿<!-- Represents the Board properties control.
+  Here, the user can set the most important 
+  board properties like name, size and amount 
+  of players-->
+  <UserControl x:Class="SettleIn.UI.Elements.BoardProperties"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="300" Width="280">
+  <StackPanel Orientation="Vertical">
+    <StackPanel Orientation="Horizontal" Margin="10,20,10,10">
+      <Image Source="{StaticResource Properties24}" Height="48" Width="48"/>
+      <Label FontSize="16" Content="Properties" VerticalAlignment="Center" Margin="10,0,0,0"/>
+    </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label  Height="28" Width="100"  HorizontalAlignment="Left">Name:</Label>
+          <TextBox Height="23" Name="txtName" Width="100" HorizontalAlignment="Left" Text="{Binding Path=Board.Name, Mode=TwoWay}"/>
+        </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+          <Label Height="28" Width="100">Height:</Label>
+          <Label Height="28" Width="20" Content="{Binding ElementName=slHeight, Path=Value}"/>
+          <Slider Name="slHeight" Minimum="5" Maximum="12" Width="100" TickPlacement="BottomRight" TickFrequency="1" LargeChange="1" IsSnapToTickEnabled="True"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label Height="28" Width="100">Width:</Label>
+          <Label Height="28" Width="20" Content="{Binding ElementName=slWidth, Path=Value}"/>
+          <Slider Name="slWidth" Minimum="5" Maximum="12" Width="100" TickPlacement="BottomRight" TickFrequency="1" LargeChange="1" IsSnapToTickEnabled="True" />
+        </StackPanel>
+      </StackPanel>
+      <Button Height="30" Width="50" Margin="5,0,0,0" Click="btnChangeSize_Click" Name="btnChangeSize">Resize</Button>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+          <Label Height="28" Width="100" >Minimum Players:</Label>
+          <Label Height="28" Width="20" Content="{Binding ElementName=slMinPlayers, Path=Value}"/>
+          <Slider Name="slMinPlayers" Minimum="3" Maximum="8" Width="100" TickPlacement="BottomRight" TickFrequency="1" LargeChange="1" IsSnapToTickEnabled="True" Value="{Binding Board.MinPlayers, Mode=TwoWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label Height="28" Width="100">Maximum Players:</Label>
+          <Label Height="28" Width="20" Content="{Binding ElementName=slMaxPlayers, Path=Value}"/>
+          <Slider Name="slMaxPlayers" Minimum="3" Maximum="8" Width="100" TickPlacement="BottomRight" TickFrequency="1" LargeChange="1" IsSnapToTickEnabled="True" Value="{Binding Board.MaxPlayers, Mode=TwoWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+        </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Board.Hexes" />
+  <xs:complexType name="ArrayOfEResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EResource" type="tns:EResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEResource" nillable="true" type="tns:ArrayOfEResource" />
+  <xs:simpleType name="EResource">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Wheat" />
+      <xs:enumeration value="Clay" />
+      <xs:enumeration value="Ore" />
+      <xs:enumeration value="Timber" />
+      <xs:enumeration value="Sheep" />
+      <xs:enumeration value="Discovery" />
+      <xs:enumeration value="Gold" />
+      <xs:enumeration value="Volcano" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EResource" nillable="true" type="tns:EResource" />
+  <xs:complexType name="HexLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="H" type="xs:int" />
+      <xs:element minOccurs="0" name="W" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HexLocation" nillable="true" type="tns:HexLocation" />
+  <xs:complexType name="Port">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Location" nillable="true" type="tns:HexLocation" />
+      <xs:element minOccurs="0" name="PortPosition" type="tns:ERotationPosition" />
+      <xs:element minOccurs="0" name="PortType" type="tns:EPortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Port" nillable="true" type="tns:Port" />
+  <xs:simpleType name="ERotationPosition">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="60">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">60</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="120">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">120</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="180">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">180</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="240">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">240</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="300">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">300</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ERotationPosition" nillable="true" type="tns:ERotationPosition" />
+  <xs:simpleType name="EPortType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Clay" />
+      <xs:enumeration value="Wheat" />
+      <xs:enumeration value="Timber" />
+      <xs:enumeration value="Ore" />
+      <xs:enumeration value="Sheep" />
+      <xs:enumeration value="ThreeToOne" />
+      <xs:enumeration value="Random" />
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EPortType" nillable="true" type="tns:EPortType" />
+  <xs:complexType name="HexSide">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Hex1" nillable="true" type="tns:HexLocation" />
+      <xs:element minOccurs="0" name="Hex2" nillable="true" type="tns:HexLocation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HexSide" nillable="true" type="tns:HexSide" />
+  <xs:complexType name="HexPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Hex1" nillable="true" type="tns:HexLocation" />
+      <xs:element minOccurs="0" name="Hex2" nillable="true" type="tns:HexLocation" />
+      <xs:element minOccurs="0" name="Hex3" nillable="true" type="tns:HexLocation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HexPoint" nillable="true" type="tns:HexPoint" />
+  <xs:complexType name="Chit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChitNumber" type="tns:EChitNumber" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Chit" nillable="true" type="tns:Chit" />
+  <xs:simpleType name="EChitNumber">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="8">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="12">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Random">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EChitNumber" nillable="true" type="tns:EChitNumber" />
+  <xs:simpleType name="EGameType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Standard" />
+      <xs:enumeration value="SeaFarers" />
+      <xs:enumeration value="CitiesKnights" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EGameType" nillable="true" type="tns:EGameType" />
+  <xs:complexType name="XmlBoard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowedCards" type="xs:int" />
+      <xs:element minOccurs="0" name="AssignPortsBeforePlacement" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BankResources" type="xs:int" />
+      <xs:element minOccurs="0" name="BoardType" type="tns:EBoardCreatedType" />
+      <xs:element minOccurs="0" name="BonusNewIsland" type="xs:int" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevCards" nillable="true" type="tns:StandardDevCardStack" />
+      <xs:element minOccurs="0" name="Height" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SettleInCommon.Board.Hexes" minOccurs="0" name="Hexes" nillable="true" type="q1:ArrayOfHex" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsCitiesKnights" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSeafarers" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MaxPlayers" type="xs:int" />
+      <xs:element minOccurs="0" name="MaximumCardsInHandWhenSeven" type="xs:int" />
+      <xs:element minOccurs="0" name="MinPlayers" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequiresInitialShips" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StockCities" type="xs:int" />
+      <xs:element minOccurs="0" name="StockRoads" type="xs:int" />
+      <xs:element minOccurs="0" name="StockShips" type="xs:int" />
+      <xs:element minOccurs="0" name="StockTowns" type="xs:int" />
+      <xs:element minOccurs="0" name="Territories" nillable="true" type="tns:ArrayOfTerritory" />
+      <xs:element minOccurs="0" name="UseTradeRoutes" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VpToWin" type="xs:int" />
+      <xs:element minOccurs="0" name="Width" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlBoard" nillable="true" type="tns:XmlBoard" />
+  <xs:simpleType name="EBoardCreatedType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Template" />
+      <xs:enumeration value="CustomCreated" />
+      <xs:enumeration value="Downloaded" />
+      <xs:enumeration value="Official" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EBoardCreatedType" nillable="true" type="tns:EBoardCreatedType" />
+  <xs:complexType name="StandardDevCardStack">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MonoCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RbCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RobberCount" type="xs:int" />
+      <xs:element minOccurs="0" name="VpCount" type="xs:int" />
+      <xs:element minOccurs="0" name="YopCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StandardDevCardStack" nillable="true" type="tns:StandardDevCardStack" />
+  <xs:complexType name="ArrayOfTerritory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Territory" nillable="true" type="tns:Territory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTerritory" nillable="true" type="tns:ArrayOfTerritory" />
+  <xs:complexType name="Territory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChitList" nillable="true" type="tns:XmlChitList" />
+      <xs:element minOccurs="0" name="HexList" nillable="true" type="tns:XmlHexList" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="InitialPlacementAllowed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsIsland" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMainland" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PortList" nillable="true" type="tns:ArrayOfEPortType" />
+      <xs:element minOccurs="0" name="SecondaryPlacementAllowed" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Territory" nillable="true" type="tns:Territory" />
+  <xs:complexType name="XmlChitList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="N10" type="xs:int" />
+      <xs:element minOccurs="0" name="N11" type="xs:int" />
+      <xs:element minOccurs="0" name="N12" type="xs:int" />
+      <xs:element minOccurs="0" name="N2" type="xs:int" />
+      <xs:element minOccurs="0" name="N3" type="xs:int" />
+      <xs:element minOccurs="0" name="N4" type="xs:int" />
+      <xs:element minOccurs="0" name="N5" type="xs:int" />
+      <xs:element minOccurs="0" name="N6" type="xs:int" />
+      <xs:element minOccurs="0" name="N8" type="xs:int" />
+      <xs:element minOccurs="0" name="N9" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlChitList" nillable="true" type="tns:XmlChitList" />
+  <xs:complexType name="XmlHexList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Clay" type="xs:int" />
+      <xs:element minOccurs="0" name="Desert" type="xs:int" />
+      <xs:element minOccurs="0" name="Gold" type="xs:int" />
+      <xs:element minOccurs="0" name="Jungle" type="xs:int" />
+      <xs:element minOccurs="0" name="Ore" type="xs:int" />
+      <xs:element minOccurs="0" name="Sea" type="xs:int" />
+      <xs:element minOccurs="0" name="Sheep" type="xs:int" />
+      <xs:element minOccurs="0" name="Timber" type="xs:int" />
+      <xs:element minOccurs="0" name="Volcano" type="xs:int" />
+      <xs:element minOccurs="0" name="Wheat" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlHexList" nillable="true" type="tns:XmlHexList" />
+  <xs:complexType name="ArrayOfEPortType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EPortType" type="tns:EPortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEPortType" nillable="true" type="tns:ArrayOfEPortType" />
+  <xs:complexType name="ArrayOfHexPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HexPoint" nillable="true" type="tns:HexPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHexPoint" nillable="true" type="tns:ArrayOfHexPoint" />
+  <xs:complexType name="ArrayOfHexSide">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HexSide" nillable="true" type="tns:HexSide" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHexSide" nillable="true" type="tns:ArrayOfHexSide" />
+</xs:schema>

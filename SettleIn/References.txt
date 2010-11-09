@@ -1,0 +1,2 @@
+﻿ModelVisual3D vs ModelGroup
+http://blogs.msdn.com/danlehen/archive/2005/10/09/478923.aspx

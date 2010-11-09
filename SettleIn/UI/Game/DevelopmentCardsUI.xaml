@@ -1,0 +1,227 @@
+﻿<UserControl x:Class="SettleIn.UI.Game.DevelopmentCardsUI"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="auto" Width="auto" xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit"
+             xmlns:ui="clr-namespace:SettleIn.UI.Game"
+             xmlns:sic="clr-namespace:SettleInCommon.Gaming.DevCards;assembly=SettleInCommon"
+             xmlns:sic2="clr-namespace:SettleInCommon.Board;assembly=SettleInCommon"
+            xmlns:conv="clr-namespace:SettleIn.UI.Converters">
+
+    <UserControl.Resources>
+        <conv:OpacityConverter x:Key="opacityConverter"/>
+        <Style TargetType="{x:Type StackPanel}" x:Key="styleStackPanel">
+            <Setter Property="Background" Value="#AAFFFFFF"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="Width" Value="130"/>
+        </Style>
+        <Style x:Key="lblStyle" TargetType="Label">
+            <Setter Property="Margin" Value="5,0,0,0"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button" x:Key="btnStyle" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Width" Value="64" />
+            <Setter Property="Margin" Value="8,8,8,8"/>
+            <Setter Property="Content" Value="Play"/>
+        </Style>
+        <DataTemplate DataType="{x:Type sic:Soldier}">
+            <StackPanel Orientation="Horizontal" >
+                <StackPanel Orientation="Horizontal" Height="auto" Style="{StaticResource styleStackPanel}">
+                    <Label Content="{Binding Name}" Style="{StaticResource lblStyle}"/>
+                    <Image Source="{StaticResource IconRobber48}" Height="48" Width="48"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="0" x:Name="spSoldierOptions" Style="{StaticResource styleStackPanel}">
+                    <Button x:Name="btnSoldier" Style="{StaticResource btnStyle}" Tag="{Binding}" Click="btnSoldier_Click" IsEnabled="{Binding Path=IsPlayable}"/>
+                </StackPanel>
+                <StackPanel.Triggers>
+                    <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation From="0" To="90" Storyboard.TargetName="spSoldierOptions" Storyboard.TargetProperty="Width" Duration="00:00:00.25" DecelerationRatio="0.4" AccelerationRatio="0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation From="90" To="0" Storyboard.TargetName="spSoldierOptions" Storyboard.TargetProperty="Width" Duration="00:00:00.25" DecelerationRatio="0.4" AccelerationRatio="0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </StackPanel.Triggers>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic:VictoryPoint}">
+            <StackPanel Orientation="Horizontal" IsHitTestVisible="true"  Opacity="{Binding Path=IsPlayable, Converter={StaticResource opacityConverter}}">
+                <StackPanel Orientation="Horizontal" Height="auto" Style="{StaticResource styleStackPanel}">
+                    <Label Content="{Binding Name}" Style="{StaticResource lblStyle}"/>
+                    <Image Source="{StaticResource IconVp48}" Height="48" Width="48"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="0" x:Name="spVpOptions" Style="{StaticResource styleStackPanel}">
+
+                    <Button x:Name="btnVP" Style="{StaticResource btnStyle}" Click="btnVP_Click" Tag="{Binding}" IsEnabled="{Binding Path=IsPlayable}" />
+                </StackPanel>
+                <StackPanel.Triggers>
+                    <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation From="0" To="90" Storyboard.TargetName="spVpOptions" Storyboard.TargetProperty="Width" Duration="00:00:00.25" DecelerationRatio="0.4" AccelerationRatio="0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation From="90" To="0" Storyboard.TargetName="spVpOptions" Storyboard.TargetProperty="Width" Duration="00:00:00.25" DecelerationRatio="0.4" AccelerationRatio="0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </StackPanel.Triggers>
+            </StackPanel>
+        </DataTemplate>
+        <Style x:Key="rbResourceSelectorStyle" TargetType="{x:Type RadioButton}">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="FocusVisualStyle" Value="{DynamicResource RadioButtonFocusVisual}" />
+            <!--<Setter Property="Foreground" Value="{StaticResource OutsideFontColor}" />-->
+            <Setter Property="FontFamily" Value="Candara" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Top" />
+            <Setter Property="Padding" Value="4,1,0,0" />
+            <Setter Property="Height" Value="48" />
+            <Setter Property="Width" Value="48" />
+            <Setter Property="Template" Value="{DynamicResource RadioButtonTemplate}" />
+        </Style>
+        <ControlTemplate x:Key="DataTemplate1" TargetType="RadioButton" >
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="true">
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect BlurRadius="10" Color="Black" ShadowDepth="0"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+            <ContentPresenter Content="{TemplateBinding Property=ContentControl.Content}" Height="32" Width="32" />
+        </ControlTemplate>
+        <DataTemplate DataType="{x:Type sic:Monopoly}">
+            <StackPanel Orientation="Horizontal" x:Name="spMonoContainer" Opacity="{Binding Path=IsPlayable, Converter={StaticResource opacityConverter}}">
+                <StackPanel Orientation="Horizontal" Height="auto" Style="{StaticResource styleStackPanel}">
+                    <Label Style="{StaticResource lblStyle}"/>
+                    <Image Source="{StaticResource IconMono48}" Height="40" Width="40"/>
+                </StackPanel>
+                <StackPanel Height="48" Width="0" Orientation="Horizontal" x:Name="spMonoOptions"  Style="{StaticResource styleStackPanel}">
+                    <RadioButton x:Name="rbTimber" Style="{StaticResource rbResourceSelectorStyle}" Template="{StaticResource DataTemplate1}">
+                        <Image Source="{StaticResource IconTimber}"></Image>
+                        <RadioButton.Tag>
+                            <sic2:EResource>Timber</sic2:EResource>
+                        </RadioButton.Tag>
+                    </RadioButton>
+                    <RadioButton x:Name="rbWheat" Style="{StaticResource rbResourceSelectorStyle}" Template="{StaticResource DataTemplate1}">
+                        <Image Source="{StaticResource IconWheat}"></Image>
+                        <RadioButton.Tag>
+                            <sic2:EResource>Wheat</sic2:EResource>
+                        </RadioButton.Tag>
+                    </RadioButton>
+                    <RadioButton x:Name="rbOre" Style="{StaticResource rbResourceSelectorStyle}" Template="{StaticResource DataTemplate1}">
+                        <Image Source="{StaticResource IconOre}"></Image>
+                        <RadioButton.Tag>
+                            <sic2:EResource>Ore</sic2:EResource>
+                        </RadioButton.Tag>
+                    </RadioButton>
+                    <RadioButton x:Name="rbClay" Style="{StaticResource rbResourceSelectorStyle}" Template="{StaticResource DataTemplate1}">
+                        <Image Source="{StaticResource IconClay}"></Image>
+                        <RadioButton.Tag>
+                            <sic2:EResource>Clay</sic2:EResource>
+                        </RadioButton.Tag>
+                    </RadioButton>
+                    <RadioButton x:Name="rbSheep" Style="{StaticResource rbResourceSelectorStyle}" Template="{StaticResource DataTemplate1}">
+                        <Image Source="{StaticResource IconSheep}"></Image>
+                        <RadioButton.Tag>
+                            <sic2:EResource>Sheep</sic2:EResource>
+                        </RadioButton.Tag>
+                    </RadioButton>
+                    <Button Style="{StaticResource btnStyle}" Click="Mono_Click" IsEnabled="{Binding Path=IsPlayable}" HorizontalAlignment="Right"/>
+                </StackPanel>
+                <StackPanel.Triggers>
+                    <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation From="0" To="350" Storyboard.TargetName="spMonoOptions" Storyboard.TargetProperty="Width" Duration="00:00:00.25" DecelerationRatio="0.4" AccelerationRatio="0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation From="350" To="0" Storyboard.TargetName="spMonoOptions" Storyboard.TargetProperty="Width" Duration="00:00:00.25" DecelerationRatio="0.4" AccelerationRatio="0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </StackPanel.Triggers>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic:YearOfPlenty}">
+            <StackPanel Orientation="Horizontal" Opacity="{Binding Path=IsPlayable, Converter={StaticResource opacityConverter}}">
+                <StackPanel Orientation="Horizontal" Height="auto" Style="{StaticResource styleStackPanel}">
+                    <Label Content="{Binding Name}" Style="{StaticResource lblStyle}"/>
+                    <Image Source="{StaticResource IconYop48}" Height="48" Width="48"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="0" x:Name="spYopOptions" Style="{StaticResource styleStackPanel}">
+                    <ui:SmallResourcePicker x:Name="uiSmallResourcePicker" PlayClicked="playClicked" />
+                </StackPanel>
+                <StackPanel.Triggers>
+                    <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation From="0" To="350" Storyboard.TargetName="spYopOptions" Storyboard.TargetProperty="Width" Duration="00:00:00.25" DecelerationRatio="0.4" AccelerationRatio="0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation From="350" To="0" Storyboard.TargetName="spYopOptions" Storyboard.TargetProperty="Width" Duration="00:00:00.25" DecelerationRatio="0.4" AccelerationRatio="0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </StackPanel.Triggers>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sic:RoadBuilding}">
+            <StackPanel Orientation="Horizontal" Opacity="{Binding Path=IsPlayable, Converter={StaticResource opacityConverter}}">
+                <StackPanel Orientation="Horizontal" Height="auto" Style="{StaticResource styleStackPanel}">
+                    <Label Content="{Binding Name}" Style="{StaticResource lblStyle}"/>
+                    <Image Source="{StaticResource IconRb48}" Height="48" Width="48"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="0" x:Name="spRbOptions" Style="{StaticResource styleStackPanel}">
+                    <Button x:Name="btnRoadBuilding" Style="{StaticResource btnStyle}" Tag="{Binding}" Click="btnRoadBuilding_Click" IsEnabled="{Binding Path=IsPlayable}"/>
+                </StackPanel>
+            </StackPanel>
+            <DataTemplate.Triggers>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="0" To="90" Storyboard.TargetName="spRbOptions" Storyboard.TargetProperty="Width" Duration="00:00:00.25" DecelerationRatio="0.4" AccelerationRatio="0.4"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="90" To="0" Storyboard.TargetName="spRbOptions" Storyboard.TargetProperty="Width" Duration="00:00:00.25" DecelerationRatio="0.4" AccelerationRatio="0.4"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Canvas Height="auto" x:Name="spmain" Mouse.MouseUp="spmain_MouseUp" IsHitTestVisible="True" Width="300" >
+        <ItemsControl x:Name="uiDevcards" Canvas.Left="0" ItemsSource="{Binding}" Height="0" Canvas.Bottom="50"/>
+        <Rectangle Stroke="Black" StrokeThickness="4" RadiusX="5" RadiusY="5"  
+                    Width="38" Height="48" Canvas.Left="7" Canvas.Top="0" HorizontalAlignment="Right"/>
+        <Label Content="{Binding Count}" Canvas.Left="20" Canvas.Top="16" FontSize="16" FontWeight="Bold" />
+    </Canvas>
+</UserControl>

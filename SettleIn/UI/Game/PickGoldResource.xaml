@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="SettleIn.UI.Elements.Game.PickGoldResource"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="350" Width="700">
+    <StackPanel Orientation="Vertical" Width="700" Background="AliceBlue">
+        
+    <StackPanel Orientation="Horizontal">
+        <Label>Since you have towns or cities at a gold or volcano hex, you may pick resources</Label>
+        </StackPanel>
+    <StackPanel Orientation="Horizontal">
+        <Image x:Name="imgTimber" Source="{StaticResource IconTimber}" Height="128" Width="128" Mouse.MouseUp="imgTimber_MouseUp"/>
+        <Image x:Name="imgWheat" Source="{StaticResource IconWheat}" Height="128" Width="128" Mouse.MouseUp="imgWheat_MouseUp"/>
+        <Image x:Name="imgOre" Source="{StaticResource IconOre}" Height="128" Width="128" Mouse.MouseUp="imgOre_MouseUp"/>
+        <Image x:Name="imgSheep" Source="{StaticResource IconSheep}" Height="128" Width="128" Mouse.MouseUp="imgSheep_MouseUp"/>
+        <Image x:Name="imgClay" Source="{StaticResource IconClay}" Height="128" Width="128" Mouse.MouseUp="imgClay_MouseUp"/>
+    </StackPanel>
+        <StackPanel Orientation="Horizontal" DataContext="{Binding}" x:Name="spPickedResources">
+            <StackPanel Orientation="Vertical">
+                <Label FontSize="30" Content="{Binding Path=Timber}"/>
+                <Image x:Name="imgTimberPicked" Source="{StaticResource IconTimber}" Height="128" Width="128" Mouse.MouseUp="imgTimberPicked_MouseUp"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label FontSize="30" Content="{Binding Path=Wheat}"/>
+                <Image x:Name="imgWheatPicked" Source="{StaticResource IconWheat}" Height="128" Width="128" Mouse.MouseUp="imgWheatPicked_MouseUp" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label FontSize="30" Content="{Binding Path=Ore}"/>
+                <Image x:Name="imgOrePicked" Source="{StaticResource IconOre}" Height="128" Width="128" Mouse.MouseUp="imgOrePicked_MouseUp"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label FontSize="30" Content="{Binding Path=Sheep}"/>
+                <Image x:Name="imgSheepPicked" Source="{StaticResource IconSheep}" Height="128" Width="128" Mouse.MouseUp="imgSheepPicked_MouseUp" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label FontSize="30" Content="{Binding Path=Clay}"/>
+                <Image x:Name="imgClayPicked" Source="{StaticResource IconClay}" Height="128" Width="128" Mouse.MouseUp="imgClayPicked_MouseUp"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="btnDone" Width="200" Height="50" IsEnabled="False" Click="btnDone_Click">
+                <Label FontSize="20">Done</Label>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

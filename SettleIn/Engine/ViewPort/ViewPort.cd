@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SettleIn.SettleInViewPort3D">
+    <Position X="3.5" Y="1.75" Width="1.75" />
+    <NestedTypes>
+      <Delegate Name="SettleIn.SettleInViewPort3D.HexClickedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Engine\ViewPort\SettleInViewPort3D.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="SettleIn.SettleInViewPort3D.Visual3DClickedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Engine\ViewPort\SettleInViewPort3D.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="SettleIn.SettleInViewPort3D.BoardChangedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Engine\ViewPort\SettleInViewPort3D.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAAAAAARAPBD5AAQMQgIAAAIABKEIABAsAMAEGgSpCA=</HashCode>
+      <FileName>Engine\ViewPort\SettleInViewPort3D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.BoardViewerViewPort3D">
+    <Position X="6.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\ViewPort\BoardViewerViewPort3D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.GameViewPort3D">
+    <Position X="6.25" Y="5" Width="1.75" />
+    <NestedTypes>
+      <Delegate Name="SettleIn.GameViewPort3D.ClickAction" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Engine\ViewPort\GameViewPort3D.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAIAQQIAAAGBAIAAAGQABAMABUAAAAAQAAhBACCgAA=</HashCode>
+      <FileName>Engine\ViewPort\GameViewPort3D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.MapEditorViewPort3D">
+    <Position X="8.5" Y="3.25" Width="2" />
+    <NestedTypes>
+      <Enum Name="SettleIn.MapEditorViewPort3D.EUserBusyWith" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Engine\ViewPort\MapEditorViewPort3D.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAACAACgAAAAAAAwFAxCAAAAAIAEAgAAAAAA=</HashCode>
+      <FileName>Engine\ViewPort\MapEditorViewPort3D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Controls.Viewport3D" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

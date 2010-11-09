@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SettleInServer.GameEventArgs" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>ActionEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInServer.Program" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInServer.Server" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInServer.ServerGame" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAIAAAAAAAAAAAAAACAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ServerGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInServer.ChatService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAVgABAAAAEAJIhAAAAAgBQgAQFAAAAAAAAAUBAAAAA=</HashCode>
+      <FileName>Service.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SettleInServer.Sqlite" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAQAAAAAAAAAAAEAEAAAAAgQAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Sqlite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SettleInServer.IChat" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAgAAAAAABAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IChat.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SettleInServer.IChatCallback" Collapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAgAAAAAAAAA=</HashCode>
+      <FileName>IChatCallback.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SettleInServer.MessageType" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAgAAAAAAAAA=</HashCode>
+      <FileName>Service.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:src="clr-namespace:SettleIn">
+    <DataTemplate x:Key="tzt" DataType="src:Boards" >
+    	<DataTemplate.Resources>
+    		<Storyboard x:Key="LeftPane"/>
+    	</DataTemplate.Resources>
+        <StackPanel Height="99.9" Name="stackPanel1" Width="300" Orientation="Horizontal">
+            <StackPanel Height="100" Name="stackPanel2" Width="200" >
+                <Label FontFamily="Tahoma" FontSize="16" Content="Name of map"/>
+                <Separator Height="4.669" Name="separator1" />
+                <StackPanel Orientation="Horizontal">
+                    <Label FontWeight="Bold" Content="Creator:"/>
+                    <Label Content="{Binding Path=Name}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label FontWeight="Bold" Content="Size:" />
+                    <Label Content="6x5"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Height="100" Name="stackPanel3" Width="100">
+                <Image Name="image1" Stretch="Fill" Source="{Binding Path=Thumbnail}"/>
+            </StackPanel>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

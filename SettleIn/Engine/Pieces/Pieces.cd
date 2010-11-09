@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SettleIn.Traveller" Collapsed="true">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\Pieces\Traveller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.Town" Collapsed="true">
+    <Position X="0.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Engine\Pieces\Town.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.Ship" Collapsed="true">
+    <Position X="7.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Engine\Pieces\Ship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.Road" Collapsed="true">
+    <Position X="7.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Engine\Pieces\Road.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.Port" Collapsed="true">
+    <Position X="0.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAcAAAIAAAAAAAEAAICAIAgAAAICAAgAABE=</HashCode>
+      <FileName>Engine\Pieces\Port.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SettleIn.Piece" Collapsed="true">
+    <Position X="3.5" Y="1" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAQAAAAAAAAAgAAQIAAAAAAACgAAAYAA=</HashCode>
+      <FileName>Engine\Pieces\Piece.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SettleIn.ControlPiece" Collapsed="true">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\Pieces\ControlPiece.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.City" Collapsed="true">
+    <Position X="0.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Engine\Pieces\City.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.Card" Collapsed="true">
+    <Position X="0.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\Pieces\Card.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SettleIn.BonusVP" Collapsed="true">
+    <Position X="7.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Engine\Pieces\BonusVP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.Classes.Pieces.Robber" Collapsed="true">
+    <Position X="0.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAACgAAAAAA=</HashCode>
+      <FileName>Engine\Pieces\Robber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.IslandVisual" Collapsed="true">
+    <Position X="7" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAgAAAAAAAAAQAAAAAAAAAQAICAAAAAAA=</HashCode>
+      <FileName>Engine\Pieces\ControlPieces\IslandVisual.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.MainLandVisual" Collapsed="true">
+    <Position X="7" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAAAAAAA=</HashCode>
+      <FileName>Engine\Pieces\ControlPieces\MainLandVisual.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.TerritoryVisual" Collapsed="true">
+    <Position X="5.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAgAIAAAAAIAUAAIAAIAAAAQICAAAEAAA=</HashCode>
+      <FileName>Engine\Pieces\ControlPieces\TerritoryVisual.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.BuildPointVisual" Collapsed="true">
+    <Position X="9" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAACIAAAAAAAAAAAAAQAgCIEAIAAA=</HashCode>
+      <FileName>Engine\Pieces\ControlPieces\BuildPointVisual.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.HexSideVisual" Collapsed="true">
+    <Position X="9" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAACIAAAAAAAAAAAAAQAgCAEAIAAA=</HashCode>
+      <FileName>Engine\Pieces\ControlPieces\HexSideVisual.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

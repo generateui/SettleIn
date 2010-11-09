@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SettleInCommon.Board.Hexes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Board.Hexes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" />
+  <xs:complexType name="ArrayOfVolcanoHex">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VolcanoHex" nillable="true" type="tns:VolcanoHex" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVolcanoHex" nillable="true" type="tns:ArrayOfVolcanoHex" />
+  <xs:complexType name="VolcanoHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SpecialResourceHex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VolcanoHex" nillable="true" type="tns:VolcanoHex" />
+  <xs:complexType name="SpecialResourceHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResourceHex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SpecialResourceHex" nillable="true" type="tns:SpecialResourceHex" />
+  <xs:complexType name="ResourceHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LandHex">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="XmlChit" nillable="true" type="q1:Chit" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResourceHex" nillable="true" type="tns:ResourceHex" />
+  <xs:complexType name="LandHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Hex">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TerritoryID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LandHex" nillable="true" type="tns:LandHex" />
+  <xs:complexType name="Hex">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Location" nillable="true" type="q2:HexLocation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Hex" nillable="true" type="tns:Hex" />
+  <xs:complexType name="GoldHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SpecialResourceHex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GoldHex" nillable="true" type="tns:GoldHex" />
+  <xs:complexType name="JungleHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SpecialResourceHex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="JungleHex" nillable="true" type="tns:JungleHex" />
+  <xs:complexType name="RawResourceHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResourceHex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RawResourceHex" nillable="true" type="tns:RawResourceHex" />
+  <xs:complexType name="TimberHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RawResourceHex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TimberHex" nillable="true" type="tns:TimberHex" />
+  <xs:complexType name="WheatHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RawResourceHex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WheatHex" nillable="true" type="tns:WheatHex" />
+  <xs:complexType name="ClayHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RawResourceHex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClayHex" nillable="true" type="tns:ClayHex" />
+  <xs:complexType name="SheepHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RawResourceHex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SheepHex" nillable="true" type="tns:SheepHex" />
+  <xs:complexType name="OreHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RawResourceHex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OreHex" nillable="true" type="tns:OreHex" />
+  <xs:complexType name="NoneHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Hex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NoneHex" nillable="true" type="tns:NoneHex" />
+  <xs:complexType name="SeaHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Hex">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="XmlPort" nillable="true" type="q3:Port" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SeaHex" nillable="true" type="tns:SeaHex" />
+  <xs:complexType name="RuleHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Hex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RuleHex" nillable="true" type="tns:RuleHex" />
+  <xs:complexType name="RandomHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RuleHex">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TerritoryID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RandomHex" nillable="true" type="tns:RandomHex" />
+  <xs:complexType name="DiscoveryHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RuleHex">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TerritoryID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DiscoveryHex" nillable="true" type="tns:DiscoveryHex" />
+  <xs:complexType name="ArrayOfHex">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Hex" nillable="true" type="tns:Hex" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHex" nillable="true" type="tns:ArrayOfHex" />
+  <xs:complexType name="DesertHex">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LandHex">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DesertHex" nillable="true" type="tns:DesertHex" />
+</xs:schema>

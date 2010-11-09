@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:m="clr-namespace:System.Windows.Media.Imaging;assembly=PresentationCore">
+    
+    <!-- Hexes'  textures -->
+    <m:BitmapImage x:Key="SeaHex" UriSource="/Graphics/Images/sea.png"/>
+    <m:BitmapImage x:Key="NoneHex" UriSource="/Graphics/Images/none.png"/>
+    <m:BitmapImage x:Key="TimberHex" UriSource="/Graphics/Images/timber.png"/>
+    <m:BitmapImage x:Key="WheatHex" UriSource="/Graphics/Images/wheat.png"/>
+    <m:BitmapImage x:Key="OreHex" UriSource="/Graphics/Images/ore.png"/>
+    <m:BitmapImage x:Key="ClayHex" UriSource="/Graphics/Images/clay.png"/>
+    <m:BitmapImage x:Key="SheepHex" UriSource="/Graphics/Images/sheep.png"/>
+    <m:BitmapImage x:Key="VolcanoHex" UriSource="/Graphics/Images/volcano.png"/>
+    <m:BitmapImage x:Key="GoldHex" UriSource="/Graphics/Images/gold.png"/>
+    <m:BitmapImage x:Key="RandomHex" UriSource="/Graphics/Images/random.png"/>
+    <m:BitmapImage x:Key="DesertHex" UriSource="/Graphics/Images/desert.png"/>
+    <m:BitmapImage x:Key="DiscoveryHex" UriSource="/Graphics/Images/unknown.png"/>
+    <m:BitmapImage x:Key="JungleHex" UriSource="/Graphics/Images/jungle.png"/>
+    
+    <!-- Pieces Textures -->
+    <m:BitmapImage x:Key="MainLandTexture" UriSource="/Graphics/Images/mainland.png"/>
+    <m:BitmapImage x:Key="IslandTexture" UriSource="/Graphics/Images/island.png"/>
+    <m:BitmapImage x:Key="IslandTexture1" UriSource="/Graphics/Images/island1.png"/>
+    <m:BitmapImage x:Key="IslandTexture2" UriSource="/Graphics/Images/island2.png"/>
+    <m:BitmapImage x:Key="IslandTexture3" UriSource="/Graphics/Images/island3.png"/>
+    <m:BitmapImage x:Key="IslandTexture4" UriSource="/Graphics/Images/island4.png"/>
+    <m:BitmapImage x:Key="IslandTexture5" UriSource="/Graphics/Images/island5.png"/>
+    <m:BitmapImage x:Key="IslandTexture6" UriSource="/Graphics/Images/island6.png"/>
+    
+    <!-- Chits Textures -->
+    <m:BitmapImage x:Key="Chit2Texture"  UriSource="/Graphics/Images/chit2.png"/>
+    <m:BitmapImage x:Key="Chit3Texture"  UriSource="/Graphics/Images/chit3.png"/>
+    <m:BitmapImage x:Key="Chit4Texture"  UriSource="/Graphics/Images/chit4.png"/>
+    <m:BitmapImage x:Key="Chit5Texture"  UriSource="/Graphics/Images/chit5.png"/>
+    <m:BitmapImage x:Key="Chit6Texture"  UriSource="/Graphics/Images/chit6.png"/>
+    <m:BitmapImage x:Key="Chit8Texture"  UriSource="/Graphics/Images/chit8.png"/>
+    <m:BitmapImage x:Key="Chit9Texture"  UriSource="/Graphics/Images/chit9.png"/>
+    <m:BitmapImage x:Key="Chit10Texture" UriSource="/Graphics/Images/chit10.png"/>
+    <m:BitmapImage x:Key="Chit11Texture" UriSource="/Graphics/Images/chit11.png"/>
+    <m:BitmapImage x:Key="Chit12Texture" UriSource="/Graphics/Images/chit12.png"/>
+    <m:BitmapImage x:Key="ChitRandomTexture" UriSource="/Graphics/Images/chitrandom.png"/>
+  
+  <!-- Ports textures -->
+    <m:BitmapImage x:Key="TimberPortTexture" UriSource="/Graphics/Images/timberport.png"/>
+    <m:BitmapImage x:Key="WheatPortTexture" UriSource="/Graphics/Images/wheatport.png"/>
+    <m:BitmapImage x:Key="OrePortTexture" UriSource="/Graphics/Images/oreport.png"/>
+    <m:BitmapImage x:Key="ClayPortTexture" UriSource="/Graphics/Images/clayport.png"/>
+    <m:BitmapImage x:Key="SheepPortTexture" UriSource="/Graphics/Images/sheepport.png"/>
+    <m:BitmapImage x:Key="31PortTexture" UriSource="/Graphics/Images/31port.png"/>
+    <m:BitmapImage x:Key="RandomPortTexture" UriSource="/Graphics/Images/randomport.png"/>
+    
+</ResourceDictionary>

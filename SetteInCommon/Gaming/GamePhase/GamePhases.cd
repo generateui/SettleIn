@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SettleInCommon.Gaming.GamePhases.DetermineFirstPlayerGamePhase" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACAAAAAAAAAAAAAAAIABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gaming\GamePhase\DetermineFirstPlayerGamePhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.GamePhases.EndedGamePhase" Collapsed="true">
+    <Position X="8.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gaming\GamePhase\EndedGamePhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.GamePhases.GamePhase" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAICAgAAABAAAAAAAAAIABAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Gaming\GamePhase\GamePhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.GamePhases.LobbyGamePhase" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gaming\GamePhase\LobbyGamePhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.GamePhases.PlacePortGamePhase" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACAAAAAAAAAAAAAAAIABAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Gaming\GamePhase\PlacePortGamePhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.GamePhases.PlayTurnsGamePhase">
+    <Position X="8.25" Y="5.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACAgAAAAAAAAAAAAAIAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Gaming\GamePhase\PlayTurnsGamePhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.GamePhases.PlacementGamePhase" Collapsed="true">
+    <Position X="8.25" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACAAAAAAAAAAAAAAAIABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gaming\GamePhase\PlacementGamePhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.TurnPhases.BeforeDiceRollTurnPhase" Collapsed="true">
+    <Position X="13.25" Y="7.25" Width="2.25" />
+    <InheritanceLine Type="SettleInCommon.Gaming.TurnPhases.TurnPhase" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="6.759" />
+        <Point X="12.5" Y="7.562" />
+        <Point X="13.25" Y="7.562" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAIAAAAAACAAAAgAAAAA=</HashCode>
+      <FileName>Gaming\GamePhase\TurnPhase\BeforeDiceRollTurnPhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.TurnPhases.TurnPhase" Collapsed="true">
+    <Position X="11.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAABAAAAAAAAAIAAAAAACAAAAgAAAAA=</HashCode>
+      <FileName>Gaming\GamePhase\TurnPhase\TurnPhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.TurnPhases.BuildTurnPhase">
+    <Position X="13.25" Y="11.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="SettleInCommon.Gaming.TurnPhases.TurnPhase" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="6.759" />
+        <Point X="12.5" Y="11.74" />
+        <Point X="13.25" Y="11.74" />
+        <Point X="13.25" Y="11.75" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="TradingPhase" Type="SettleInCommon.Gaming.TurnPhases.TradingTurnPhase">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.096" Y="0.06" Height="0.182" Width="1.051" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgCAAAAAAAAAAAAQAAAAAAAAAIAAAAAACAAAAgAAAAA=</HashCode>
+      <FileName>Gaming\GamePhase\TurnPhase\BuildTurnPhase.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TradingPhase" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.TurnPhases.RollDiceTurnPhase" Collapsed="true">
+    <Position X="13.25" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Gaming\GamePhase\TurnPhase\RollDiceTurnPhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.TurnPhases.TradingTurnPhase">
+    <Position X="13.25" Y="8.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="SettleInCommon.Gaming.TurnPhases.TurnPhase" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="6.759" />
+        <Point X="12.5" Y="9.312" />
+        <Point X="13.25" Y="9.312" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAQAAAAAAAAAAIAAAAAACAAAAgAAAAA=</HashCode>
+      <FileName>Gaming\GamePhase\TurnPhase\TradingTurnPhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Gaming.XmlGame" Collapsed="true">
+    <Position X="3.5" Y="1.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="SettleInCommon.Gaming.XmlGame.LongestRouteChangedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Gaming\XmlGame.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="SettleInCommon.Gaming.XmlGame.LargestArmyChangedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Gaming\XmlGame.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gRCIIgEAABagjAgQILEZEAmBkgqgKCCQgAqBATYBBrQ=</HashCode>
+      <FileName>Gaming\XmlGame.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Phase" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

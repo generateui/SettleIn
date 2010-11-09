@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.DevCards" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.DevCards" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" />
+  <xs:complexType name="DevelopmentCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsPlayable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TurnBought" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DevelopmentCard" nillable="true" type="tns:DevelopmentCard" />
+  <xs:complexType name="VictoryPoint">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DevelopmentCard">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VictoryPoint" nillable="true" type="tns:VictoryPoint" />
+  <xs:complexType name="RoadBuilding">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DevelopmentCard">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RoadBuilding" nillable="true" type="tns:RoadBuilding" />
+  <xs:complexType name="Monopoly">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DevelopmentCard">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Resource" type="q1:EResource" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Monopoly" nillable="true" type="tns:Monopoly" />
+  <xs:complexType name="Soldier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DevelopmentCard">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Soldier" nillable="true" type="tns:Soldier" />
+  <xs:complexType name="YearOfPlenty">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DevelopmentCard">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Resources" nillable="true" type="q2:ArrayOfEResource" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="YearOfPlenty" nillable="true" type="tns:YearOfPlenty" />
+  <xs:complexType name="UnknownDevelopmentCard">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DevelopmentCard">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UnknownDevelopmentCard" nillable="true" type="tns:UnknownDevelopmentCard" />
+  <xs:complexType name="ArrayOfDevelopmentCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DevelopmentCard" nillable="true" type="tns:DevelopmentCard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDevelopmentCard" nillable="true" type="tns:ArrayOfDevelopmentCard" />
+</xs:schema>

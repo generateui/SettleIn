@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SettleInCommon.User" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SettleInCommon.User" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon" />
+  <xs:complexType name="XmlUserCredentials">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlUserCredentials" nillable="true" type="tns:XmlUserCredentials" />
+  <xs:complexType name="XmlUser">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SettleInCommon" minOccurs="0" name="Details" nillable="true" type="q1:XmlUserDetails" />
+      <xs:element minOccurs="0" name="GamesPlayed" type="xs:int" />
+      <xs:element minOccurs="0" name="GamesWon" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rating" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlUser" nillable="true" type="tns:XmlUser" />
+  <xs:complexType name="ArrayOfXmlUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlUser" nillable="true" type="tns:XmlUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfXmlUser" nillable="true" type="tns:ArrayOfXmlUser" />
+</xs:schema>

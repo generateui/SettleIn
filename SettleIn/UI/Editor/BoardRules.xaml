@@ -1,0 +1,170 @@
+﻿<!-- Represents the control in where the user 
+  can set specific rules of the board, like 
+  trade routes, victory points, stock settings etc.-->
+  <UserControl x:Class="SettleIn.UI.Elements.BoardRules"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Control.Resources>
+    <Style TargetType="{x:Type Slider}" x:Key="slStyle"
+            BasedOn="{StaticResource {x:Type Slider}}">
+      <Setter Property="Margin" Value="10,0,0,3"/>
+      <Setter Property="Height" Value="26"/>
+      <Setter Property="Width" Value="100"/>
+      <Setter Property="Minimum" Value="0"/>
+      <Setter Property="Maximum" Value="10"/>
+      <Setter Property="TickFrequency" Value="1"/>
+      <Setter Property="TickPlacement" Value="BottomRight"/>
+      <Setter Property="LargeChange" Value="1"/>
+      <Setter Property="IsSnapToTickEnabled" Value="true"/>
+      <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+    <Style x:Key="LabelStyle1" TargetType="{x:Type Control}">
+    	<Setter Property="HorizontalAlignment" Value="Left"/>
+    	<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="Margin" Value="5,0,0,0"/>
+    </Style>
+    <Style x:Key="lblNumber" TargetType="{x:Type Label}">
+    	<Setter Property="HorizontalAlignment" Value="Left"/>
+    	<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    <Style TargetType="{x:Type Slider}">
+    	<Setter Property="Template">
+    		<Setter.Value>
+    			<ControlTemplate TargetType="{x:Type Slider}">
+    				<Grid x:Name="GridRoot">
+    					<Grid.RowDefinitions>
+    						<RowDefinition Height="Auto" />
+    						<RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}" />
+    						<RowDefinition Height="Auto" />
+    					</Grid.RowDefinitions>
+
+    					<TickBar Visibility="Collapsed" x:Name="TopTick" Height="4" SnapsToDevicePixels="True" Placement="Top" Fill="#FF405A78" />
+    					<Rectangle Margin="7.5,0,7.5,0" Grid.Column="0" Height="6" RadiusX="3" RadiusY="3" Grid.Row="1" Fill="{DynamicResource SliderBackgroundBrush}"/>
+
+    					<Track Grid.Row="1" x:Name="PART_Track">
+    						<Track.Thumb>
+    							<Thumb Style="{DynamicResource NuclearSliderThumb}" />
+    						</Track.Thumb>
+    						<Track.IncreaseRepeatButton>
+    							<RepeatButton Style="{DynamicResource NuclearScrollRepeatButtonStyle}" Command="Slider.IncreaseLarge" />
+    						</Track.IncreaseRepeatButton>
+    						<Track.DecreaseRepeatButton>
+    							<RepeatButton Style="{DynamicResource NuclearScrollRepeatButtonStyle}" Command="Slider.DecreaseLarge" />
+    						</Track.DecreaseRepeatButton>
+    					</Track>
+
+    					<TickBar Visibility="Collapsed" Grid.Row="2" x:Name="BottomTick" Height="4" SnapsToDevicePixels="True" Placement="Bottom" Fill="{TemplateBinding Foreground}" />
+    				</Grid>
+    				<ControlTemplate.Triggers>
+    					<Trigger Property="TickPlacement" Value="TopLeft">
+    						<Setter Property="Visibility" Value="Visible" TargetName="TopTick" />
+    					</Trigger>
+    					<Trigger Property="TickPlacement" Value="BottomRight">
+    						<Setter Property="Visibility" Value="Visible" TargetName="BottomTick" />
+    					</Trigger>
+    					<Trigger Property="TickPlacement" Value="Both">
+    						<Setter Property="Visibility" Value="Visible" TargetName="TopTick" />
+    						<Setter Property="Visibility" Value="Visible" TargetName="BottomTick" />
+    					</Trigger>
+    					<Trigger Property="IsEnabled" Value="false">
+    						<Setter Property="Opacity" TargetName="GridRoot" Value="0.65" />
+
+    					</Trigger>
+
+    					<Trigger Property="Orientation" Value="Vertical">
+    						<Setter Property="LayoutTransform" TargetName="GridRoot">
+    							<Setter.Value>
+    								<RotateTransform Angle="-90" />
+    							</Setter.Value>
+    						</Setter>
+    						<Setter TargetName="PART_Track" Property="Orientation" Value="Horizontal" />
+    					</Trigger>
+
+    				</ControlTemplate.Triggers>
+    			</ControlTemplate>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+      <!--
+    <Style TargetType="{x:Type CheckBox}" x:Key="chkStyle">
+      <Setter Property="Margin" Value="10,3,0,3"/>
+      <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+      -->
+  </Control.Resources>
+  <StackPanel Orientation="Vertical">
+    <StackPanel Orientation="Horizontal" Margin="10,20,10,10">
+      <Image Source="{StaticResource IconRule}" Height="48" Width="48"/>
+      <Label FontSize="16" Content="Game rules" VerticalAlignment="Center" Margin="10,0,0,0"/>
+    </StackPanel>
+    <CheckBox IsChecked="{Binding UseTradeRoutes, Mode=TwoWay}">
+      Use trade routes
+    </CheckBox>
+    <CheckBox IsChecked="{Binding AssignPortsBeforePlacement, Mode=TwoWay}">
+      Assign ports before placement
+    </CheckBox>
+    <CheckBox IsChecked="{Binding RequiresInitialShips, Mode=TwoWay}">
+      <TextBlock TextWrapping="Wrap" Width="302.667">
+      Require initial ships to be built when building near a sea hex
+        </TextBlock>
+    </CheckBox>
+    <StackPanel Orientation="Vertical">
+      <StackPanel Orientation="Horizontal">
+        <Label Content="{Binding ElementName=slVpToWin, Path=Value}" Style="{DynamicResource lblNumber}" />
+        <Label Style="{DynamicResource LabelStyle1}">victory points to win the game</Label>
+      </StackPanel>
+      <Slider Name="slVpToWin" Maximum="30" Style="{StaticResource slStyle}" Value="{Binding VpToWin, Mode=TwoWay}"/>
+    </StackPanel>
+    <StackPanel Orientation="Vertical">
+      <StackPanel Orientation="Horizontal">
+        <Label Content="{Binding ElementName=slider1, Path=Value}" Style="{DynamicResource lblNumber}" />
+        <Label Style="{DynamicResource LabelStyle1}">cards allowed in hand when a 7 rolls</Label>
+      </StackPanel>
+      <Slider Name="slider1" Maximum="15" Style="{StaticResource slStyle}" Value="{Binding AllowedCards, Mode=TwoWay}"/>
+    </StackPanel>
+    <StackPanel Orientation="Vertical">
+      <StackPanel Orientation="Horizontal">
+        <Label Content="{Binding ElementName=slBankResources, Path=Value}" Style="{DynamicResource lblNumber}" />
+        <TextBlock TextWrapping="Wrap" Width="280">resources in stock for the bank for each resource type (timber, wheat, ore, clay, sheep)</TextBlock>
+      </StackPanel>
+      <Slider Name="slBankResources" Maximum="50" Style="{StaticResource slStyle}" Value="{Binding BankResources, Mode=TwoWay}" HorizontalAlignment="Stretch" Margin="10,0,8,3" Width="Auto"/>
+    </StackPanel>
+    <StackPanel Orientation="Vertical">
+    	<StackPanel Orientation="Horizontal">
+    		<Label Content="{Binding Value, ElementName=slBankResources}" Style="{DynamicResource lblNumber}" />
+    		<TextBlock TextWrapping="Wrap" Width="280" Text="jungle tokens in stock" VerticalAlignment="Center"/>
+    	</StackPanel>
+    	<Slider x:Name="slBankResources1" Maximum="100" Style="{StaticResource slStyle}" Value="{Binding BankResources, Mode=TwoWay}" HorizontalAlignment="Stretch" Margin="10,0,118,3" Width="Auto" LargeChange="5" TickFrequency="5"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Slider Name="slStockRoads" Maximum="30" Style="{StaticResource slStyle}" Value="{Binding StockRoads, Mode=TwoWay}" Width="170"/>
+      <Label Content="{Binding ElementName=slStockRoads, Path=Value}" Style="{DynamicResource lblNumber}" />
+      <Label Style="{DynamicResource LabelStyle1}">stock roads</Label>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Slider Name="slStockShips" Maximum="30" Style="{StaticResource slStyle}" Value="{Binding StockShips, Mode=TwoWay}" Width="170"/>
+      <Label Content="{Binding ElementName=slStockShips, Path=Value}" Style="{DynamicResource lblNumber}" />
+      <Label Style="{DynamicResource LabelStyle1}">stock ships</Label>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Slider Name="slStockTowns" Maximum="20" Style="{StaticResource slStyle}" Value="{Binding StockTowns, Mode=TwoWay}" Width="115"/>
+      <Label Content="{Binding ElementName=slStockTowns, Path=Value}" Style="{DynamicResource lblNumber}" />
+      <Label Style="{DynamicResource LabelStyle1}">stock towns</Label>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <Slider Name="slStockCities" Maximum="20" Style="{StaticResource slStyle}" Value="{Binding StockCities, Mode=TwoWay}" Width="115"/>
+      <Label Content="{Binding ElementName=slStockCities, Path=Value}" Style="{DynamicResource lblNumber}" />
+      <Label Style="{DynamicResource LabelStyle1}">stock cities</Label>
+    </StackPanel>
+    <StackPanel Orientation="Vertical">
+      <StackPanel Orientation="Horizontal">
+        <Label Content="{Binding ElementName=slBonus1, Path=Value}" Style="{DynamicResource lblNumber}" />
+        <TextBlock TextWrapping="Wrap" Width="306" VerticalAlignment="Center">bonus victory points to earn when building on a new island</TextBlock>
+      </StackPanel>
+      <Slider Name="slBonus1" Maximum="10" Style="{StaticResource slStyle}" Value="{Binding Bonus1, Mode=TwoWay}"/>
+    </StackPanel>
+  </StackPanel>
+
+</UserControl>

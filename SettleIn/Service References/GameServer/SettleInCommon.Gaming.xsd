@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.InGame" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.DevCards" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.User" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.GamePhases" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon" />
+  <xs:complexType name="XmlGameSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DoNotReplaceDeserts" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="GameType" type="q1:EGameType" />
+      <xs:element minOccurs="0" name="HostID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsLadder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Map" type="ser:guid" />
+      <xs:element minOccurs="0" name="MaxPlayers" type="xs:int" />
+      <xs:element minOccurs="0" name="MaximumCardsInHandWhenSeven" type="xs:int" />
+      <xs:element minOccurs="0" name="MinPlayers" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="No2VPPlayersRobbing" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NoSevensFirstRound" type="xs:int" />
+      <xs:element minOccurs="0" name="ReplaceDesertWithJungles" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReplaceDesertWithVolcanos" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShowChitsAfterPlacing" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TournamentStart" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TradingAfterBuilding" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VpToWin" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlGameSettings" nillable="true" type="tns:XmlGameSettings" />
+  <xs:complexType name="ArrayOfXmlGame">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlGame" nillable="true" type="tns:XmlGame" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfXmlGame" nillable="true" type="tns:ArrayOfXmlGame" />
+  <xs:complexType name="XmlGame">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.InGame" minOccurs="0" name="ActionsQueue" nillable="true" type="q2:ArrayOfInGameAction" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Bank" nillable="true" type="q3:ArrayOfEResource" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Board" nillable="true" type="q4:XmlBoard" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.DevCards" minOccurs="0" name="DevCards" nillable="true" type="q5:ArrayOfDevelopmentCard" />
+      <xs:element minOccurs="0" name="GameChat" nillable="true" type="tns:XmlChatLog" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.InGame" minOccurs="0" name="GameLog" nillable="true" type="q6:ArrayOfInGameAction" />
+      <xs:element minOccurs="0" name="GameSettings" nillable="true" type="tns:XmlGameSettings" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SettleInCommon.User" minOccurs="0" name="Host" nillable="true" type="q7:XmlUser" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.GamePhases" minOccurs="0" name="Phase" nillable="true" type="q8:GamePhase" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Pirate" nillable="true" type="q9:HexLocation" />
+      <xs:element minOccurs="0" name="Players" nillable="true" type="tns:ArrayOfGamePlayer" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Robber" nillable="true" type="q10:HexLocation" />
+      <xs:element minOccurs="0" name="Settings" nillable="true" type="tns:XmlGameSettings" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SettleInCommon.User" minOccurs="0" name="Spectators" nillable="true" type="q11:ArrayOfXmlUser" />
+      <xs:element minOccurs="0" name="WinnerID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlGame" nillable="true" type="tns:XmlGame" />
+  <xs:complexType name="XmlChatLog">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfXmlChatItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlChatLog" nillable="true" type="tns:XmlChatLog" />
+  <xs:complexType name="ArrayOfXmlChatItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="XmlChatItem" nillable="true" type="tns:XmlChatItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfXmlChatItem" nillable="true" type="tns:ArrayOfXmlChatItem" />
+  <xs:complexType name="XmlChatItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SettleInCommon" minOccurs="0" name="Type" type="q12:EChatItemType" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SettleInCommon.User" minOccurs="0" name="User" nillable="true" type="q13:XmlUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlChatItem" nillable="true" type="tns:XmlChatItem" />
+  <xs:complexType name="ArrayOfGamePlayer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GamePlayer" nillable="true" type="tns:GamePlayer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGamePlayer" nillable="true" type="tns:ArrayOfGamePlayer" />
+  <xs:complexType name="GamePlayer">
+    <xs:sequence>
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="BonusIslandVPs" nillable="true" type="q14:ArrayOfHexPoint" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Cities" nillable="true" type="q15:ArrayOfHexPoint" />
+      <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.DevCards" minOccurs="0" name="DevCards" nillable="true" type="q16:ArrayOfDevelopmentCard" />
+      <xs:element minOccurs="0" name="DevRoadShips" type="xs:int" />
+      <xs:element minOccurs="0" name="HasLargestArmy" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasPlayedDevcardThisTurn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOnTurn" type="xs:boolean" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.DevCards" minOccurs="0" name="PlayedDevcards" nillable="true" type="q17:ArrayOfDevelopmentCard" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Ports" nillable="true" type="q18:ArrayOfEPortType" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Resources" nillable="true" type="q19:ArrayOfEResource" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Roads" nillable="true" type="q20:ArrayOfHexSide" />
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Ships" nillable="true" type="q21:ArrayOfHexSide" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="StartingTown" nillable="true" type="q22:HexPoint" />
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="StartingTownOrCity" nillable="true" type="q23:HexPoint" />
+      <xs:element minOccurs="0" name="StockCities" type="xs:int" />
+      <xs:element minOccurs="0" name="StockRoads" type="xs:int" />
+      <xs:element minOccurs="0" name="StockShips" type="xs:int" />
+      <xs:element minOccurs="0" name="StockTowns" type="xs:int" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Towns" nillable="true" type="q24:ArrayOfHexPoint" />
+      <xs:element minOccurs="0" name="TradeRoutes" nillable="true" type="tns:ArrayOfArrayOfRouteNode" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SettleInCommon.User" minOccurs="0" name="XmlPlayer" nillable="true" type="q25:XmlUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GamePlayer" nillable="true" type="tns:GamePlayer" />
+  <xs:complexType name="ArrayOfArrayOfRouteNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfRouteNode" nillable="true" type="tns:ArrayOfRouteNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArrayOfRouteNode" nillable="true" type="tns:ArrayOfArrayOfRouteNode" />
+  <xs:complexType name="ArrayOfRouteNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RouteNode" nillable="true" type="tns:RouteNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRouteNode" nillable="true" type="tns:ArrayOfRouteNode" />
+  <xs:complexType name="RouteNode">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" base="q26:HexSide">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsRoad" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsShip" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PlayerID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RouteNode" nillable="true" type="tns:RouteNode" />
+</xs:schema>

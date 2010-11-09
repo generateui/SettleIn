@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SettleInCommon.Board.Chit" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Board\Chit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Board.StandardDevCardStack" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FCAAAAIIIAAAAggQYBAAAEAiggBAAAAAAAEAEAAAAAQ=</HashCode>
+      <FileName>Board\XmlStandardDevCardStack.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SettleInCommon.Board.ExtendedResourceList" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAQAEAQJRAAAAAAgAAAAAIgAAARAAUAEAE=</HashCode>
+      <FileName>Board\ExtendedResourceList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Board.XmlHexList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hBAAAAAAAAAQBEAQJQYAAAAAgkAAAAIgAAARAAQAGAE=</HashCode>
+      <FileName>Board\HexList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SettleInCommon.Board.HexLocation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAACAAAAAEgAAAAAAAAAAAAoAAAAAAAEAIAgA=</HashCode>
+      <FileName>Board\HexLocation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SettleInCommon.Board.HexPoint" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAEAAAEiQgAgBYAJFAAAIAAEQEAAAAAAgA=</HashCode>
+      <FileName>Board\HexPoint.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SettleInCommon.Board.HexSide" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAAAAAAAAAAAEgSkAABIAAQAEAoAAEAAAAEAAAgA=</HashCode>
+      <FileName>Board\HexSide.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SettleInCommon.Board.IRouteNode" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Board\IRouteNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Board.Port" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAgAAQAAAAQIAMAAIAAgAAAAAAAAAAAEAAAAAE=</HashCode>
+      <FileName>Board\Port.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SettleInCommon.Board.XmlPortList" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>hAIABAABACAQBVCQLQKAhAAAggAAABIksAARAAQAAAI=</HashCode>
+      <FileName>Board\PortList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SettleInCommon.Board.ResourceList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAIgIQAAAcKRAAAAAAggCAACBgAEAxAAQAAAA=</HashCode>
+      <FileName>Board\ResourceList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Board.Territory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAgAAAAABAgAASoAAAKASAkgIAAEFAAACAACAEABA=</HashCode>
+      <FileName>Board\Territory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SettleInCommon.Board.XmlBoard" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="10" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAIAJMARAAGggBQJA4QccRGiwCwgAgQUggAAZEgCRY=</HashCode>
+      <FileName>Board\XmlBoard.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SettleInCommon.Board.XmlChitList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAhAIAAAAAAAQIAACAAQKgoAAAAKIBgAAAAFEAAA=</HashCode>
+      <FileName>Board\ChitList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SettleInCommon.Gaming.XmlGame">
+    <Position X="0.5" Y="8" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="SettleInCommon.Gaming.XmlGame.LongestRouteChangedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Gaming\XmlGame.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="SettleInCommon.Gaming.XmlGame.LargestArmyChangedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Gaming\XmlGame.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gRCIAgEAABagjAgQILEZEAmBkgqgKCCQgAqBATYBBrQ=</HashCode>
+      <FileName>Gaming\XmlGame.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Board" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Enum Name="SettleInCommon.Board.EBoardCreatedType" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAgAAAAAAAAAAAEAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Board\EBoardCreatedType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SettleInCommon.Board.EChitNumber" Collapsed="true">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAhAAAAAAAAAAAAAAAAQCAAAABAIIAAAAAAEEAAA=</HashCode>
+      <FileName>Board\EChitNumber.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SettleInCommon.Board.EGameType" Collapsed="true">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAACAAAAAA=</HashCode>
+      <FileName>Board\EGameType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SettleInCommon.Board.EHexPointType" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Board\EHexPointType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SettleInCommon.Board.EPointPositionOnHex" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAQAAAAAAAAAAAAAAAAQAACAACEAAAAAA=</HashCode>
+      <FileName>Board\EPointPositionOnHex.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SettleInCommon.Board.EPortType" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAACAAQAAAAAAAAAABAAgAAARAAEAAAA=</HashCode>
+      <FileName>Board\EPortType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SettleInCommon.Board.EResource" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAQQAAAAAAAAAAAAgAAAREAAAAAE=</HashCode>
+      <FileName>Board\EResource.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SettleInCommon.Board.ERotationPosition" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAQgAAAAAAAAAAAACAAAAAAAAABAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Board\ERotationPosition.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SettleInCommon.Board.ESideDirection" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Board\ESideDirection.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

@@ -1,0 +1,44 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:ui="clr-namespace:SettleIn.UI.Game"
+                 xmlns:ui2="clr-namespace:SettleIn.UI.Elements"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="SettleIn.UI.Game.BankTrade"
+    Height="600" Width="800" Background="AliceBlue" mc:Ignorable="d">
+	<Grid HorizontalAlignment="Stretch" Margin="0" Height="Auto" Width="Auto">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.8*"/>
+			<RowDefinition Height="0.2*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.488*"/>
+			<ColumnDefinition Width="0.016*"/>
+			<ColumnDefinition Width="0.496*"/>
+		</Grid.ColumnDefinitions>
+		<Button x:Name="btnOK" Content="Trade &amp; leave" Width="136" Click="Button_Click" HorizontalAlignment="Right" Margin="0,0,252.8,10" Grid.Column="2" Grid.Row="1" FontSize="16" VerticalAlignment="Bottom" Height="50"/>
+		<Button x:Name="btnCancel" Content="Cancel" Click="Button_Click_1" Margin="161.133,0,132,10" Grid.Column="2" Grid.Row="1" FontSize="16" VerticalAlignment="Bottom" Width="100" Height="50"/>
+		<StackPanel  Orientation="Vertical" Grid.Column="0" Margin="10">
+			<Label FontWeight="Bold" FontSize="30" Foreground="Gray" HorizontalAlignment="Center" Content="Get"/>
+			<Label Foreground="Gray" HorizontalAlignment="Center" Content="Resources you have desperate need for"/>
+			<ui:ResourcePicker  x:Name="uiWanted" />
+		</StackPanel>
+		<StackPanel x:Name="spBank" Orientation="Vertical" Grid.Column="2" Margin="10">
+			<Label FontWeight="Bold" FontSize="30" Foreground="Gray" HorizontalAlignment="Center" Content="Give"/>
+			<Label Foreground="Gray" HorizontalAlignment="Center" Content="Resources you need to get rid off"/>
+            <ui:ExtendedResourcePicker x:Name="uiOffered"/>
+            <ui:PortsList x:Name="uiPortsList" Height="15" HorizontalAlignment="Left" Margin="37,0,0,0" Width="22" />
+        </StackPanel>
+		<Image Width="128" Grid.Column="2" Grid.Row="1" Height="128" Opacity="0.25" Source="{DynamicResource Bank24}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,10,0,0"/>
+		<Path Fill="White" Stretch="Fill" Stroke="Black" StrokeThickness="5" Margin="0,10" Grid.Column="1" Grid.RowSpan="3" Data="M405.6,10 L400,304" HorizontalAlignment="Center" Width="5"/>
+		<StackPanel x:Name="pnlAutoTrade" Margin="10,8,10,0" Grid.Row="1" VerticalAlignment="Top" Height="181.2" Orientation="Horizontal">
+			<Image x:Name="imgItemType" VerticalAlignment="Top" Height="128" Opacity="0.25" Source="{DynamicResource Bank24}" Margin="0,0,-21,0"/>
+			<StackPanel Width="263.667">
+				<StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+					<Label Content="Reserved resources for" Height="26.96" Margin="0,0,-65.07,0" d:LayoutOverrides="Width, Height, VerticalMargin"/>
+					<Label x:Name="lblItemType" HorizontalAlignment="Left" Width="30.994" Height="26.96" d:LayoutOverrides="Height, VerticalMargin"/>
+				</StackPanel>
+				<ui2:ucResourceList Margin="8,0,0,0" Height="83.24" d:LayoutOverrides="VerticalMargin"/>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

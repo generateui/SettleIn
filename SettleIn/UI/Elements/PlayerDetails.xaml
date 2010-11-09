@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="SettleIn.UI.PlayerDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sc="clr-namespace:SettleInCommon;assembly=SettleInCommon"
+    Height="300" Width="300">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <StackPanel  Orientation="Vertical">
+
+        <!-- User details -->
+        <StackPanel x:Name="spDetails" Orientation="Horizontal">
+            
+            <!--<Image Source="{Binding Path=Icon}" Height="128" Width="128">
+            <<Label x:Name="lblName" Image="{StaticResource Save}"/>-->
+            
+            <Label Content="{Binding Path=Rating}"/>
+            <Label>Game played:</Label>
+            <Label Content="{Binding Path=PlayedLadderGames}"/>
+        </StackPanel>
+        <ListBox x:Name="lbxComments">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="sc:Comment">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Height="30" Name="stackPanel1" Width="300" Orientation="Vertical">
+                            <Label>Posted by </Label>
+                            <Label x:Name="lblName" Content="{Binding Path=User/Name}"></Label>
+                            <Label>, </Label>
+                            <Label FontWeight="Bold" Content="{Binding Path=DateTime}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Path=Message}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Style.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightBlue" />
+                        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightPink" />
+                    </Style.Resources>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+    </StackPanel>
+</UserControl>

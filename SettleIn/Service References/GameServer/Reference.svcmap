@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e5c56bc2-6a6c-42c7-a258-54097f2d587e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:2222/gameservice/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="3c24604c-cdc8-4b0f-bc2d-366b40c4a329" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="dfabf379-2d2f-4ec8-b207-42b238fafe99" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="81128e27-3dd3-44c5-aa7b-79de022fc872" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.User.xsd" MetadataType="Schema" ID="e9f47af1-cd65-40c7-aa20-8583e5377f04" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.Actions.Result.xsd" MetadataType="Schema" ID="5bb7d3e2-9840-4831-aded-8f3a7c62b901" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.Actions.xsd" MetadataType="Schema" ID="068dc800-3af7-4f54-bef9-6e466cf86345" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.Actions.InGame.xsd" MetadataType="Schema" ID="9f79062e-01c4-4200-9c4a-e13d919d4103" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.Board.xsd" MetadataType="Schema" ID="d1c1c1fa-63b2-4ff6-8940-d2047a9c57b3" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.Actions.TurnActions.xsd" MetadataType="Schema" ID="0b633bab-25ff-4030-b653-24f63c4d2b2e" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.Gaming.DevCards.xsd" MetadataType="Schema" ID="f2119eba-0e60-484e-8686-688fe8317f59" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="ea547a03-01d5-4b8a-906c-ed6ed34f2fae" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.Board.Hexes.xsd" MetadataType="Schema" ID="46ccaee7-290e-48ad-bcfd-42799e00ad0e" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.xsd" MetadataType="Schema" ID="7acaa0bd-2840-45e0-963a-cd61cce01c90" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.Actions.Lobby.xsd" MetadataType="Schema" ID="4732f068-1fe3-4673-a285-479a1cc3b32d" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.Gaming.xsd" MetadataType="Schema" ID="5748ccf1-a1be-46d0-b482-ba6deb5aa6a5" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+    <MetadataFile FileName="SettleInCommon.Gaming.GamePhases.xsd" MetadataType="Schema" ID="17bcc533-c6ed-4dd7-8d70-18743a13b74b" SourceId="1" SourceUrl="net.tcp://localhost:2222/gameservice/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

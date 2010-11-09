@@ -1,0 +1,18 @@
+﻿<!--Main window of the application. 
+  Code should be cleaned up and seperated into more controls.-->
+  <Window x:Class="SettleIn.Main"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:src="clr-namespace:SettleIn"
+    xmlns:ui="clr-namespace:SettleIn.Graphics.Elements"
+    xmlns:ui2="clr-namespace:SettleIn.UI.Elements"
+    xmlns:ui3="clr-namespace:SettleIn.UI.Editor"
+    Title="Main">
+    
+	<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <ui3:MapCreatorMain Visibility="Collapsed" x:Name="_MapCreatorMain" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <ui2:Lobby x:Name="ucLobby" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <ui2:GameMain2 Visibility="Collapsed" x:Name="_TestGameMain" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <ui2:SceneMain Visibility="Collapsed" x:Name="_SceneMain" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    </Grid>
+</Window>

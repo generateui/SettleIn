@@ -1,0 +1,216 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="clr-namespace:SettleIn.UI.Converters"
+             xmlns:ui2="clr-namespace:SettleIn.UI.Game"
+             xmlns:src4="clr-namespace:SettleIn.UI.Elements"
+             xmlns:sic="clr-namespace:SettleInCommon.Gaming.DevCards;assembly=SettleInCommon"
+             xmlns:sic2="clr-namespace:SettleInCommon.Board;assembly=SettleInCommon"
+    xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="SettleIn.UI.Elements.Game.BuildPallette"
+             x:Name="ucBuildPalette"
+    >
+    <UserControl.Resources>
+        <ui:VisibilityConverter x:Key="cvVisibilityConverter"/>
+        <ui:OpacityConverter x:Key="opacityConverter"/>
+        <ui:PortConverter x:Key="portConverter"/>
+        <Storyboard x:Name="expand" x:Key="expand">
+            <DoubleAnimation Storyboard.TargetName="ucBuildPalette" Storyboard.TargetProperty="(Canvas.Bottom)" From="-200" To="0" Duration="0:0:1" />
+        </Storyboard>
+        <Storyboard x:Name="collapse" x:Key="collapse">
+            <DoubleAnimation Storyboard.TargetName="ucBuildPalette" Storyboard.TargetProperty="(Canvas.Bottom)" From="0" To="-200" Duration="0:0:1" />
+        </Storyboard>
+        <Style TargetType="{x:Type Image}" x:Key="imgStyle">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <OuterGlowBitmapEffect x:Name="OuterGlowBitmapEffect" GlowColor="Transparent"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BitmapEffect">
+                        <Setter.Value>
+                            <OuterGlowBitmapEffect GlowSize="10" GlowColor="Red" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    	<LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
+    		<GradientStop Color="#F3F3F3" Offset="0"/>
+    		<GradientStop Color="#EBEBEB" Offset="0.5"/>
+    		<GradientStop Color="#DDDDDD" Offset="0.5"/>
+    		<GradientStop Color="#CDCDCD" Offset="1"/>
+    	</LinearGradientBrush>
+    	<SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
+    	<Style x:Key="BuildPaletteButtonStyle" TargetType="{x:Type Button}">
+    		<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+    		<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+    		<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+    		<Setter Property="BorderThickness" Value="1"/>
+    		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+    		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+    		<Setter Property="VerticalContentAlignment" Value="Center"/>
+    		<Setter Property="Padding" Value="1"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type Button}">
+    					<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Width="72" Height="58"/>
+    					<ControlTemplate.Triggers>
+    						<Trigger Property="IsKeyboardFocused" Value="true"/>
+    						<Trigger Property="ToggleButton.IsChecked" Value="true"/>
+    						<Trigger Property="IsEnabled" Value="false">
+    							<Setter Property="Foreground" Value="#ADADAD"/>
+    						</Trigger>
+    					</ControlTemplate.Triggers>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    </UserControl.Resources>
+    <Canvas x:Name="canvas" Height="{Binding ActualHeight, ElementName=ucBuildPallette}">
+        <ItemsControl x:Name="uiActionsQueue" Width="200" Height="400" Canvas.Right="0" Canvas.Bottom="200">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding ToDoMessage}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Grid Background="#AA000000"
+      Canvas.Bottom="70" Canvas.Right="0" x:Name="gridStatusAndDice" Height="70" Width="800" HorizontalAlignment="Right">
+            <Label FontSize="20" Foreground="White" x:Name="lblGameStatus" Content="Waiting for Pietje for turn actions"
+               HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,0,225,0" />
+            <Button x:Name="btnVolcanoOK" Width="65" Content="OK" Click="btnVolcanoOK_Click" HorizontalAlignment="Right" Margin="0,0,152,0" Height="40" VerticalAlignment="Center"/>
+            <Canvas Height="60" Width="120" Margin="0,0,10,0" Grid.Column="1" HorizontalAlignment="Right">
+                <Button x:Name="btnVolcanoDice" Click="btnVolcanoDice_Click" Height="60" Canvas.Left="0" Canvas.Top="0" Width="120" Visibility="Hidden">
+                	<StackPanel Width="{Binding ActualWidth, ElementName=btnVolcanoDice}" Height="{Binding ActualHeight, ElementName=btnVolcanoDice}" Margin="4,-4,-4,-4" Orientation="Horizontal">
+                		<Image Source="{StaticResource ResourceKey=IconVolcano}" Height="48" Margin="0"/>
+                		<src4:Dice HorizontalAlignment="Right" Margin="0" x:Name="volcanoDice" />
+                	</StackPanel>
+                </Button>
+                <src4:Dices HorizontalAlignment="Right" Mouse.MouseUp="Dices_MouseUp" x:Name="dices"/>
+            </Canvas>
+        </Grid>
+        <ItemsControl x:Name="uiPorts" Width="50" Canvas.Right="680" Canvas.Bottom="0" Background="Red">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding Converter={StaticResource portConverter}}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <ItemsControl x:Name="uiPlayedDevcards" Width="200" Canvas.Right="900" Canvas.Bottom="0">
+            <ItemsControl.Resources>
+                <Style TargetType="{x:Type Image}" x:Key="styleImage">
+                    <Setter Property="Opacity" Value="0.5"/>
+                    <Setter Property="Height" Value="32"/>
+                    <Setter Property="Width" Value="32"/>
+                </Style>
+                <DataTemplate DataType="{x:Type sic:Monopoly}">
+                        <Image Source="{StaticResource IconMono48}" Style="{StaticResource styleImage}"/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type sic:YearOfPlenty}">
+                        <Image Source="{StaticResource IconYop48}" Style="{StaticResource styleImage}"/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type sic:VictoryPoint}">
+                        <Image Source="{StaticResource IconVP48}" Style="{StaticResource styleImage}"/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type sic:Soldier}">
+                        <Image Source="{StaticResource IconRobber48}"  Style="{StaticResource styleImage}"/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type sic:RoadBuilding}">
+                        <Image Source="{StaticResource IconRb48}"  Style="{StaticResource styleImage}"/>
+                </DataTemplate>                
+            </ItemsControl.Resources>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="FrameworkElement.Margin" Value="2"/>
+                    <Style.Triggers>
+                        <Trigger Property="UIElement.IsMouseOver" Value="True">
+                            <Setter Property="FrameworkElement.ToolTip" 
+                                    Value="{Binding Content.Description, RelativeSource={x:Static RelativeSource.Self}}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+
+        <ui2:DevelopmentCardsUI x:Name="uiDevcards" Canvas.Right="610" Canvas.Bottom="0" Margin="0"/>
+        <StackPanel Orientation="Horizontal" Height="auto" Width="auto" Canvas.Right="0" Canvas.Bottom="0" x:Name="spActions">
+            <Button x:Name="btnCity" Height="58" Width="72" Style="{DynamicResource BuildPaletteButtonStyle}">
+            	<Canvas Width="72" Height="48" x:Name="cvCity">
+            		<Image Canvas.Top="0" Canvas.Left="15" x:Name="imgCity" Source="{StaticResource Sea3D}" Height="48" Width="48" Mouse.MouseDown="imgCity_MouseDown_2" Style="{StaticResource imgStyle}"/>
+            		<WrapPanel Orientation="Vertical" Canvas.Top="5" Canvas.Left="5" Height="48" >
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgCityTrade1" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgCityTrade2" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgCityTrade3" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgCityTrade4" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgCityTrade5" Height="16" Width="16" />
+            		</WrapPanel>
+            	</Canvas>
+            </Button>
+            <Button x:Name="btnTown" Height="58" Width="72" Style="{DynamicResource BuildPaletteButtonStyle}">
+            	<Canvas Width="72" Height="48" x:Name="cvTown">
+            		<Image Canvas.Left="10"  x:Name="imgTown" Source="{StaticResource Town3D}" Height="48" Width="48" Mouse.MouseDown="imgTown_MouseDown" Style="{StaticResource imgStyle}"/>
+            		<WrapPanel Orientation="Vertical" Canvas.Top="5" Canvas.Left="5" Height="48">
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgTownTrade1" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgTownTrade2" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgTownTrade3" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgTownTrade4" Height="16" Width="16" />
+            		</WrapPanel>
+            	</Canvas>
+            </Button>
+            <Button x:Name="btnRoad" Height="58" Width="72" Style="{DynamicResource BuildPaletteButtonStyle}">
+            	<Canvas Width="72" Height="48"  x:Name="cvRoad">
+            		<Image Canvas.Left="10"  x:Name="imgRoad" Source="{StaticResource Road48}" Height="48" Width="48" Mouse.MouseDown="imgRoad_MouseDown" Style="{StaticResource imgStyle}"/>
+            		<WrapPanel Orientation="Vertical" Canvas.Top="5" Canvas.Left="5" Height="48">
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgRoadTrade1" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgRoadTrade2" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconRb48}" x:Name="imgRoadRb1" Height="16" Width="16"/>
+            			<Image Source="{StaticResource IconRb48}" x:Name="imgRoadRb2" Height="16" Width="16"/>
+            		</WrapPanel>
+            	</Canvas>
+            </Button>
+            <Button x:Name="btnShip" Height="58" Width="72" Style="{DynamicResource BuildPaletteButtonStyle}">
+            	<Canvas Width="72" Height="48" x:Name="cvShip">
+            		<Image Canvas.Left="10" x:Name="imgShip"  Source="{StaticResource Ship48}" Height="48" Width="48" Mouse.MouseDown="imgShip_MouseDown"  Style="{StaticResource imgStyle}"/>
+            		<WrapPanel Orientation="Vertical" Canvas.Top="5" Canvas.Left="5" Height="48" >
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgShipTrade1" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgShipTrade2" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconRb48}" x:Name="imgShipRb1" Height="16" Width="16"/>
+            			<Image Source="{StaticResource IconRb48}" x:Name="imgShipRb2" Height="16" Width="16"/>
+            		</WrapPanel>
+            	</Canvas>
+            </Button>
+            <Button x:Name="btnMoveShip" Height="58" Width="72" Style="{DynamicResource BuildPaletteButtonStyle}">
+            	<Canvas Width="72" Height="48" x:Name="cvMoveShip">
+            		<Image Canvas.Left="10" x:Name="imgMoveShip"  Source="{StaticResource IconMoveShip48}" Height="48" Width="48" Mouse.MouseDown="imgMoveShip_MouseDown"  Style="{StaticResource imgStyle}"/>
+            	</Canvas>
+            </Button>
+            <Button x:Name="btnBuyDevcard" Height="58" Width="58" Style="{DynamicResource BuildPaletteButtonStyle}">
+            	<Canvas Width="58" Height="48" x:Name="cvBuyDevcard">
+            		<Image Canvas.Left="10" x:Name="imgBuydevcard" Source="{StaticResource IconBuyDevcard48}" Height="48" Width="48" Mouse.MouseDown="imgBuydevcard_MouseDown" Style="{StaticResource imgStyle}"/>
+            		<WrapPanel Orientation="Vertical" Canvas.Top="5" Canvas.Left="5" Height="48" >
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgDevcardTrade1" Height="16" Width="16" />
+            			<Image Source="{StaticResource IconTrade48}" x:Name="imgDevcardTrade2" Height="16" Width="16" />
+            		</WrapPanel>
+            	</Canvas>
+            </Button>
+            <Button x:Name="btnBank" Height="58" Width="62" Style="{DynamicResource BuildPaletteButtonStyle}">
+            	<Image x:Name="imgBank"  Source="{StaticResource Bank24}" Height="48" Width="48" Mouse.MouseDown="imgBank_MouseDown"  Style="{StaticResource imgStyle}" ToolTip="Exchange resources at the bank"/>
+            </Button>
+            <Button x:Name="btnTradePlayer" Height="48" Width="48" Style="{DynamicResource BuildPaletteButtonStyle}">
+            	<Image x:Name="imgTradePlayer"  Source="{StaticResource IconTradePlayer48}" Height="48" Width="48" Mouse.MouseDown="imgTradePlayer_MouseDown"  Style="{StaticResource imgStyle}"/>
+            </Button>
+            <Button x:Name="btnEndTurn" Height="48" Width="48" Style="{DynamicResource BuildPaletteButtonStyle}">
+            	<Image x:Name="imgEndTurn" Source="{StaticResource IconEndTurn32}" Height="48" Width="48" Mouse.MouseDown="imgEndTurn_MouseDown" Style="{StaticResource imgStyle}" ToolTip="End current turn"/>
+            </Button>
+            <Button x:Name="btnClaimVictory" Height="58" Width="58" Style="{DynamicResource BuildPaletteButtonStyle}">
+            	<Image x:Name="imgClaimVictory" Source="{StaticResource IconVP48}" Opacity="0.2"  Height="48" Width="48" Mouse.MouseDown="imgClaimVictory_MouseDown" Style="{StaticResource imgStyle}"/>
+            </Button>
+        </StackPanel>
+    </Canvas>
+</UserControl>

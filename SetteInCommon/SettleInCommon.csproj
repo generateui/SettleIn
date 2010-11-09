@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{07D95963-D4B8-49E2-AA4E-9DF81338B94D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SettleInCommon</RootNamespace>
+    <AssemblyName>SettleInCommon</AssemblyName>
+    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug2|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug2\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client\WindowsBase.dll</HintPath>
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\InGame\ActionsAction.cs" />
+    <Compile Include="Actions\GameEventArgs.cs" />
+    <Compile Include="Actions\InGame\AcceptOfferAction.cs" />
+    <Compile Include="Actions\InGame\PortsPlacedAction.cs" />
+    <Compile Include="Actions\InGame\StartingPlayerDeterminedAction.cs" />
+    <Compile Include="Actions\InGame\TradeTimeoutAction.cs" />
+    <Compile Include="Actions\TurnActions\DiscoverHexAction.cs" />
+    <Compile Include="Actions\TurnActions\EndTradeAction.cs" />
+    <Compile Include="Actions\InGame\HotSeatStartAction.cs" />
+    <Compile Include="Actions\InGame\PickGoldAction.cs" />
+    <Compile Include="Actions\InGame\PlayerLeftAction.cs" />
+    <Compile Include="Actions\InGame\PlayerLostConnection.cs" />
+    <Compile Include="Actions\InGame\PlayerReconnectedAction.cs" />
+    <Compile Include="Actions\InGame\RejectOfferAction.cs" />
+    <Compile Include="Actions\InGame\RolledSameAction.cs" />
+    <Compile Include="Actions\InGame\ShowChitsAction.cs" />
+    <Compile Include="Actions\InGame\SpectatorLeftAction.cs" />
+    <Compile Include="Actions\InGame\SpectatorLostConnection.cs" />
+    <Compile Include="Actions\InGame\StartInGamePhaseAction.cs" />
+    <Compile Include="Actions\TurnActions\StartTradeAction.cs" />
+    <Compile Include="Actions\Lobby\LobbyAction.cs" />
+    <Compile Include="Actions\Lobby\NewGameChangedAction.cs" />
+    <Compile Include="Actions\Lobby\StartGameAction.cs" />
+    <Compile Include="Actions\InGame\HostStartsGameAction.cs" />
+    <Compile Include="Actions\Lobby\UserDisconnectedAction.cs" />
+    <Compile Include="Actions\Lobby\UserLeftLobbyAction.cs" />
+    <Compile Include="Actions\Lobby\EnterLobbyAction.cs" />
+    <Compile Include="Actions\Lobby\GameJoinedAction.cs" />
+    <Compile Include="Actions\InGame\InGameAction.cs" />
+    <Compile Include="Actions\InGame\SpectatorJoinedAction.cs" />
+    <Compile Include="Actions\Lobby\JoinGameAction.cs" />
+    <Compile Include="Actions\Lobby\LobbyJoined.cs" />
+    <Compile Include="Actions\Lobby\TryCreateGameAction.cs" />
+    <Compile Include="Actions\Lobby\LobbyChatAction.cs" />
+    <Compile Include="Actions\Result\ActionResult.cs" />
+    <Compile Include="Actions\Result\JoinResult.cs" />
+    <Compile Include="Actions\TurnActions\BuildShipAction.cs" />
+    <Compile Include="Actions\TurnActions\ClaimVictoryAction.cs" />
+    <Compile Include="Actions\TurnActions\EndTurnAction.cs" />
+    <Compile Include="Actions\TurnActions\LargestArmyAchievedAction.cs" />
+    <Compile Include="Actions\TurnActions\LongestRouteAchievedAction.cs" />
+    <Compile Include="Actions\TurnActions\PlacePortAction.cs" />
+    <Compile Include="Actions\TurnActions\RollVolcanoDiceAction.cs" />
+    <Compile Include="Actions\TurnActions\TradePlayerAction.cs" />
+    <Compile Include="Actions\TurnActions\TradeRoutesChangedAction.cs" />
+    <Compile Include="Actions\UserLeftAction.cs" />
+    <Compile Include="Actions\GameAction.cs" />
+    <Compile Include="Actions\Lobby\GameCreatedAction.cs" />
+    <Compile Include="Actions\InGame\LooseCardsAction.cs" />
+    <Compile Include="Actions\MessageFromServerAction.cs" />
+    <Compile Include="Actions\InGame\GameChatAction.cs" />
+    <Compile Include="Actions\TurnActions\MoveShipAction.cs" />
+    <Compile Include="Actions\TurnActions\PlaceRobberPirateAction.cs" />
+    <Compile Include="Actions\InGame\CounterTradeOfferAction.cs" />
+    <Compile Include="Actions\TurnActions\TradeOfferAction.cs" />
+    <Compile Include="Actions\TurnActions\RobPlayerAction.cs" />
+    <Compile Include="Actions\TurnActions\SwapChitAction.cs" />
+    <Compile Include="Actions\TurnActions\BuildRoadAction.cs" />
+    <Compile Include="Actions\TurnActions\BuyDevcardActoin.cs" />
+    <Compile Include="Actions\TurnActions\BuildCityAction.cs" />
+    <Compile Include="Actions\TurnActions\BuildTownAction.cs" />
+    <Compile Include="Actions\TurnActions\PlayDevcardAction.cs" />
+    <Compile Include="Actions\TurnActions\RollDiceAction.cs" />
+    <Compile Include="Actions\TurnActions\TradeBankAction.cs" />
+    <Compile Include="Actions\TurnActions\TurnAction.cs" />
+    <Compile Include="Board\EBoardCreatedType.cs" />
+    <Compile Include="Board\EChitNumber.cs" />
+    <Compile Include="Board\EPointPositionOnHex.cs" />
+    <Compile Include="Board\ExtendedResourceList.cs" />
+    <Compile Include="Board\EGameType.cs" />
+    <Compile Include="Board\Hexes\ClayHex.cs" />
+    <Compile Include="Board\Hexes\DesertHex.cs" />
+    <Compile Include="Board\Hexes\DiscoveryHex.cs" />
+    <Compile Include="Board\Hexes\GoldHex.cs" />
+    <Compile Include="Board\Hexes\Hex.cs" />
+    <Compile Include="Board\Hexes\ITerritoryHex.cs" />
+    <Compile Include="Board\Hexes\JungleHex.cs" />
+    <Compile Include="Board\Hexes\LandHex.cs" />
+    <Compile Include="Board\Hexes\NoneHex.cs" />
+    <Compile Include="Board\Hexes\OreHex.cs" />
+    <Compile Include="Board\Hexes\RandomHex.cs" />
+    <Compile Include="Board\Hexes\RawResourceHex.cs" />
+    <Compile Include="Board\Hexes\ResourceHex.cs" />
+    <Compile Include="Board\Hexes\RuleHex.cs" />
+    <Compile Include="Board\Hexes\SeaHex.cs" />
+    <Compile Include="Board\Hexes\SheepHex.cs" />
+    <Compile Include="Board\Hexes\SpecialResourceHex.cs" />
+    <Compile Include="Board\Hexes\TimberHex.cs" />
+    <Compile Include="Board\Hexes\VolcanoHex.cs" />
+    <Compile Include="Board\Hexes\WheatHex.cs" />
+    <Compile Include="Board\IRouteNode.cs" />
+    <Compile Include="Board\EPortType.cs" />
+    <Compile Include="Board\EResource.cs" />
+    <Compile Include="Board\ResourceList.cs" />
+    <Compile Include="Board\ESideDirection.cs" />
+    <Compile Include="Board\Territory.cs" />
+    <Compile Include="Board\HexLocation.cs" />
+    <Compile Include="Board\HexPoint.cs" />
+    <Compile Include="Board\EHexPointType.cs" />
+    <Compile Include="Board\HexSide.cs" />
+    <Compile Include="CollectionPropertyChangedEventArgs.cs" />
+    <Compile Include="CommonCore.cs" />
+    <Compile Include="Extensions\ExtensionMethods.cs" />
+    <Compile Include="Gaming\ActionQueue.cs" />
+    <Compile Include="Gaming\ChatItem.cs" />
+    <Compile Include="Gaming\DevCards\DevelopmentCard.cs" />
+    <Compile Include="Gaming\DevCards\Monopoly.cs" />
+    <Compile Include="Gaming\DevCards\RoadBuilding.cs" />
+    <Compile Include="Gaming\DevCards\Soldier.cs" />
+    <Compile Include="Gaming\DevCards\UnknownDevelopmentCard.cs" />
+    <Compile Include="Gaming\DevCards\VictoryPoint.cs" />
+    <Compile Include="Gaming\DevCards\YearOfPlenty.cs" />
+    <Compile Include="Gaming\EChatItemType.cs" />
+    <Compile Include="Gaming\ChatLog.cs" />
+    <Compile Include="Board\ChitList.cs" />
+    <Compile Include="Gaming\GameLog.cs" />
+    <Compile Include="Gaming\GamePhase\DetermineFirstPlayerGamePhase.cs" />
+    <Compile Include="Gaming\GamePhase\EndedGamePhase.cs" />
+    <Compile Include="Gaming\GamePhase\GamePhase.cs" />
+    <Compile Include="Gaming\GamePhase\LobbyGamePhase.cs" />
+    <Compile Include="Gaming\GamePhase\PlacementGamePhase.cs" />
+    <Compile Include="Gaming\GamePhase\PlacePortGamePhase.cs" />
+    <Compile Include="Gaming\GamePhase\PlayTurnsGamePhase.cs" />
+    <Compile Include="Gaming\GamePlayer.cs" />
+    <Compile Include="Gaming\IGame.cs" />
+    <Compile Include="Gaming\NewGame.cs" />
+    <Compile Include="Gaming\Route.cs" />
+    <Compile Include="Gaming\RouteNode.cs" />
+    <Compile Include="Gaming\TradeRoute.cs" />
+    <Compile Include="Gaming\Turn.cs" />
+    <Compile Include="Gaming\GamePhase\TurnPhase\BeforeDiceRollTurnPhase.cs" />
+    <Compile Include="Gaming\GamePhase\TurnPhase\BuildTurnPhase.cs" />
+    <Compile Include="Gaming\GamePhase\TurnPhase\RollDiceTurnPhase.cs" />
+    <Compile Include="Gaming\GamePhase\TurnPhase\TradingTurnPhase.cs" />
+    <Compile Include="Gaming\GamePhase\TurnPhase\TurnPhase.cs" />
+    <Compile Include="ListArrayOfT.cs" />
+    <Compile Include="UI\Comment.cs" />
+    <Compile Include="Board\ERotationPosition.cs" />
+    <Compile Include="Board\XmlStandardDevCardStack.cs" />
+    <Compile Include="Gaming\XmlGame.cs" />
+    <Compile Include="Gaming\GameResult.cs" />
+    <Compile Include="Gaming\GameSettings.cs" />
+    <Compile Include="Board\HexList.cs" />
+    <Compile Include="UI\LobbyState.cs" />
+    <Compile Include="Gaming\PlayedGame.cs" />
+    <Compile Include="Board\PortList.cs" />
+    <Compile Include="User\XmlUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\XmlUserCredentials.cs" />
+    <Compile Include="User\UserDetails.cs" />
+    <Compile Include="Board\XmlBoard.cs" />
+    <Compile Include="Board\Chit.cs" />
+    <Compile Include="Board\Port.cs" />
+    <Compile Include="User\UserSettings.cs" />
+    <Compile Include="User\XmlColor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Actions\Action.cd" />
+    <None Include="Actions\TurnActions\Trading.sequencediagram" />
+    <None Include="App.config" />
+    <None Include="Board\ClassDiagram1.cd" />
+    <None Include="Board\Hexes\Hexes.cd" />
+    <None Include="Gaming\GamePhase\GamePhases.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Actions\TurnActions\Trading.sequencediagram.layout">
+      <DependentUpon>Trading.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

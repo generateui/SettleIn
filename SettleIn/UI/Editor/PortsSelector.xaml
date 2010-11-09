@@ -1,0 +1,94 @@
+﻿<!-- Represents the user control in where the user can 
+  create a stack of ports, which are randomly assigned 
+  by the user at game start -->
+  <UserControl x:Class="SettleIn.UI.Elements.AssignablePortsSelector"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Control.Resources>
+        <Style TargetType="{x:Type Slider}" x:Key="slStyle"
+           BasedOn="{StaticResource {x:Type Slider}}">
+      <Setter Property="Margin" Value="10,0,0,3"/>
+      <Setter Property="Height" Value="26"/>
+      <Setter Property="Width" Value="60"/>
+      <Setter Property="Minimum" Value="0"/>
+      <Setter Property="Maximum" Value="10"/>
+      <Setter Property="TickFrequency" Value="1"/>
+      <Setter Property="TickPlacement" Value="BottomRight"/>
+      <Setter Property="LargeChange" Value="1"/>
+      <Setter Property="IsSnapToTickEnabled" Value="true"/>
+      <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+    <Style TargetType="{x:Type CheckBox}" x:Key="chkStyle">
+      <Setter Property="Margin" Value="10,3,0,3"/>
+      <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+    <Style TargetType="{x:Type Image}" x:Key="imgStyle">
+      <Setter Property="Height" Value="38"/>
+      <Setter Property="Width" Value="32"/>
+      <Setter Property="Margin" Value="2,2,2,2"/>
+    </Style>
+    <Style x:Key="lblNumber" TargetType="{x:Type Label}">
+    	<Setter Property="HorizontalAlignment" Value="Center"/>
+    	<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="FontSize" Value="10"/>
+		<Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    <Style x:Key="lblNumber2" TargetType="{x:Type Label}">
+    	<Setter Property="HorizontalAlignment" Value="Center"/>
+    	<Setter Property="VerticalAlignment" Value="Center"/>
+    	<Setter Property="Margin" Value="0,0,0,0"/>
+    	<Setter Property="FontSize" Value="13.333"/>
+    	<Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+  </Control.Resources>
+
+  <StackPanel Orientation="Vertical">
+    <StackPanel Orientation="Horizontal" Margin="10">
+      <Image Source="{StaticResource IconTimberPort}" Height="48" Width="48"/>
+      <Label FontSize="16" Content="Ports" VerticalAlignment="Center" Margin="10,0,0,0"/>
+    </StackPanel>
+
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
+      <Image Source="{StaticResource IconTimberPort}" Style="{StaticResource imgStyle}" />
+      <Slider x:Name="slTimber" Style="{StaticResource slStyle}" Value="{Binding Timber}"/>
+      <Label Content="{Binding Value, ElementName=slTimber}" Style="{DynamicResource lblNumber}"/>
+      <Label Content="x  timber port" VerticalAlignment="Center"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
+      <Image Source="{StaticResource IconWheatPort}" Style="{StaticResource imgStyle}" />
+      <Slider x:Name="slWheat" Style="{StaticResource slStyle}" Value="{Binding Wheat}"/>
+      <Label Content="{Binding Value, ElementName=slWheat}" Style="{DynamicResource lblNumber}"/>
+      <Label Content="x  wheat port" VerticalAlignment="Center"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
+      <Image Source="{StaticResource IconOrePort}" Style="{StaticResource imgStyle}" />
+      <Slider x:Name="slOre" Style="{StaticResource slStyle}" Value="{Binding Ore}"/>
+      <Label Content="{Binding Value, ElementName=slOre}" Style="{DynamicResource lblNumber}"/>
+      <Label Content="x  ore port" VerticalAlignment="Center"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
+      <Image Source="{StaticResource IconClayPort}" Style="{StaticResource imgStyle}" />
+      <Slider x:Name="slClay" Style="{StaticResource slStyle}" Value="{Binding Clay}"/>
+      <Label Content="{Binding Value, ElementName=slClay}" Style="{DynamicResource lblNumber}"/>
+      <Label Content="x  clay port" VerticalAlignment="Center"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
+      <Image Source="{StaticResource IconSheepPort}" Style="{StaticResource imgStyle}" />
+      <Slider x:Name="slSheep" Style="{StaticResource slStyle}" Value="{Binding Sheep}"/>
+      <Label Content="{Binding Value, ElementName=slSheep}" Style="{DynamicResource lblNumber}"/>
+      <Label Content="x  sheep port" VerticalAlignment="Center"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0">
+      <Image Source="{StaticResource Icon31Port}" Style="{StaticResource imgStyle}" />
+      <Slider x:Name="sl31" Style="{StaticResource slStyle}" Maximum="20" Value="{Binding ThreeToOne}" Width="90.5"/>
+      <Label Content="{Binding Value, ElementName=sl31}" Style="{DynamicResource lblNumber}"/>
+      <Label Content="x  3:1 port" VerticalAlignment="Center"/>
+    </StackPanel>
+    <Path Fill="White" Stretch="Fill" Stroke="Black" Margin="11,5,5,0" Height="1" Data="M28,272 L207.02514,272"/>
+    <StackPanel Orientation="Horizontal" Margin="12,10,0,0">
+      <Label Margin="0,0,6,0" Width="42" Content="   Total:" VerticalAlignment="Center"/>
+    	<Label Content="{Binding CountAll}" Style="{DynamicResource lblNumber2}" Height="23" Width="23"/>
+      <Label Content="Port(s)" VerticalAlignment="Center"/>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

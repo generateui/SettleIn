@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.User" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.Result" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions" />
+  <xs:element name="Join">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SettleInCommon.User" minOccurs="0" name="credentials" nillable="true" type="q1:XmlUserCredentials" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JoinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.Result" minOccurs="0" name="JoinResult" nillable="true" type="q2:JoinResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Leave">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Say">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions" minOccurs="0" name="action" nillable="true" type="q3:GameAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Receive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions" minOccurs="0" name="action" nillable="true" type="q4:GameAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

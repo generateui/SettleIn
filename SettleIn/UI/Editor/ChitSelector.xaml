@@ -1,0 +1,127 @@
+﻿<!--Represents the control in where the user 
+  can specify a bag of chits. This chits bag 
+  is then used for hexes where no chit is put 
+  on, like maps such as greater catan where
+  the chit is discovered by building a ship/
+  road nearby.-->
+  <UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="SettleIn.UI.Elements.ChitlessHexSelector"
+      xmlns:sic="clr-namespace:SettleInCommon.Board;assembly=SettleInCommon"
+    Width="221" mc:Ignorable="d">
+  	<UserControl.Resources>
+        <sic:XmlChitList x:Key="_ChitList" x:Name="zChitList"/>
+  		<Style x:Key="lblNumber" TargetType="{x:Type Label}">
+  			<Setter Property="HorizontalAlignment" Value="Center"/>
+  			<Setter Property="VerticalAlignment" Value="Center"/>
+  			<Setter Property="Margin" Value="0,0"/>
+  			<Setter Property="Width" Value="20"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+  		</Style>
+  		<Style x:Key="lblX" TargetType="{x:Type Label}">
+  			<Setter Property="HorizontalAlignment" Value="Center"/>
+  			<Setter Property="VerticalAlignment" Value="Center"/>
+  			<Setter Property="Margin" Value="0,0"/>
+  			<Setter Property="Width" Value="18"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="Content" Value="x"/>
+  		</Style>
+  		<Style x:Key="StackPanelStyle1" TargetType="{x:Type StackPanel}">
+  			<Setter Property="Margin" Value="10,0,0,0"/>
+  		</Style>
+  		<Style x:Key="SliderStyle1" TargetType="{x:Type Slider}" BasedOn="{StaticResource {x:Type Slider}}">
+  			<Setter Property="Maximum" Value="6"/>
+  			<Setter Property="Minimum" Value="0"/>
+  			<Setter Property="Width" Value="40"/>
+  			<Setter Property="TickPlacement" Value="BottomRight"/>
+  			<Setter Property="TickFrequency" Value="1"/>
+  			<Setter Property="LargeChange" Value="1"/>
+  			<Setter Property="IsSnapToTickEnabled" Value="true"/>
+  		</Style>
+  	</UserControl.Resources>
+  <StackPanel Orientation="Vertical">
+    <StackPanel Orientation="Horizontal" Margin="10">
+      <Image Source="{StaticResource Icon32Chit}" Height="48" Width="48"/>
+      <Label FontSize="16" Content="Chits" VerticalAlignment="Center" Margin="10,0,0,0"/>
+    </StackPanel>
+
+  	<StackPanel Orientation="Horizontal" Style="{DynamicResource StackPanelStyle1}">
+  		<StackPanel Orientation="Horizontal" Width="100" Height="30">
+  			<Image Source="{DynamicResource Icon16Chit2}" Height="16" Width="16" VerticalAlignment="Center"/>
+  			<Label Style="{DynamicResource lblX}"/>
+  			<Label Content="{Binding Value, ElementName=sl2}" Style="{DynamicResource lblNumber}"/>
+  			<Slider x:Name="sl2" Value="{Binding N2, Mode=TwoWay}" Style="{DynamicResource SliderStyle1}"/>
+  		</StackPanel>
+  		<StackPanel Orientation="Horizontal" Width="100" Height="30" Margin="15,0,0,0">
+  			<Image Source="{StaticResource Icon16Chit12}" Height="16" Width="16" VerticalAlignment="Center"/>
+  			<Label Style="{DynamicResource lblX}" />
+  			<Label Content="{Binding Value, ElementName=sl12}" Style="{DynamicResource lblNumber}"/>
+  			<Slider x:Name="sl12" Value="{Binding N12, Mode=TwoWay}" Style="{DynamicResource SliderStyle1}"/>
+  		</StackPanel>
+  	</StackPanel>
+  	<StackPanel Orientation="Horizontal" Style="{DynamicResource StackPanelStyle1}">
+  		<StackPanel Orientation="Horizontal" Width="100" Height="30">
+  			<Image Source="{StaticResource Icon16Chit3}" Height="16" Width="16" VerticalAlignment="Center"/>
+  			<Label Style="{DynamicResource lblX}"/>
+  			<Label Content="{Binding Value, ElementName=sl3}" Style="{DynamicResource lblNumber}"/>
+  			<Slider x:Name="sl3" Value="{Binding N3, Mode=TwoWay}" Style="{DynamicResource SliderStyle1}"/>
+  		</StackPanel>
+  		<StackPanel Orientation="Horizontal" Width="100" Height="30" Margin="15,0,0,0">
+  			<Image Source="{StaticResource Icon16Chit11}" Height="16" Width="16" VerticalAlignment="Center"/>
+  			<Label Style="{DynamicResource lblX}"/>
+  			<Label Content="{Binding Value, ElementName=sl11}" Style="{DynamicResource lblNumber}"/>
+  			<Slider x:Name="sl11" Value="{Binding N11, Mode=TwoWay}" Style="{DynamicResource SliderStyle1}"/>
+  		</StackPanel>
+  	</StackPanel>
+  	<StackPanel Orientation="Horizontal" Style="{DynamicResource StackPanelStyle1}">
+  		<StackPanel Orientation="Horizontal" Width="100" Height="30">
+  			<Image Source="{StaticResource Icon16Chit4}" Height="16" Width="16" VerticalAlignment="Center"/>
+  			<Label Style="{DynamicResource lblX}"/>
+  			<Label Content="{Binding Value, ElementName=sl4}" Style="{DynamicResource lblNumber}"/>
+  			<Slider x:Name="sl4"  Value="{Binding N4, Mode=TwoWay}" Style="{DynamicResource SliderStyle1}"/>
+  		</StackPanel>
+  		<StackPanel Orientation="Horizontal" Width="100" Height="30" Margin="15,0,0,0">
+  			<Image Source="{StaticResource Icon16Chit10}" Height="16" Width="16" VerticalAlignment="Center"/>
+  			<Label Style="{DynamicResource lblX}"/>
+  			<Label Content="{Binding Value, ElementName=sl10}" Style="{DynamicResource lblNumber}"/>
+  			<Slider x:Name="sl10" Value="{Binding N10, Mode=TwoWay}" Style="{DynamicResource SliderStyle1}"/>
+  		</StackPanel>
+  	</StackPanel>
+  	<StackPanel Orientation="Horizontal" Style="{DynamicResource StackPanelStyle1}">
+  		<StackPanel Orientation="Horizontal" Width="100" Height="30">
+  			<Image Source="{StaticResource Icon16Chit5}" Height="16" Width="16" VerticalAlignment="Center"/>
+  			<Label Style="{DynamicResource lblX}"/>
+  			<Label Content="{Binding Value, ElementName=sl5}" Style="{DynamicResource lblNumber}"/>
+  			<Slider x:Name="sl5"  Value="{Binding N5, Mode=TwoWay}" Style="{DynamicResource SliderStyle1}"/>
+  		</StackPanel>
+  		<StackPanel Orientation="Horizontal" Width="100" Height="30" Margin="15,0,0,0">
+  			<Image Source="{StaticResource Icon16Chit9}" Height="16" Width="16" VerticalAlignment="Center"/>
+  			<Label Style="{DynamicResource lblX}"/>
+  			<Label Content="{Binding Value, ElementName=sl9}" Style="{DynamicResource lblNumber}"/>
+  			<Slider x:Name="sl9" Value="{Binding N9, Mode=TwoWay}" Style="{DynamicResource SliderStyle1}"/>
+  		</StackPanel>
+  	</StackPanel>
+  	<StackPanel Orientation="Horizontal" Style="{DynamicResource StackPanelStyle1}">
+  		<StackPanel Orientation="Horizontal" Width="100" Height="30">
+  			<Image Source="{StaticResource Icon16Chit6}" Height="16" Width="16" VerticalAlignment="Center"/>
+  			<Label Style="{DynamicResource lblX}"/>
+  			<Label Content="{Binding Value, ElementName=sl6}" Style="{DynamicResource lblNumber}"/>
+  			<Slider x:Name="sl6" Value="{Binding .N6, Mode=TwoWay}" Style="{DynamicResource SliderStyle1}"/>
+  		</StackPanel>
+  		<StackPanel Orientation="Horizontal" Width="100" Height="30" Margin="15,0,0,0">
+  			<Image Source="{StaticResource Icon16Chit8}" Height="16" Width="16" VerticalAlignment="Center"/>
+  			<Label Style="{DynamicResource lblX}"/>
+  			<Label Content="{Binding Value, ElementName=sl8}" Style="{DynamicResource lblNumber}"/>
+  			<Slider x:Name="sl8" Value="{Binding N8, Mode=TwoWay}" Style="{DynamicResource SliderStyle1}"/>
+  		</StackPanel>
+  	</StackPanel>
+  	<Path Fill="White" Stretch="Fill" Stroke="Black" Margin="11,5,10.94,0" Height="1" Data="M28,272 L207.02514,272" d:LayoutOverrides="Width"/>
+    <StackPanel Orientation="Horizontal" Margin="12,5,0,0">
+      <Label Content="Total: "/>
+      <Label x:Name="lblTotalChits" Content="{Binding CountAll}" Style="{DynamicResource lblNumber}"/>
+      <Label Content=" chit(s)"/>
+      <Label Content="{Binding ChitlessHexCount}" FontWeight="Bold"/>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

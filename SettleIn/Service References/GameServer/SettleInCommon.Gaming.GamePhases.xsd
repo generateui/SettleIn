@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.GamePhases" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.GamePhases" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="GamePhase">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GamePhase" nillable="true" type="tns:GamePhase" />
+  <xs:complexType name="PlacePortGamePhase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GamePhase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlacePortGamePhase" nillable="true" type="tns:PlacePortGamePhase" />
+  <xs:complexType name="LobbyGamePhase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GamePhase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LobbyGamePhase" nillable="true" type="tns:LobbyGamePhase" />
+  <xs:complexType name="EndedGamePhase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GamePhase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EndedGamePhase" nillable="true" type="tns:EndedGamePhase" />
+  <xs:complexType name="DetermineFirstPlayerGamePhase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GamePhase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DetermineFirstPlayerGamePhase" nillable="true" type="tns:DetermineFirstPlayerGamePhase" />
+  <xs:complexType name="PlacementGamePhase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GamePhase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlacementGamePhase" nillable="true" type="tns:PlacementGamePhase" />
+</xs:schema>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SettleIn.S3DBoard">
+    <Position X="5.5" Y="0.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="SettleIn.S3DBoard.HexClickedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>3DBoard.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="SettleIn.S3DBoard.BoardChangedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>3DBoard.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QjCAEAAZAPAD4KAQMQAIAAAEABIAMgRA9IMAUSgSJCA=</HashCode>
+      <FileName>3DBoard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.S3DGameBoard">
+    <Position X="8" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>3DGameBoard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleIn.S3DMapEditor">
+    <Position X="2.75" Y="2.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="SettleIn.S3DMapEditor.UserBusyWithEnum">
+        <TypeIdentifier>
+          <NewMemberFileName>3DMapEditor.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAAAAQABCAAAgAAAAAAAwBQ8AAACAAAAAIgAAAAAA=</HashCode>
+      <FileName>3DMapEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

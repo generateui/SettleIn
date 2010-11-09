@@ -1,0 +1,1178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SettleInModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="SettleInModel1StoreContainer">
+          <EntitySet Name="Achievement" EntityType="SettleInModel1.Store.Achievement" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="BadWord" EntityType="SettleInModel1.Store.BadWord" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="BadWordChat" EntityType="SettleInModel1.Store.BadWordChat" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="BannedIP" EntityType="SettleInModel1.Store.BannedIP" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Comments" EntityType="SettleInModel1.Store.Comments" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Country" EntityType="SettleInModel1.Store.Country" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Game" EntityType="SettleInModel1.Store.Game" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="GamePlayers" EntityType="SettleInModel1.Store.GamePlayers" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Map" EntityType="SettleInModel1.Store.Map" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="MapComment" EntityType="SettleInModel1.Store.MapComment" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="PlayerAchievement" EntityType="SettleInModel1.Store.PlayerAchievement" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="PlayerComment" EntityType="SettleInModel1.Store.PlayerComment" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="sysdiagrams" EntityType="SettleInModel1.Store.sysdiagrams" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SystemMessage" EntityType="SettleInModel1.Store.SystemMessage" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="User" EntityType="SettleInModel1.Store.User" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="BannedUser" Association="SettleInModel1.Store.BannedUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="BannedIP" EntitySet="BannedIP" />
+          </AssociationSet>
+          <AssociationSet Name="BannerModerator" Association="SettleInModel1.Store.BannerModerator">
+            <End Role="User" EntitySet="User" />
+            <End Role="BannedIP" EntitySet="BannedIP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BadWordChat_BadWord" Association="SettleInModel1.Store.FK_BadWordChat_BadWord">
+            <End Role="BadWord" EntitySet="BadWord" />
+            <End Role="BadWordChat" EntitySet="BadWordChat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BadWordChat_User" Association="SettleInModel1.Store.FK_BadWordChat_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BadWordChat" EntitySet="BadWordChat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_User" Association="SettleInModel1.Store.FK_Comments_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_User" Association="SettleInModel1.Store.FK_Game_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamePlayers_Game" Association="SettleInModel1.Store.FK_GamePlayers_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="GamePlayers" EntitySet="GamePlayers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamePlayers_User" Association="SettleInModel1.Store.FK_GamePlayers_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="GamePlayers" EntitySet="GamePlayers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MapComment_Comments" Association="SettleInModel1.Store.FK_MapComment_Comments">
+            <End Role="Comments" EntitySet="Comments" />
+            <End Role="MapComment" EntitySet="MapComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MapComment_Map" Association="SettleInModel1.Store.FK_MapComment_Map">
+            <End Role="Map" EntitySet="Map" />
+            <End Role="MapComment" EntitySet="MapComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerAchievement_Achievement" Association="SettleInModel1.Store.FK_PlayerAchievement_Achievement">
+            <End Role="Achievement" EntitySet="Achievement" />
+            <End Role="PlayerAchievement" EntitySet="PlayerAchievement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerAchievement_User" Association="SettleInModel1.Store.FK_PlayerAchievement_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="PlayerAchievement" EntitySet="PlayerAchievement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemMessage_Game" Association="SettleInModel1.Store.FK_SystemMessage_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="SystemMessage" EntitySet="SystemMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemMessage_User" Association="SettleInModel1.Store.FK_SystemMessage_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="SystemMessage" EntitySet="SystemMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Country" Association="SettleInModel1.Store.FK_User_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="GameHost" Association="SettleInModel1.Store.GameHost">
+            <End Role="User" EntitySet="User" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="GameMap" Association="SettleInModel1.Store.GameMap">
+            <End Role="Map" EntitySet="Map" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Achievement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Name" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="BadWord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Word" Type="nvarchar" MaxLength="20" />
+          <Property Name="BadassSkill" Type="int" />
+        </EntityType>
+        <EntityType Name="BadWordChat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="Message" Type="text" />
+          <Property Name="GameID" Type="int" />
+          <Property Name="Lobby" Type="bit" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="15" />
+          <Property Name="BadWordID" Type="int" />
+        </EntityType>
+        <EntityType Name="BannedIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModeratorID" Type="int" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Message" Type="ntext" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Datetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="HostID" Type="int" />
+          <Property Name="MapID" Type="int" />
+          <Property Name="DateTimeCreated" Type="datetime" />
+          <Property Name="LogID" Type="uniqueidentifier" />
+          <Property Name="IsSeafarers" Type="bit" />
+          <Property Name="IsCitiesKnights" Type="bit" />
+          <Property Name="IsStandard" Type="bit" />
+          <Property Name="DateTimeFinished" Type="datetime" />
+          <Property Name="IsPlaying" Type="bit" />
+          <Property Name="WinnerID" Type="int" />
+        </EntityType>
+        <EntityType Name="GamePlayers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="GameID" Type="int" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="Map">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Guid" Type="uniqueidentifier" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="MinPlayers" Type="int" />
+          <Property Name="MaxPlayers" Type="int" />
+          <Property Name="GameType" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreatorID" Type="int" />
+          <Property Name="Height" Type="int" />
+          <Property Name="Width" Type="int" />
+          <Property Name="VPToWin" Type="int" />
+          <Property Name="IsSeafarers" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="MapComment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CommentID" Type="int" />
+          <Property Name="MapID" Type="int" />
+        </EntityType>
+        <EntityType Name="PlayerAchievement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="AchievementID" Type="int" />
+          <Property Name="PlayerID" Type="int" />
+          <Property Name="DateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PlayerComment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="PlayerID" Type="int" />
+          <Property Name="CommentID" Type="int" />
+          <Property Name="Private" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="SystemMessage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="GameID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="DateTime" Type="int" />
+          <Property Name="Message" Type="ntext" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nchar" MaxLength="20" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="LastSeen" Type="datetime" />
+          <Property Name="Banned" Type="bit" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Color1" Type="nvarchar" MaxLength="6" />
+          <Property Name="Color2" Type="nvarchar" MaxLength="6" />
+        </EntityType>
+        <Association Name="BannedUser">
+          <End Role="User" Type="SettleInModel1.Store.User" Multiplicity="0..1" />
+          <End Role="BannedIP" Type="SettleInModel1.Store.BannedIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BannedIP">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BannerModerator">
+          <End Role="User" Type="SettleInModel1.Store.User" Multiplicity="0..1" />
+          <End Role="BannedIP" Type="SettleInModel1.Store.BannedIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BannedIP">
+              <PropertyRef Name="ModeratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BadWordChat_BadWord">
+          <End Role="BadWord" Type="SettleInModel1.Store.BadWord" Multiplicity="0..1" />
+          <End Role="BadWordChat" Type="SettleInModel1.Store.BadWordChat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BadWord">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BadWordChat">
+              <PropertyRef Name="BadWordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BadWordChat_User">
+          <End Role="User" Type="SettleInModel1.Store.User" Multiplicity="0..1" />
+          <End Role="BadWordChat" Type="SettleInModel1.Store.BadWordChat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BadWordChat">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_User">
+          <End Role="User" Type="SettleInModel1.Store.User" Multiplicity="0..1" />
+          <End Role="Comments" Type="SettleInModel1.Store.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Game_User">
+          <End Role="User" Type="SettleInModel1.Store.User" Multiplicity="0..1" />
+          <End Role="Game" Type="SettleInModel1.Store.Game" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Game">
+              <PropertyRef Name="WinnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GamePlayers_Game">
+          <End Role="Game" Type="SettleInModel1.Store.Game" Multiplicity="0..1" />
+          <End Role="GamePlayers" Type="SettleInModel1.Store.GamePlayers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GamePlayers">
+              <PropertyRef Name="GameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GamePlayers_User">
+          <End Role="User" Type="SettleInModel1.Store.User" Multiplicity="0..1" />
+          <End Role="GamePlayers" Type="SettleInModel1.Store.GamePlayers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GamePlayers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MapComment_Comments">
+          <End Role="Comments" Type="SettleInModel1.Store.Comments" Multiplicity="0..1" />
+          <End Role="MapComment" Type="SettleInModel1.Store.MapComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MapComment">
+              <PropertyRef Name="CommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MapComment_Map">
+          <End Role="Map" Type="SettleInModel1.Store.Map" Multiplicity="0..1" />
+          <End Role="MapComment" Type="SettleInModel1.Store.MapComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Map">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MapComment">
+              <PropertyRef Name="MapID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerAchievement_Achievement">
+          <End Role="Achievement" Type="SettleInModel1.Store.Achievement" Multiplicity="0..1" />
+          <End Role="PlayerAchievement" Type="SettleInModel1.Store.PlayerAchievement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Achievement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlayerAchievement">
+              <PropertyRef Name="AchievementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerAchievement_User">
+          <End Role="User" Type="SettleInModel1.Store.User" Multiplicity="0..1" />
+          <End Role="PlayerAchievement" Type="SettleInModel1.Store.PlayerAchievement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlayerAchievement">
+              <PropertyRef Name="PlayerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemMessage_Game">
+          <End Role="Game" Type="SettleInModel1.Store.Game" Multiplicity="0..1" />
+          <End Role="SystemMessage" Type="SettleInModel1.Store.SystemMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SystemMessage">
+              <PropertyRef Name="GameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemMessage_User">
+          <End Role="User" Type="SettleInModel1.Store.User" Multiplicity="0..1" />
+          <End Role="SystemMessage" Type="SettleInModel1.Store.SystemMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SystemMessage">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Country">
+          <End Role="Country" Type="SettleInModel1.Store.Country" Multiplicity="0..1" />
+          <End Role="User" Type="SettleInModel1.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GameHost">
+          <End Role="User" Type="SettleInModel1.Store.User" Multiplicity="1" />
+          <End Role="Game" Type="SettleInModel1.Store.Game" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Game">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GameMap">
+          <End Role="Map" Type="SettleInModel1.Store.Map" Multiplicity="0..1" />
+          <End Role="Game" Type="SettleInModel1.Store.Game" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Map">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Game">
+              <PropertyRef Name="MapID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SettleInModel1" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="SIEntities">
+          <EntitySet Name="BadWord" EntityType="SettleInModel1.BadWord" />
+          <EntitySet Name="BadWordChat" EntityType="SettleInModel1.BadWordChat" />
+          <EntitySet Name="BannedIP" EntityType="SettleInModel1.BannedIP" />
+          <EntitySet Name="Comments" EntityType="SettleInModel1.Comments" />
+          <EntitySet Name="Country" EntityType="SettleInModel1.Country" />
+          <EntitySet Name="Game" EntityType="SettleInModel1.Game" />
+          <EntitySet Name="GamePlayers" EntityType="SettleInModel1.GamePlayers" />
+          <EntitySet Name="Map" EntityType="SettleInModel1.Map" />
+          <EntitySet Name="MapComment" EntityType="SettleInModel1.MapComment" />
+          <EntitySet Name="PlayerComment" EntityType="SettleInModel1.PlayerComment" />
+          <EntitySet Name="sysdiagrams" EntityType="SettleInModel1.sysdiagrams" />
+          <EntitySet Name="User" EntityType="SettleInModel1.User" />
+          <AssociationSet Name="FK_BadWordChat_BadWord" Association="SettleInModel1.FK_BadWordChat_BadWord">
+            <End Role="BadWord" EntitySet="BadWord" />
+            <End Role="BadWordChat" EntitySet="BadWordChat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BadWordChat_User" Association="SettleInModel1.FK_BadWordChat_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BadWordChat" EntitySet="BadWordChat" />
+          </AssociationSet>
+          <AssociationSet Name="BannedUser" Association="SettleInModel1.BannedUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="BannedIP" EntitySet="BannedIP" />
+          </AssociationSet>
+          <AssociationSet Name="BannerModerator" Association="SettleInModel1.BannerModerator">
+            <End Role="User" EntitySet="User" />
+            <End Role="BannedIP" EntitySet="BannedIP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_User" Association="SettleInModel1.FK_Comments_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MapComment_Comments" Association="SettleInModel1.FK_MapComment_Comments">
+            <End Role="Comments" EntitySet="Comments" />
+            <End Role="MapComment" EntitySet="MapComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Country" Association="SettleInModel1.FK_User_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_User" Association="SettleInModel1.FK_Game_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamePlayers_Game" Association="SettleInModel1.FK_GamePlayers_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="GamePlayers" EntitySet="GamePlayers" />
+          </AssociationSet>
+          <AssociationSet Name="GameHost" Association="SettleInModel1.GameHost">
+            <End Role="User" EntitySet="User" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="GameMap" Association="SettleInModel1.GameMap">
+            <End Role="Map" EntitySet="Map" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamePlayers_User" Association="SettleInModel1.FK_GamePlayers_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="GamePlayers" EntitySet="GamePlayers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MapComment_Map" Association="SettleInModel1.FK_MapComment_Map">
+            <End Role="Map" EntitySet="Map" />
+            <End Role="MapComment" EntitySet="MapComment" />
+          </AssociationSet>
+          <EntitySet Name="Achievement" EntityType="SettleInModel1.Achievement" />
+          <EntitySet Name="PlayerAchievement" EntityType="SettleInModel1.PlayerAchievement" />
+          <EntitySet Name="SystemMessage" EntityType="SettleInModel1.SystemMessage" />
+          <AssociationSet Name="FK_PlayerAchievement_Achievement" Association="SettleInModel1.FK_PlayerAchievement_Achievement">
+            <End Role="Achievement" EntitySet="Achievement" />
+            <End Role="PlayerAchievement" EntitySet="PlayerAchievement" /></AssociationSet>
+          <AssociationSet Name="FK_SystemMessage_Game" Association="SettleInModel1.FK_SystemMessage_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="SystemMessage" EntitySet="SystemMessage" /></AssociationSet>
+          <AssociationSet Name="FK_PlayerAchievement_User" Association="SettleInModel1.FK_PlayerAchievement_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="PlayerAchievement" EntitySet="PlayerAchievement" /></AssociationSet>
+          <AssociationSet Name="FK_SystemMessage_User" Association="SettleInModel1.FK_SystemMessage_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="SystemMessage" EntitySet="SystemMessage" /></AssociationSet></EntityContainer>
+        <EntityType Name="BadWord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Word" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="BadassSkill" Type="Int32" />
+          <NavigationProperty Name="BadWordChat" Relationship="SettleInModel1.FK_BadWordChat_BadWord" FromRole="BadWord" ToRole="BadWordChat" />
+        </EntityType>
+        <EntityType Name="BadWordChat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" />
+          <Property Name="Message" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="GameID" Type="Int32" />
+          <Property Name="Lobby" Type="Boolean" />
+          <Property Name="IPAddress" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BadWord" Relationship="SettleInModel1.FK_BadWordChat_BadWord" FromRole="BadWordChat" ToRole="BadWord" />
+          <NavigationProperty Name="User" Relationship="SettleInModel1.FK_BadWordChat_User" FromRole="BadWordChat" ToRole="User" />
+        </EntityType>
+        <EntityType Name="BannedIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Reason" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="User" Relationship="SettleInModel1.BannedUser" FromRole="BannedIP" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="SettleInModel1.BannerModerator" FromRole="BannedIP" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Datetime" Type="DateTime" />
+          <NavigationProperty Name="User" Relationship="SettleInModel1.FK_Comments_User" FromRole="Comments" ToRole="User" />
+          <NavigationProperty Name="MapComment" Relationship="SettleInModel1.FK_MapComment_Comments" FromRole="Comments" ToRole="MapComment" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="User" Relationship="SettleInModel1.FK_User_Country" FromRole="Country" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="HostID" Type="Int32" />
+          <Property Name="DateTimeCreated" Type="DateTime" />
+          <Property Name="LogID" Type="Guid" />
+          <Property Name="IsSeafarers" Type="Boolean" />
+          <Property Name="IsCitiesKnights" Type="Boolean" />
+          <Property Name="IsStandard" Type="Boolean" />
+          <Property Name="DateTimeFinished" Type="DateTime" />
+          <Property Name="IsPlaying" Type="Boolean" />
+          <NavigationProperty Name="User" Relationship="SettleInModel1.FK_Game_User" FromRole="Game" ToRole="User" />
+          <NavigationProperty Name="GamePlayers" Relationship="SettleInModel1.FK_GamePlayers_Game" FromRole="Game" ToRole="GamePlayers" />
+          <NavigationProperty Name="User1" Relationship="SettleInModel1.GameHost" FromRole="Game" ToRole="User" />
+          <NavigationProperty Name="Map" Relationship="SettleInModel1.GameMap" FromRole="Game" ToRole="Map" />
+          <NavigationProperty Name="SystemMessage" Relationship="SettleInModel1.FK_SystemMessage_Game" FromRole="Game" ToRole="SystemMessage" /></EntityType>
+        <EntityType Name="GamePlayers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Game" Relationship="SettleInModel1.FK_GamePlayers_Game" FromRole="GamePlayers" ToRole="Game" />
+          <NavigationProperty Name="User" Relationship="SettleInModel1.FK_GamePlayers_User" FromRole="GamePlayers" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Map">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Guid" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MinPlayers" Type="Int32" />
+          <Property Name="MaxPlayers" Type="Int32" />
+          <Property Name="GameType" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="CreatorID" Type="Int32" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="Width" Type="Int32" />
+          <Property Name="VPToWin" Type="Int32" />
+          <Property Name="IsSeafarers" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Game" Relationship="SettleInModel1.GameMap" FromRole="Map" ToRole="Game" />
+          <NavigationProperty Name="MapComment" Relationship="SettleInModel1.FK_MapComment_Map" FromRole="Map" ToRole="MapComment" />
+        </EntityType>
+        <EntityType Name="MapComment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="SettleInModel1.FK_MapComment_Comments" FromRole="MapComment" ToRole="Comments" />
+          <NavigationProperty Name="Map" Relationship="SettleInModel1.FK_MapComment_Map" FromRole="MapComment" ToRole="Map" />
+        </EntityType>
+        <EntityType Name="PlayerComment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PlayerID" Type="Int32" />
+          <Property Name="CommentID" Type="Int32" />
+          <Property Name="Private" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LastSeen" Type="DateTime" />
+          <Property Name="Banned" Type="Boolean" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Color1" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="Color2" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BadWordChat" Relationship="SettleInModel1.FK_BadWordChat_User" FromRole="User" ToRole="BadWordChat" />
+          <NavigationProperty Name="BannedIP" Relationship="SettleInModel1.BannedUser" FromRole="User" ToRole="BannedIP" />
+          <NavigationProperty Name="BannedIP1" Relationship="SettleInModel1.BannerModerator" FromRole="User" ToRole="BannedIP" />
+          <NavigationProperty Name="Comments" Relationship="SettleInModel1.FK_Comments_User" FromRole="User" ToRole="Comments" />
+          <NavigationProperty Name="Country" Relationship="SettleInModel1.FK_User_Country" FromRole="User" ToRole="Country" />
+          <NavigationProperty Name="Game" Relationship="SettleInModel1.FK_Game_User" FromRole="User" ToRole="Game" />
+          <NavigationProperty Name="Game1" Relationship="SettleInModel1.GameHost" FromRole="User" ToRole="Game" />
+          <NavigationProperty Name="GamePlayers" Relationship="SettleInModel1.FK_GamePlayers_User" FromRole="User" ToRole="GamePlayers" />
+          <NavigationProperty Name="PlayerAchievement" Relationship="SettleInModel1.FK_PlayerAchievement_User" FromRole="User" ToRole="PlayerAchievement" />
+          <NavigationProperty Name="SystemMessage" Relationship="SettleInModel1.FK_SystemMessage_User" FromRole="User" ToRole="SystemMessage" /></EntityType>
+        <Association Name="FK_BadWordChat_BadWord">
+          <End Role="BadWord" Type="SettleInModel1.BadWord" Multiplicity="0..1" />
+          <End Role="BadWordChat" Type="SettleInModel1.BadWordChat" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_BadWordChat_User">
+          <End Role="User" Type="SettleInModel1.User" Multiplicity="0..1" />
+          <End Role="BadWordChat" Type="SettleInModel1.BadWordChat" Multiplicity="*" />
+        </Association>
+        <Association Name="BannedUser">
+          <End Role="User" Type="SettleInModel1.User" Multiplicity="0..1" />
+          <End Role="BannedIP" Type="SettleInModel1.BannedIP" Multiplicity="*" />
+        </Association>
+        <Association Name="BannerModerator">
+          <End Role="User" Type="SettleInModel1.User" Multiplicity="0..1" />
+          <End Role="BannedIP" Type="SettleInModel1.BannedIP" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Comments_User">
+          <End Role="User" Type="SettleInModel1.User" Multiplicity="0..1" />
+          <End Role="Comments" Type="SettleInModel1.Comments" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_MapComment_Comments">
+          <End Role="Comments" Type="SettleInModel1.Comments" Multiplicity="0..1" />
+          <End Role="MapComment" Type="SettleInModel1.MapComment" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_User_Country">
+          <End Role="Country" Type="SettleInModel1.Country" Multiplicity="0..1" />
+          <End Role="User" Type="SettleInModel1.User" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Game_User">
+          <End Role="User" Type="SettleInModel1.User" Multiplicity="0..1" />
+          <End Role="Game" Type="SettleInModel1.Game" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_GamePlayers_Game">
+          <End Role="Game" Type="SettleInModel1.Game" Multiplicity="0..1" />
+          <End Role="GamePlayers" Type="SettleInModel1.GamePlayers" Multiplicity="*" />
+        </Association>
+        <Association Name="GameHost">
+          <End Role="User" Type="SettleInModel1.User" Multiplicity="1" />
+          <End Role="Game" Type="SettleInModel1.Game" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Game">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GameMap">
+          <End Role="Map" Type="SettleInModel1.Map" Multiplicity="0..1" />
+          <End Role="Game" Type="SettleInModel1.Game" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_GamePlayers_User">
+          <End Role="User" Type="SettleInModel1.User" Multiplicity="0..1" />
+          <End Role="GamePlayers" Type="SettleInModel1.GamePlayers" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_MapComment_Map">
+          <End Role="Map" Type="SettleInModel1.Map" Multiplicity="0..1" />
+          <End Role="MapComment" Type="SettleInModel1.MapComment" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Achievement">
+          <Key>
+            <PropertyRef Name="ID" /></Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <Property Name="Name" Type="String" Nullable="true" />
+          <NavigationProperty Name="PlayerAchievement" Relationship="SettleInModel1.FK_PlayerAchievement_Achievement" FromRole="Achievement" ToRole="PlayerAchievement" /></EntityType>
+        <EntityType Name="PlayerAchievement">
+          <Key>
+            <PropertyRef Name="ID" /></Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="Achievement" Relationship="SettleInModel1.FK_PlayerAchievement_Achievement" FromRole="PlayerAchievement" ToRole="Achievement" />
+          <NavigationProperty Name="User" Relationship="SettleInModel1.FK_PlayerAchievement_User" FromRole="PlayerAchievement" ToRole="User" /></EntityType>
+        <EntityType Name="SystemMessage">
+          <Key>
+            <PropertyRef Name="ID" /></Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="Int32" Nullable="true" />
+          <Property Name="Message" Type="String" Nullable="true" />
+          <NavigationProperty Name="Game" Relationship="SettleInModel1.FK_SystemMessage_Game" FromRole="SystemMessage" ToRole="Game" />
+          <NavigationProperty Name="User" Relationship="SettleInModel1.FK_SystemMessage_User" FromRole="SystemMessage" ToRole="User" /></EntityType>
+        <Association Name="FK_PlayerAchievement_Achievement">
+          <End Type="SettleInModel1.Achievement" Role="Achievement" Multiplicity="0..1" />
+          <End Type="SettleInModel1.PlayerAchievement" Role="PlayerAchievement" Multiplicity="*" /></Association>
+        <Association Name="FK_SystemMessage_Game">
+          <End Type="SettleInModel1.Game" Role="Game" Multiplicity="0..1" />
+          <End Type="SettleInModel1.SystemMessage" Role="SystemMessage" Multiplicity="*" /></Association>
+        <Association Name="FK_PlayerAchievement_User">
+          <End Type="SettleInModel1.User" Role="User" Multiplicity="0..1" />
+          <End Type="SettleInModel1.PlayerAchievement" Role="PlayerAchievement" Multiplicity="*" /></Association>
+        <Association Name="FK_SystemMessage_User">
+          <End Type="SettleInModel1.User" Role="User" Multiplicity="0..1" />
+          <End Type="SettleInModel1.SystemMessage" Role="SystemMessage" Multiplicity="*" /></Association></Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="SettleInModel1StoreContainer" CdmEntityContainer="SIEntities">
+          <EntitySetMapping Name="BadWord">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.BadWord)">
+              <MappingFragment StoreEntitySet="BadWord">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Word" ColumnName="Word" />
+                <ScalarProperty Name="BadassSkill" ColumnName="BadassSkill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BadWordChat">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.BadWordChat)">
+              <MappingFragment StoreEntitySet="BadWordChat">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="GameID" ColumnName="GameID" />
+                <ScalarProperty Name="Lobby" ColumnName="Lobby" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BannedIP">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.BannedIP)">
+              <MappingFragment StoreEntitySet="BannedIP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.Comments)">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.Country)">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Game">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.Game)">
+              <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="HostID" ColumnName="HostID" />
+                <ScalarProperty Name="DateTimeCreated" ColumnName="DateTimeCreated" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="IsSeafarers" ColumnName="IsSeafarers" />
+                <ScalarProperty Name="IsCitiesKnights" ColumnName="IsCitiesKnights" />
+                <ScalarProperty Name="IsStandard" ColumnName="IsStandard" />
+                <ScalarProperty Name="DateTimeFinished" ColumnName="DateTimeFinished" />
+                <ScalarProperty Name="IsPlaying" ColumnName="IsPlaying" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GamePlayers">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.GamePlayers)">
+              <MappingFragment StoreEntitySet="GamePlayers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Map">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.Map)">
+              <MappingFragment StoreEntitySet="Map">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MinPlayers" ColumnName="MinPlayers" />
+                <ScalarProperty Name="MaxPlayers" ColumnName="MaxPlayers" />
+                <ScalarProperty Name="GameType" ColumnName="GameType" />
+                <ScalarProperty Name="CreatorID" ColumnName="CreatorID" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="VPToWin" ColumnName="VPToWin" />
+                <ScalarProperty Name="IsSeafarers" ColumnName="IsSeafarers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MapComment">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.MapComment)">
+              <MappingFragment StoreEntitySet="MapComment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayerComment">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.PlayerComment)">
+              <MappingFragment StoreEntitySet="PlayerComment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+                <ScalarProperty Name="Private" ColumnName="Private" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.sysdiagrams)">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.User)">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="LastSeen" ColumnName="LastSeen" />
+                <ScalarProperty Name="Banned" ColumnName="Banned" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Color1" ColumnName="Color1" />
+                <ScalarProperty Name="Color2" ColumnName="Color2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_BadWordChat_BadWord" TypeName="SettleInModel1.FK_BadWordChat_BadWord" StoreEntitySet="BadWordChat">
+            <EndProperty Name="BadWord">
+              <ScalarProperty Name="ID" ColumnName="BadWordID" />
+            </EndProperty>
+            <EndProperty Name="BadWordChat">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="BadWordID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_BadWordChat_User" TypeName="SettleInModel1.FK_BadWordChat_User" StoreEntitySet="BadWordChat">
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="UserID" />
+            </EndProperty>
+            <EndProperty Name="BadWordChat">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="UserID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="BannedUser" TypeName="SettleInModel1.BannedUser" StoreEntitySet="BannedIP">
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="UserID" />
+            </EndProperty>
+            <EndProperty Name="BannedIP">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="UserID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="BannerModerator" TypeName="SettleInModel1.BannerModerator" StoreEntitySet="BannedIP">
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="ModeratorID" />
+            </EndProperty>
+            <EndProperty Name="BannedIP">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="ModeratorID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Comments_User" TypeName="SettleInModel1.FK_Comments_User" StoreEntitySet="Comments">
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="UserID" />
+            </EndProperty>
+            <EndProperty Name="Comments">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="UserID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_MapComment_Comments" TypeName="SettleInModel1.FK_MapComment_Comments" StoreEntitySet="MapComment">
+            <EndProperty Name="Comments">
+              <ScalarProperty Name="ID" ColumnName="CommentID" />
+            </EndProperty>
+            <EndProperty Name="MapComment">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="CommentID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_User_Country" TypeName="SettleInModel1.FK_User_Country" StoreEntitySet="User">
+            <EndProperty Name="Country">
+              <ScalarProperty Name="ID" ColumnName="CountryID" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="CountryID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Game_User" TypeName="SettleInModel1.FK_Game_User" StoreEntitySet="Game">
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="WinnerID" />
+            </EndProperty>
+            <EndProperty Name="Game">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="WinnerID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_GamePlayers_Game" TypeName="SettleInModel1.FK_GamePlayers_Game" StoreEntitySet="GamePlayers">
+            <EndProperty Name="Game">
+              <ScalarProperty Name="ID" ColumnName="GameID" />
+            </EndProperty>
+            <EndProperty Name="GamePlayers">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="GameID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="GameHost" TypeName="SettleInModel1.GameHost" StoreEntitySet="Game">
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <EndProperty Name="Game">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="GameMap" TypeName="SettleInModel1.GameMap" StoreEntitySet="Game">
+            <EndProperty Name="Map">
+              <ScalarProperty Name="ID" ColumnName="MapID" />
+            </EndProperty>
+            <EndProperty Name="Game">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="MapID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_GamePlayers_User" TypeName="SettleInModel1.FK_GamePlayers_User" StoreEntitySet="GamePlayers">
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="UserID" />
+            </EndProperty>
+            <EndProperty Name="GamePlayers">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="UserID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_MapComment_Map" TypeName="SettleInModel1.FK_MapComment_Map" StoreEntitySet="MapComment">
+            <EndProperty Name="Map">
+              <ScalarProperty Name="ID" ColumnName="MapID" />
+            </EndProperty>
+            <EndProperty Name="MapComment">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="MapID" IsNull="false" />
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Achievement">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.Achievement)">
+              <MappingFragment StoreEntitySet="Achievement">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PlayerAchievement">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.PlayerAchievement)">
+              <MappingFragment StoreEntitySet="PlayerAchievement">
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SystemMessage">
+            <EntityTypeMapping TypeName="IsTypeOf(SettleInModel1.SystemMessage)">
+              <MappingFragment StoreEntitySet="SystemMessage">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_PlayerAchievement_Achievement" TypeName="SettleInModel1.FK_PlayerAchievement_Achievement" StoreEntitySet="PlayerAchievement">
+            <EndProperty Name="PlayerAchievement">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="Achievement">
+              <ScalarProperty Name="ID" ColumnName="AchievementID" /></EndProperty>
+            <Condition ColumnName="AchievementID" IsNull="false" /></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_SystemMessage_Game" TypeName="SettleInModel1.FK_SystemMessage_Game" StoreEntitySet="SystemMessage">
+            <EndProperty Name="SystemMessage">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="Game">
+              <ScalarProperty Name="ID" ColumnName="GameID" /></EndProperty>
+            <Condition ColumnName="GameID" IsNull="false" /></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_PlayerAchievement_User" TypeName="SettleInModel1.FK_PlayerAchievement_User" StoreEntitySet="PlayerAchievement">
+            <EndProperty Name="PlayerAchievement">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="PlayerID" /></EndProperty>
+            <Condition ColumnName="PlayerID" IsNull="false" /></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_SystemMessage_User" TypeName="SettleInModel1.FK_SystemMessage_User" StoreEntitySet="SystemMessage">
+            <EndProperty Name="SystemMessage">
+              <ScalarProperty Name="ID" ColumnName="ID" /></EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="UserID" /></EndProperty>
+            <Condition ColumnName="UserID" IsNull="false" /></AssociationSetMapping></EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Model2" ZoomLevel="106" xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+        <EntityTypeShape EntityType="SettleInModel1.BadWord" Width="1.5" PointX="7.5" PointY="1.625" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SettleInModel1.BadWordChat" Width="1.5" PointX="7.875" PointY="4.25" Height="2.2496956380208335" IsExpanded="true" />
+        <EntityTypeShape EntityType="SettleInModel1.BannedIP" Width="1.5" PointX="5.25" PointY="5.625" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SettleInModel1.Comments" Width="1.5" PointX="5.25" PointY="7.625" Height="1.7566536458333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="SettleInModel1.Country" Width="1.5" PointX="0.5" PointY="6.625" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SettleInModel1.Game" Width="1.5" PointX="4.875" PointY="0.5" Height="2.5783902994791665" IsExpanded="true" />
+        <EntityTypeShape EntityType="SettleInModel1.GamePlayers" Width="1.5" PointX="3.125" PointY="3.5" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SettleInModel1.Map" Width="1.5" PointX="2.375" PointY="10.375" Height="3.0714322916666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="SettleInModel1.MapComment" Width="1.5" PointX="7.5" PointY="7.875" Height="1.4279589843750005" IsExpanded="true" />
+        <EntityTypeShape EntityType="SettleInModel1.PlayerComment" Width="1.75" PointX="0.5" PointY="1.125" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="SettleInModel1.sysdiagrams" Width="1.5" PointX="0.625" PointY="3.5" Height="1.9802864583333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="SettleInModel1.User" Width="1.5" PointX="3" PointY="5.5" Height="3.7288216145833308" IsExpanded="true" />
+        <AssociationConnector Association="SettleInModel1.FK_BadWordChat_BadWord" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.4375" PointY="3.2173063151041674" />
+          <ConnectorPoint PointX="8.4375" PointY="4.25" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.FK_BadWordChat_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.53125" />
+          <ConnectorPoint PointX="7.875" PointY="5.53125" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.BannedUser" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.4211531575520837" />
+          <ConnectorPoint PointX="5.25" PointY="6.4211531575520837" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.BannerModerator" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.9605765787760419" />
+          <ConnectorPoint PointX="5.25" PointY="5.9605765787760419" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.FK_Comments_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.71593693318685" />
+          <ConnectorPoint PointX="4.7916691666666669" PointY="8.71593693318685" />
+          <ConnectorPoint PointX="4.9583358333333329" PointY="8.71593693318685" />
+          <ConnectorPoint PointX="5.25" PointY="8.71593693318685" /></AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.FK_MapComment_Comments" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="8.5889794921875" />
+          <ConnectorPoint PointX="7.5" PointY="8.5889794921875" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.FK_User_Country" ManuallyRouted="false">
+          <ConnectorPoint PointX="2" PointY="7.422841796875" />
+          <ConnectorPoint PointX="2.5729166666666665" PointY="7.4228417968749989" />
+          <ConnectorPoint PointX="2.7395833333333335" PointY="7.422841796875" />
+          <ConnectorPoint PointX="3" PointY="7.422841796875" /></AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.FK_Game_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.03125" PointY="5.5" />
+          <ConnectorPoint PointX="3.03125" PointY="1.96875" />
+          <ConnectorPoint PointX="4.875" PointY="1.96875" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.FK_GamePlayers_Game" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.875" PointY="3.951650390625" />
+          <ConnectorPoint PointX="4.625" PointY="3.951650390625" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.GameHost" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.046875" PointY="5.5" />
+          <ConnectorPoint PointX="3.046875" PointY="2.7343775" />
+          <ConnectorPoint PointX="4.875" PointY="2.7343775" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.GameMap" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.65625" PointY="10.375" />
+          <ConnectorPoint PointX="2.65625" PointY="1.2031225" />
+          <ConnectorPoint PointX="4.875" PointY="1.2031225" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.FK_GamePlayers_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.8125" PointY="5.5" />
+          <ConnectorPoint PointX="3.8125" PointY="5.09568359375" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.FK_MapComment_Map" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.875" PointY="13.372091471354167" />
+          <ConnectorPoint PointX="8.53125" PointY="13.372091471354167" />
+          <ConnectorPoint PointX="8.53125" PointY="9.47068359375" />
+          </AssociationConnector>
+        <EntityTypeShape EntityType="SettleInModel1.Achievement" Width="1.5" PointX="6.5" PointY="11" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="SettleInModel1.PlayerAchievement" Width="1.5" PointX="4.375" PointY="11" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SettleInModel1.SystemMessage" Width="1.75" PointX="10.25" PointY="4.25" Height="1.7566536458333335" />
+        <AssociationConnector Association="SettleInModel1.FK_PlayerAchievement_Achievement">
+          <ConnectorPoint PointX="6.5" PointY="11.893992513020834" />
+          <ConnectorPoint PointX="5.875" PointY="11.893992513020834" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.FK_SystemMessage_Game">
+          <ConnectorPoint PointX="6.375" PointY="1.03125" />
+          <ConnectorPoint PointX="11.125" PointY="1.03125" />
+          <ConnectorPoint PointX="11.125" PointY="4.25" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.FK_PlayerAchievement_User">
+          <ConnectorPoint PointX="4.5" PointY="9.9988627408854178" />
+          <ConnectorPoint PointX="4.8750025" PointY="9.9988627408854178" />
+          <ConnectorPoint PointX="4.8750025" PointY="11" />
+          </AssociationConnector>
+        <AssociationConnector Association="SettleInModel1.FK_SystemMessage_User">
+          <ConnectorPoint PointX="4.5" PointY="9.7627139713541666" />
+          <ConnectorPoint PointX="8.4479166666666661" PointY="9.7627139713541666" />
+          <ConnectorPoint PointX="8.6145833333333339" PointY="9.7627139713541666" />
+          <ConnectorPoint PointX="11.125" PointY="9.7627139713541666" />
+          <ConnectorPoint PointX="11.125" PointY="6.2302864583333326" /></AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

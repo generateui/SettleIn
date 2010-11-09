@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.Result" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.Result" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.User" />
+  <xs:complexType name="JoinResult">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions" minOccurs="0" name="FailMessage" nillable="true" type="q1:MessageFromServerAction" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SettleInCommon" minOccurs="0" name="LobbyState" nillable="true" type="q2:XmlLobbyState" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SettleInCommon.User" minOccurs="0" name="User" nillable="true" type="q3:XmlUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JoinResult" nillable="true" type="tns:JoinResult" />
+</xs:schema>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SettleInCommon" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SettleInCommon" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.User" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming" />
+  <xs:complexType name="XmlUserDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AverageTurnTime" type="ser:duration" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SettleInCommon.User" minOccurs="0" name="Buddies" nillable="true" type="q1:ArrayOfXmlUser" />
+      <xs:element minOccurs="0" name="FavoriteMapID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="PlayedLadderGames" type="xs:int" />
+      <xs:element minOccurs="0" name="Rating" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalDrops" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalQuits" type="xs:int" />
+      <xs:element minOccurs="0" name="WonLadderGames" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlUserDetails" nillable="true" type="tns:XmlUserDetails" />
+  <xs:complexType name="XmlLobbyState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConnectedUser" nillable="true" type="tns:XmlUserDetails" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming" minOccurs="0" name="Games" nillable="true" type="q2:ArrayOfXmlGame" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming" minOccurs="0" name="LobbyChat" nillable="true" type="q3:XmlChatLog" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SettleInCommon.User" minOccurs="0" name="Users" nillable="true" type="q4:ArrayOfXmlUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlLobbyState" nillable="true" type="tns:XmlLobbyState" />
+  <xs:simpleType name="EChatItemType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="System" />
+      <xs:enumeration value="Server" />
+      <xs:enumeration value="HumanChat" />
+      <xs:enumeration value="Lobby" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EChatItemType" nillable="true" type="tns:EChatItemType" />
+</xs:schema>

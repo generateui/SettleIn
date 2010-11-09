@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataTemplate x:Key="soldierTemplate">
+        <StackPanel Orientation="Horizontal" Height="auto" Width="auto" Margin="3,3,3,3">
+            <Label Content="{Binding Name}" Height="23" Width="100" />
+            <Image Source="{StaticResource IconRobber48}" Height="48" Width="48"/>
+        </StackPanel>
+    </DataTemplate>
+
+</ResourceDictionary>

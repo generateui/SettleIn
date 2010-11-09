@@ -1,0 +1,1236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5699E717-766B-4788-88E1-442AFA64E30B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SettleIn</RootNamespace>
+    <AssemblyName>SettleIn</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <StartupObject>SettleIn.App</StartupObject>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <Utf8Output>true</Utf8Output>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug2|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug2\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Windows.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.Windows.Design.Extensibility, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.Windows.Design.Interaction, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="PresentationFramework.Luna, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Page Include="Resources\UIStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Resources\BureauBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\DataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Validation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Editor\TerritorySettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Elements\Dices.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Elements\ucResourceList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\BankTrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\DevelopmentCardsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\ExtendedResourcePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\LooseCards.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\PickGoldAll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\PortsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\RulesExplanation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\ShowResourcesGained.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\SmallResourcePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\StealCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\UIChitList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Lobby\UserDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\AllUsersBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Editor\PortsSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Editor\BoardProperties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Editor\BoardRules.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Editor\ChitSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Elements\CreateAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Editor\DevCardSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Elements\Dice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\GameMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Elements\GameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Elements\SceneMain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Elements\Spinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\AllPlayerStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Game\Bank.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Game\BuildPallette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Game\ChooseDevcard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\PickGoldResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Game\ResourcePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Game\Trade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Editor\HexSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Lobby\Lobby.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Editor\MapCreatorMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Lobby\NewGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Game\PlayerStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Editor\TerritoryMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Images.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Models.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Editor\AddIsland.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Elements\BoardRules.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\TextStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Elements\ucLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Intro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Editor\NewBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Resources\Textures.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Editor\ucNewBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Elements\PlayerDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\WelcomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Engine\Boards\Point2D.cs" />
+    <Compile Include="Engine\Network\HotseatServer.cs" />
+    <Compile Include="Engine\Pieces\HexVisual.cs" />
+    <Compile Include="Engine\Pieces\IMoveable.cs" />
+    <Compile Include="Engine\Pieces\Pirate.cs" />
+    <Compile Include="Engine\Pieces\PlayerPieces\PlayerPiece.cs" />
+    <Compile Include="Engine\Rules\AllHexesMustBelongToTerritory.cs" />
+    <Compile Include="Engine\Rules\MaxBonusIslandVPEqualOrLessThenTerritoriesCount.cs" />
+    <Compile Include="Engine\Rules\MaxOneMainlandRule.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\AssignResourceBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\AssignTerritoryBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\BehaviourResult.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\BuildCityBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\BuildShipBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\BuildTownBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\ChooseShipBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\MoveShipBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\PickHexBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\BuildRoadBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\ChooseChitBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\PlaceRobberBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\ShowPointsBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\ShowResourcesGainedBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\ShowTerritoryBehaviour.cs" />
+    <Compile Include="Engine\Pieces\ControlPieces\HexSideVisual.cs" />
+    <Compile Include="Engine\Pieces\ControlPieces\RoutePlaces.cs" />
+    <Compile Include="Engine\Pieces\BonusVP.cs" />
+    <Compile Include="Engine\Pieces\PlayerPieces\Ship.cs" />
+    <Compile Include="Engine\Rules\PortsOnLand.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\SwapChitToBehaviour.cs" />
+    <Compile Include="Engine\Rules\TerritoryMustHaveNameRule.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\TestBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\SettleInViewPort3D.cs" />
+    <Compile Include="Engine\ViewPort\MapEditorViewPort3D.cs" />
+    <Compile Include="Engine\ViewPort\BoardViewerViewPort3D.cs" />
+    <Compile Include="Engine\Boards\BoardVisual.cs" />
+    <Compile Include="Engine\Pieces\ControlPieces\BuildPlaces.cs" />
+    <Compile Include="Engine\Pieces\ControlPieces\BuildPointVisual.cs" />
+    <Compile Include="Engine\EventArgs\Visual3DClickedEventArgs.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\IIViewPortBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\SetPortBehaviour.cs" />
+    <Compile Include="Engine\ViewPort\Behaviour\SetPortCornerBehaviour.cs" />
+    <Compile Include="Engine\Network\Server.cs" />
+    <Compile Include="Engine\Pieces\Card.cs" />
+    <Compile Include="Engine\Pieces\ChitVisual.cs" />
+    <Compile Include="Engine\EventArgs\HexChangedEventArgs.cs" />
+    <Compile Include="Engine\Pieces\PlayerPieces\City.cs" />
+    <Compile Include="Engine\Pieces\ControlPieces\ControlPiece.cs" />
+    <Compile Include="Engine\Pieces\Piece.cs" />
+    <Compile Include="Engine\Pieces\Port.cs" />
+    <Compile Include="Engine\Pieces\PlayerPieces\Road.cs" />
+    <Compile Include="Engine\Pieces\Robber.cs" />
+    <Compile Include="Engine\Pieces\ControlPieces\TerritoryVisual.cs" />
+    <Compile Include="Engine\Pieces\PlayerPieces\Town.cs" />
+    <Compile Include="Engine\Pieces\Traveller.cs" />
+    <Compile Include="Engine\Rules\AllTerritoriesHaveLandHexes.cs" />
+    <Compile Include="Engine\Rules\KnownName.cs" />
+    <Compile Include="Engine\Rules\MinDevStack.cs" />
+    <Compile Include="Engine\Rules\MinDiscoverChits.cs" />
+    <Compile Include="Engine\Rules\MinMaxPlayers.cs" />
+    <Compile Include="Engine\Rules\MinRandomChits.cs" />
+    <Compile Include="Engine\Rules\NoneHexRule.cs" />
+    <Compile Include="Engine\Rules\TwoTerritoriesMinimumWhenTradeRoutes.cs" />
+    <Compile Include="PlayerSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>PlayerSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GameServer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DataServerInstance\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Converters\DevcardConverter.cs" />
+    <Compile Include="UI\Converters\MainlandConverter.cs" />
+    <Compile Include="UI\Converters\MaxTradePerTurnConverter.cs" />
+    <Compile Include="UI\Converters\OfferStatusConverter.cs" />
+    <Compile Include="UI\Converters\OpacityColoringConverter.cs" />
+    <Compile Include="UI\Converters\OpacityConverter.cs" />
+    <Compile Include="UI\Converters\PortConverter.cs" />
+    <Compile Include="UI\Converters\ResourceConverter.cs" />
+    <Compile Include="UI\Converters\ResourceMarginConverter.cs" />
+    <Compile Include="UI\Converters\TerritoryIDToIconConverter.cs" />
+    <Compile Include="UI\Converters\TsrConverter.cs" />
+    <Compile Include="UI\Converters\VisibilityConverter.cs" />
+    <Compile Include="UI\Editor\TerritorySettings.xaml.cs">
+      <DependentUpon>TerritorySettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Elements\DiceRoll.cs" />
+    <Compile Include="UI\Elements\Dices.xaml.cs" />
+    <Compile Include="UI\Elements\ucResourceList.xaml.cs">
+      <DependentUpon>ucResourceList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\BankTrade.xaml.cs">
+      <DependentUpon>BankTrade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\ChatMessage.cs" />
+    <Compile Include="UI\Game\DevCardStyleSelector.cs" />
+    <Compile Include="UI\Game\DevelopmentCardsUI.xaml.cs">
+      <DependentUpon>DevelopmentCardsUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\ExtendedResourcePicker.xaml.cs">
+      <DependentUpon>ExtendedResourcePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\LooseCards.xaml.cs">
+      <DependentUpon>LooseCards.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\LooseCardWrapper.cs" />
+    <Compile Include="UI\Game\OfferResponse.cs" />
+    <Compile Include="UI\Game\OfferStatus.cs" />
+    <Compile Include="UI\Game\PickGoldAll.xaml.cs">
+      <DependentUpon>PickGoldAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\PortsList.xaml.cs">
+      <DependentUpon>PortsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\RulesExplanation.xaml.cs">
+      <DependentUpon>RulesExplanation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\ShowResourcesGained.xaml.cs">
+      <DependentUpon>ShowResourcesGained.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\SmallResourcePicker.xaml.cs">
+      <DependentUpon>SmallResourcePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\StealCard.xaml.cs">
+      <DependentUpon>StealCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\UIChitList.xaml.cs">
+      <DependentUpon>UIChitList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Lobby\UserDetails.xaml.cs">
+      <DependentUpon>UserDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\AllUsersBrowser.xaml.cs">
+      <DependentUpon>AllUsersBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Editor\PortsSelector.xaml.cs">
+      <DependentUpon>PortsSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Editor\BoardProperties.xaml.cs">
+      <DependentUpon>BoardProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Editor\BoardRules.xaml.cs">
+      <DependentUpon>BoardRules.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Editor\ChitSelector.xaml.cs">
+      <DependentUpon>ChitSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Elements\CreateAccount.xaml.cs">
+      <DependentUpon>CreateAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Editor\DevCardSelector.xaml.cs">
+      <DependentUpon>DevCardSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Elements\Dice.xaml.cs">
+      <DependentUpon>Dice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\GameMain.xaml.cs">
+      <DependentUpon>GameMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Elements\GameWindow.xaml.cs">
+      <DependentUpon>GameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Elements\SceneMain.xaml.cs">
+      <DependentUpon>SceneMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Elements\Spinner.xaml.cs">
+      <DependentUpon>Spinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\AllPlayerStatus.xaml.cs">
+      <DependentUpon>AllPlayerStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\Bank.xaml.cs">
+      <DependentUpon>Bank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\BuildPallette.xaml.cs">
+      <DependentUpon>BuildPallette.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\ChooseDevcard.xaml.cs">
+      <DependentUpon>ChooseDevcard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\PickGoldResource.xaml.cs">
+      <DependentUpon>PickGoldResource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\ResourcePicker.xaml.cs">
+      <DependentUpon>ResourcePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\Trade.xaml.cs">
+      <DependentUpon>Trade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Editor\HexSelector.xaml.cs">
+      <DependentUpon>HexSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Lobby\Lobby.xaml.cs">
+      <DependentUpon>Lobby.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Editor\MapCreatorMain.xaml.cs">
+      <DependentUpon>MapCreatorMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Lobby\NewGame.xaml.cs">
+      <DependentUpon>NewGame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Game\PlayerStatus.xaml.cs">
+      <DependentUpon>PlayerStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Editor\TerritoryMenu.xaml.cs">
+      <DependentUpon>TerritoryMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Accordion.cs" />
+    <Compile Include="UI\Editor\AddIsland.xaml.cs">
+      <DependentUpon>AddIsland.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Elements\BoardRules.xaml.cs">
+      <DependentUpon>BoardRules.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Converters\RandomTopMessageConverter.cs" />
+    <Compile Include="UI\Converters\TerritoryConverter.cs" />
+    <Compile Include="UI\Converters\TotalRandomConverter.cs" />
+    <Compile Include="UI\Elements\ucLogin.xaml.cs">
+      <DependentUpon>ucLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Intro.xaml.cs">
+      <DependentUpon>Intro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Editor\NewBoard.xaml.cs">
+      <DependentUpon>NewBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Engine\ViewPort\GameViewPort3D.cs" />
+    <Compile Include="Engine\Rules\IRule.cs" />
+    <Compile Include="Engine\Rules\NoNameRule.cs" />
+    <Compile Include="Engine\Rules\RuleSeverity.cs" />
+    <Compile Include="Engine\Rules\SurroundingSeaRule.cs" />
+    <Compile Include="Core.cs" />
+    <Compile Include="UI\Converters\RuleSeverityConverter.cs" />
+    <Compile Include="UI\Editor\ucNewBoard.xaml.cs">
+      <DependentUpon>ucNewBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Elements\PlayerDetails.xaml.cs">
+      <DependentUpon>PlayerDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\WelcomeWindow.xaml.cs">
+      <DependentUpon>WelcomeWindow.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Graphics\SequenceDiagram1.sequencediagram.layout">
+      <DependentUpon>SequenceDiagram1.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Graphics\Icons\16x16\Thumbs.db" />
+    <None Include="Graphics\Icons\Thumbs.db" />
+    <None Include="Graphics\SequenceDiagram1.sequencediagram" />
+    <None Include="Overview.cd" />
+    <None Include="Properties\DataSources\SettleInCommon.Actions.Result.JoinResult.datasource" />
+    <None Include="Properties\DataSources\SettleInCommon.Gaming.XmlGameResult.datasource" />
+    <None Include="Properties\DataSources\SettleInCommon.User.XmlUser.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Service References\DataServerInstance\SettleIn.DataServerInstance.GetAllUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServerInstance\SettleIn.DataServerInstance.IsUserNameTakenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServerInstance\SettleIn.DataServerInstance.MostRecentGameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServerInstance\SettleIn.DataServerInstance.NewestUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataServerInstance\SettleIn.DataServerInstance.RegisterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GameServer\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\service.wsdl" />
+    <None Include="Service References\GameServer\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.Actions.InGame.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.Actions.Lobby.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.Actions.Result.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.Actions.TurnActions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.Actions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.Board.Hexes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.Board.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.Gaming.DevCards.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.Gaming.GamePhases.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.Gaming.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.User.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GameServer\SettleInCommon.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServerInstance\Service1.wsdl" />
+    <None Include="Service References\DataServerInstance\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServerInstance\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServerInstance\Service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServerInstance\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataServerInstance\Service14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Images\sea.png">
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\31port.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\wheatport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\chit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\chit10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\chit11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\chit12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\chit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\chit3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\chit4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\chit5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\chit6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\chit8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\chit9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\clay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\clayport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\desert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\gold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\jungle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\none.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\nothing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\ore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\oreport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\random.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\Save16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\sea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\Sea3D.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\Sea3D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\sheep.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\sheepport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\yes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\timber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\timberport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\unknown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\volcano.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\wheat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\randomport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\Cities3D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\rule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\16x16\chit10.png" />
+    <Resource Include="Graphics\Icons\16x16\chit11.png" />
+    <Resource Include="Graphics\Icons\16x16\chit12.png" />
+    <Resource Include="Graphics\Icons\16x16\chit2.png" />
+    <Resource Include="Graphics\Icons\16x16\chit3.png" />
+    <Resource Include="Graphics\Icons\16x16\chit4.png" />
+    <Resource Include="Graphics\Icons\16x16\chit5.png" />
+    <Resource Include="Graphics\Icons\16x16\chit6.png" />
+    <Resource Include="Graphics\Icons\16x16\chit8.png" />
+    <Resource Include="Graphics\Icons\16x16\chit9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\16x16\mouseselect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\Icons\16x16\new.png" />
+    <Resource Include="Graphics\Icons\24x24\new.png" />
+    <Resource Include="Graphics\Icons\24x24\rules.png" />
+    <Resource Include="Graphics\Icons\16x16\properties.png" />
+    <Resource Include="Graphics\Icons\24x24\properties.png" />
+    <Resource Include="Graphics\Icons\16x16\success.png" />
+    <Resource Include="Graphics\Icons\16x16\warning.png" />
+    <Resource Include="Graphics\Icons\24x24\warning.png" />
+    <Resource Include="Graphics\Icons\16x16\error.png" />
+    <Resource Include="Graphics\Icons\16x16\validate.png" />
+    <Resource Include="Graphics\Icons\24x24\validate.png" />
+    <Resource Include="Graphics\Icons\32x32\new.png" />
+    <Resource Include="Graphics\Images\31port.png">
+    </Resource>
+    <Resource Include="Graphics\Images\chit.png">
+    </Resource>
+    <Resource Include="Graphics\Images\clay.png">
+    </Resource>
+    <Resource Include="Graphics\Images\clayport.png">
+    </Resource>
+    <Resource Include="Graphics\Images\desert.png">
+    </Resource>
+    <Resource Include="Graphics\Images\gold.png">
+    </Resource>
+    <Resource Include="Graphics\Images\jungle.png">
+    </Resource>
+    <Resource Include="Graphics\Images\none.png">
+    </Resource>
+    <Resource Include="Graphics\Images\ore.png">
+    </Resource>
+    <Resource Include="Graphics\Images\oreport.png">
+    </Resource>
+    <Resource Include="Graphics\Images\random.png">
+    </Resource>
+    <Resource Include="Graphics\Images\randomport.png">
+    </Resource>
+    <Resource Include="Graphics\Images\sheep.png">
+    </Resource>
+    <Resource Include="Graphics\Images\sheepport.png">
+    </Resource>
+    <Resource Include="Graphics\Images\timber.png">
+    </Resource>
+    <Resource Include="Graphics\Images\timberport.png">
+    </Resource>
+    <Resource Include="Graphics\Images\unknown.png">
+    </Resource>
+    <Resource Include="Graphics\Images\volcano.png">
+    </Resource>
+    <Resource Include="Graphics\Images\wheat.png">
+    </Resource>
+    <Resource Include="Graphics\Images\wheatport.png">
+    </Resource>
+    <Resource Include="Graphics\Images\island.png">
+    </Resource>
+    <Resource Include="Graphics\Images\mainland.png">
+    </Resource>
+    <Resource Include="Graphics\Icons\robber.png" />
+    <Resource Include="Graphics\Icons\48x48\robber.png" />
+    <Resource Include="Graphics\Icons\48x48\mono.png" />
+    <Resource Include="Graphics\Icons\48x48\rb.png" />
+    <Resource Include="Graphics\Icons\48x48\vp.png" />
+    <Resource Include="Graphics\Icons\48x48\yop.png" />
+    <Resource Include="Graphics\Icons\16x16\error116x16 24-bit.png" />
+    <Resource Include="Graphics\Icons\16x16\Warning16x16 24-bit.png" />
+    <Resource Include="Graphics\Icons\16x16\info.png" />
+    <Resource Include="Graphics\Images\chit10.png">
+    </Resource>
+    <Resource Include="Graphics\Images\chit11.png">
+    </Resource>
+    <Resource Include="Graphics\Images\chit12.png">
+    </Resource>
+    <Resource Include="Graphics\Images\chit2.png">
+    </Resource>
+    <Resource Include="Graphics\Images\chit3.png">
+    </Resource>
+    <Resource Include="Graphics\Images\chit4.png">
+    </Resource>
+    <Resource Include="Graphics\Images\chit5.png">
+    </Resource>
+    <Resource Include="Graphics\Images\chit6.png">
+    </Resource>
+    <Resource Include="Graphics\Images\chit8.png">
+    </Resource>
+    <Resource Include="Graphics\Images\chit9.png">
+    </Resource>
+    <None Include="Engine\Pieces\Pieces.cd" />
+    <None Include="Engine\ViewPort\ViewPort.cd" />
+    <None Include="PlayerSettings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>PlayerSettings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="Graphics\Icons\chitrandom.png" />
+    <Resource Include="Graphics\Images\chitrandom.png" />
+    <Resource Include="Graphics\Icons\random48.png" />
+    <Resource Include="Graphics\Icons\unknown48.png" />
+    <Resource Include="Graphics\Icons\24x24\island.png" />
+    <Resource Include="Graphics\Icons\24x24\mainland.png" />
+    <Resource Include="Graphics\Images\island1.png">
+    </Resource>
+    <Resource Include="Graphics\Images\island2.png">
+    </Resource>
+    <Resource Include="Graphics\Images\island3.png">
+    </Resource>
+    <Resource Include="Graphics\Images\island4.png">
+    </Resource>
+    <Resource Include="Graphics\Images\island5.png">
+    </Resource>
+    <Resource Include="Graphics\Images\island6.png">
+    </Resource>
+    <Resource Include="Graphics\Icons\48x48\town48.png" />
+    <Resource Include="Graphics\Icons\48x48\Road48.png" />
+    <Resource Include="Graphics\Icons\48x48\ship48.png" />
+    <Resource Include="Graphics\Icons\48x48\BuyDevcard.png" />
+    <Resource Include="Graphics\Icons\spinner3-black.gif" />
+    <Resource Include="Graphics\Icons\24x24\bank.png" />
+    <Resource Include="Graphics\Icons\48x48\cup.png" />
+    <Resource Include="Graphics\Icons\48x48\Max10Cards48.png" />
+    <Resource Include="Graphics\Icons\48x48\Max11Cards48.png" />
+    <Resource Include="Graphics\Icons\48x48\Max12Cards48.png" />
+    <Resource Include="Graphics\Icons\48x48\Max13Cards48.png" />
+    <Resource Include="Graphics\Icons\48x48\Max1TradePerTurn48.png" />
+    <Resource Include="Graphics\Icons\48x48\Max2TradePerTurn48.png" />
+    <Resource Include="Graphics\Icons\48x48\Max3TradePerTurn48.png" />
+    <Resource Include="Graphics\Icons\48x48\Max4TradePerTurn48.png" />
+    <Resource Include="Graphics\Icons\48x48\Max5TradePerTurn48.png" />
+    <Resource Include="Graphics\Icons\48x48\Max7Cards48.png" />
+    <Resource Include="Graphics\Icons\48x48\Max8Cards48.png" />
+    <Resource Include="Graphics\Icons\48x48\Max9Cards48.png" />
+    <Resource Include="Graphics\Icons\48x48\MaxUnlimitedTradePerTurn48.png" />
+    <Resource Include="Graphics\Icons\48x48\NoRobberSeven48.png" />
+    <Resource Include="Graphics\Icons\48x48\NoRobbingPlayers2VP48.png" />
+    <Resource Include="Graphics\Icons\48x48\NoTsr48.png" />
+    <Resource Include="Graphics\Icons\48x48\pirate48.png" />
+    <Resource Include="Graphics\Icons\48x48\TradingAfterBuilding.png" />
+    <Resource Include="Graphics\Icons\48x48\Tsr48.png" />
+    <Resource Include="Graphics\Icons\48x48\Robber48.png" />
+    <Resource Include="Graphics\Images\Trade.png" />
+    <Resource Include="Graphics\Icons\48x48\Trade.png" />
+    <Resource Include="Graphics\Icons\32x32\EndTurn.png" />
+    <Resource Include="Graphics\Icons\48x48\LongestRoad48.png" />
+    <Resource Include="Graphics\Icons\48x48\TradePlayer48.png" />
+    <Resource Include="Graphics\Icons\48x48\AcceptOffer48.png" />
+    <Resource Include="Graphics\Icons\48x48\CounterOffer48.png" />
+    <Resource Include="Graphics\Icons\48x48\RejectOffer48.png" />
+    <Resource Include="Graphics\Icons\48x48\WaitingOffer48.png" />
+    <Resource Include="Graphics\Icons\48x48\AddTerritory48.png" />
+    <Resource Include="Graphics\Icons\48x48\RemoveTerritory48.png" />
+    <Resource Include="Graphics\Icons\48x48\Check48.png" />
+    <Resource Include="Graphics\Icons\48x48\Chat48.png" />
+    <Resource Include="Graphics\Icons\48x48\GameLog48.png" />
+    <Resource Include="Graphics\Icons\48x48\MoveShip48.png" />
+    <Resource Include="Graphics\Icons\48x48\Play48.png" />
+    <Resource Include="Graphics\Icons\48x48\StarterDetermined48.png" />
+    <Resource Include="Graphics\Icons\48x48\UserLeft48.png" />
+    <Resource Include="Graphics\Icons\48x48\BankTrade48.png" />
+    <Content Include="obj\Music\JAZZ.mid" />
+    <Content Include="obj\Music\JAZZLAG.mid" />
+    <None Include="Service References\GameServer\configuration91.svcinfo" />
+    <None Include="Service References\GameServer\configuration.svcinfo" />
+    <None Include="Service References\GameServer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\DataServerInstance\Service1.disco" />
+    <None Include="Service References\DataServerInstance\configuration91.svcinfo" />
+    <None Include="Service References\DataServerInstance\configuration.svcinfo" />
+    <None Include="Service References\DataServerInstance\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Sounds\applause2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\applause3.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\applause5.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\beam03.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\boatairhorn2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\boo.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\bookclose2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\bubbles3.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\caralarm.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\churchbell1.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\drip.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\endosund.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\forest.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\lamb.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\pageturn1.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\phaser.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\ping2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\ploop.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\register.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\sheep.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\thunder.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\waterdrop.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="References.txt" />
+    <Resource Include="UI\Lobby\Cities3D.png" />
+    <Resource Include="UI\Lobby\Gold.png" />
+    <Resource Include="UI\Lobby\Road48.png" />
+    <Resource Include="UI\Lobby\ship48.png" />
+    <Resource Include="UI\Lobby\town48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SetteInCommon\SettleInCommon.csproj">
+      <Project>{07D95963-D4B8-49E2-AA4E-9DF81338B94D}</Project>
+      <Name>SettleInCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions\" />
+    <Folder Include="Fonts\" />
+    <Folder Include="Validation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GameServer\" />
+    <WCFMetadataStorage Include="Service References\DataServerInstance\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\Blend\.NETFramework\v4.0\Microsoft.Expression.Blend.WPF.targets" />
+</Project>

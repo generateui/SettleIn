@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SettleInCommon.Actions.TurnActions.EndTurnAction" Collapsed="true">
+    <Position X="8.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\TurnActions\EndTurnAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.InGame.InGameAction" Collapsed="true">
+    <Position X="8.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAIAAAIAAgAAQAAAkAAAAggAAGAEAAAAEAAAAAIAA=</HashCode>
+      <FileName>Actions\InGame\InGameAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.TurnActions.BuildShipAction" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAIAAAAAQAAAgAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\TurnActions\BuildShipAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.TurnActions.BuyDevcardAction" Collapsed="true">
+    <Position X="10.5" Y="6.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAQAAAgAAAAAYAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\TurnActions\BuyDevcardActoin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.InGame.CounterTradeOfferAction" Collapsed="true">
+    <Position X="5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\InGame\CounterTradeOfferAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.TurnActions.MoveShipAction" Collapsed="true">
+    <Position X="8.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAIAAAAAQAAAgAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\TurnActions\MoveShipAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.TurnActions.RobPlayerAction" Collapsed="true">
+    <Position X="8.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAQAAAgAAAAgAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Actions\TurnActions\RobPlayerAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.TurnActions.ClaimVictoryAction" Collapsed="true">
+    <Position X="8.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\TurnActions\ClaimVictoryAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.TurnActions.RollDiceAction" Collapsed="true">
+    <Position X="10.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAFAAAAIAAAAAQAAAgAAAAAAAAAACAAgAAAIEEAACA=</HashCode>
+      <FileName>Actions\TurnActions\RollDiceAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.TurnActions.TradeBankAction" Collapsed="true">
+    <Position X="8.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAQAAAgAAgAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Actions\TurnActions\TradeBankAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.TurnActions.TurnAction" Collapsed="true">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAIAAAAAAEAAgAAAAAQAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Actions\TurnActions\TurnAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.InGame.SpectatorJoinedAction" Collapsed="true">
+    <Position X="5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Actions\InGame\SpectatorJoinedAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.InGame.GameChatAction" Collapsed="true">
+    <Position X="5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAABQAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\InGame\GameChatAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.InGame.LooseCardsAction" Collapsed="true">
+    <Position X="5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAQABAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\InGame\LooseCardsAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.TurnActions.PlayDevcardAction" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAQAAAgAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\TurnActions\PlayDevcardAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.Lobby.LobbyAction" Collapsed="true">
+    <Position X="12" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\Lobby\LobbyAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.Lobby.UserLeftLobbyAction" Collapsed="true">
+    <Position X="13" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\Lobby\UserLeftLobbyAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.Lobby.GameCreatedAction" Collapsed="true">
+    <Position X="13" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\Lobby\GameCreatedAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.Lobby.GameJoinedAction" Collapsed="true">
+    <Position X="13" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\Lobby\GameJoinedAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.Lobby.JoinGameAction" Collapsed="true">
+    <Position X="13" Y="7.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\Lobby\JoinGameAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.Lobby.LobbyChatAction" Collapsed="true">
+    <Position X="13" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\Lobby\LobbyChatAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.Lobby.LobbyJoinedAction" Collapsed="true">
+    <Position X="13" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\Lobby\LobbyJoined.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.Lobby.NewGameChangedAction" Collapsed="true">
+    <Position X="13" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\Lobby\NewGameChangedAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.Lobby.TryCreateGameAction" Collapsed="true">
+    <Position X="13" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Actions\Lobby\TryCreateGameAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.Lobby.UserDisconnectedAction" Collapsed="true">
+    <Position X="13" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Actions\Lobby\UserDisconnectedAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettleInCommon.Actions.GameAction" Collapsed="true">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAIAAAAgAAAEAAhAAAIQAAAAEIAAIAAA=</HashCode>
+      <FileName>Actions\GameAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

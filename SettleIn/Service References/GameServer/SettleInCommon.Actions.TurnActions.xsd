@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.TurnActions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.TurnActions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.InGame" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.DevCards" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SettleInCommon.Board.Hexes" />
+  <xs:complexType name="TradeOfferAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="OfferedCards" nillable="true" type="q1:ArrayOfEResource" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="WantedCards" nillable="true" type="q2:ArrayOfEResource" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TradeOfferAction" nillable="true" type="tns:TradeOfferAction" />
+  <xs:complexType name="TurnAction">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.InGame" base="q3:InGameAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TurnID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TurnAction" nillable="true" type="tns:TurnAction" />
+  <xs:complexType name="PlacePortAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Location" nillable="true" type="q4:HexLocation" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Port" nillable="true" type="q5:Port" />
+          <xs:element minOccurs="0" name="TerritoryID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlacePortAction" nillable="true" type="tns:PlacePortAction" />
+  <xs:complexType name="SwapChitAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="NewLocation" nillable="true" type="q6:HexLocation" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="OldLocation" nillable="true" type="q7:HexLocation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SwapChitAction" nillable="true" type="tns:SwapChitAction" />
+  <xs:complexType name="TradeBankAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="OfferedCards" nillable="true" type="q8:ArrayOfEResource" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="WantedCards" nillable="true" type="q9:ArrayOfEResource" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TradeBankAction" nillable="true" type="tns:TradeBankAction" />
+  <xs:complexType name="MoveShipAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="NewLocation" nillable="true" type="q10:HexSide" />
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="OldLocation" nillable="true" type="q11:HexSide" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MoveShipAction" nillable="true" type="tns:MoveShipAction" />
+  <xs:complexType name="BuildCityAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Location" nillable="true" type="q12:HexPoint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BuildCityAction" nillable="true" type="tns:BuildCityAction" />
+  <xs:complexType name="PlaceRobberPirateAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsPirate" type="xs:boolean" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Location" nillable="true" type="q13:HexLocation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlaceRobberPirateAction" nillable="true" type="tns:PlaceRobberPirateAction" />
+  <xs:complexType name="BuildTownAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Location" nillable="true" type="q14:HexPoint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BuildTownAction" nillable="true" type="tns:BuildTownAction" />
+  <xs:complexType name="ClaimVictoryAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClaimVictoryAction" nillable="true" type="tns:ClaimVictoryAction" />
+  <xs:complexType name="BuildRoadAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FromDevcard" type="xs:boolean" />
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Intersection" nillable="true" type="q15:HexSide" />
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="OriginatingTownOrCity" nillable="true" type="q16:HexPoint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BuildRoadAction" nillable="true" type="tns:BuildRoadAction" />
+  <xs:complexType name="BuildShipAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FromDevcard" type="xs:boolean" />
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Intersection" nillable="true" type="q17:HexSide" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BuildShipAction" nillable="true" type="tns:BuildShipAction" />
+  <xs:complexType name="BuyDevcardAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.DevCards" minOccurs="0" name="DevCard" nillable="true" type="q18:DevelopmentCard" />
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="Resources" nillable="true" type="q19:ArrayOfEResource" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BuyDevcardAction" nillable="true" type="tns:BuyDevcardAction" />
+  <xs:complexType name="RobPlayerAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PlayerID" nillable="true" type="xs:int" />
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SettleInCommon.Board" minOccurs="0" name="StolenResource" type="q20:EResource" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RobPlayerAction" nillable="true" type="tns:RobPlayerAction" />
+  <xs:complexType name="TradePlayerAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SettleInCommon.Actions.InGame" minOccurs="0" name="Counter" nillable="true" type="q21:CounterTradeOfferAction" />
+          <xs:element minOccurs="0" name="Trade" nillable="true" type="tns:TradeOfferAction" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TradePlayerAction" nillable="true" type="tns:TradePlayerAction" />
+  <xs:complexType name="PlayDevcardAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SettleInCommon.Gaming.DevCards" minOccurs="0" name="DevCard" nillable="true" type="q22:DevelopmentCard" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlayDevcardAction" nillable="true" type="tns:PlayDevcardAction" />
+  <xs:complexType name="EndTurnAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EndTurnAction" nillable="true" type="tns:EndTurnAction" />
+  <xs:complexType name="RollDiceAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Dice1" type="xs:int" />
+          <xs:element minOccurs="0" name="Dice2" type="xs:int" />
+          <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LooserPlayers" nillable="true" type="q23:ArrayOfint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RollDiceAction" nillable="true" type="tns:RollDiceAction" />
+  <xs:complexType name="RollVolcanoDiceAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TurnAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Dice" type="xs:int" />
+          <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SettleInCommon.Board.Hexes" minOccurs="0" name="VolcanosRolled" nillable="true" type="q24:ArrayOfVolcanoHex" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RollVolcanoDiceAction" nillable="true" type="tns:RollVolcanoDiceAction" />
+</xs:schema>

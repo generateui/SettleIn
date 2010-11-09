@@ -1,0 +1,153 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:m="clr-namespace:System.Windows.Media.Imaging;assembly=PresentationCore">
+
+    <!-- Icons SettleIn-->
+    <m:BitmapImage x:Key="IconChit2" UriSource="/Graphics/Icons/chit2.png" />
+    <m:BitmapImage x:Key="IconChit3" UriSource="/Graphics/Icons/chit3.png" />
+    <m:BitmapImage x:Key="IconChit4" UriSource="/Graphics/Icons/chit4.png" />
+    <m:BitmapImage x:Key="IconChit5" UriSource="/Graphics/Icons/chit5.png" />
+    <m:BitmapImage x:Key="IconChit6" UriSource="/Graphics/Icons/chit6.png" />
+    <m:BitmapImage x:Key="IconChit8" UriSource="/Graphics/Icons/chit8.png" />
+    <m:BitmapImage x:Key="IconChit9" UriSource="/Graphics/Icons/chit9.png" />
+    <m:BitmapImage x:Key="IconChit10" UriSource="/Graphics/Icons/chit10.png" />
+    <m:BitmapImage x:Key="IconChit11" UriSource="/Graphics/Icons/chit11.png" />
+    <m:BitmapImage x:Key="IconChit12" UriSource="/Graphics/Icons/chit12.png" />
+    <m:BitmapImage x:Key="IconChitRandom" UriSource="/Graphics/Icons/chitrandom.png" />
+    <m:BitmapImage x:Key="Icon31Port" UriSource="/Graphics/Icons/31port.png" />
+    <m:BitmapImage x:Key="IconClay" UriSource="/Graphics/Icons/clay.png" />
+    <m:BitmapImage x:Key="IconDesert" UriSource="/Graphics/Icons/desert.png" />
+    <m:BitmapImage x:Key="IconGold" UriSource="/Graphics/Icons/gold.png" />
+    <m:BitmapImage x:Key="IconJungle" UriSource="/Graphics/Icons/jungle.png" />
+    <m:BitmapImage x:Key="IconNone" UriSource="/Graphics/Icons/none.png" />
+    <m:BitmapImage x:Key="IconNothing" UriSource="/Graphics/Icons/nothing.png" />
+    <m:BitmapImage x:Key="IconOre" UriSource="/Graphics/Icons/ore.png" />
+    <m:BitmapImage x:Key="IconRandom" UriSource="/Graphics/Icons/random.png" />
+    <m:BitmapImage x:Key="Icon48Random" UriSource="/Graphics/Icons/random48.png" />
+    <m:BitmapImage x:Key="IconSea" UriSource="/Graphics/Icons/sea.png" />
+    <m:BitmapImage x:Key="IconSheep" UriSource="/Graphics/Icons/sheep.png" />
+    <m:BitmapImage x:Key="IconTimber" UriSource="/Graphics/Icons/timber.png" />
+    <m:BitmapImage x:Key="IconUnknown" UriSource="/Graphics/Icons/unknown.png" />
+    <m:BitmapImage x:Key="Icon48Unknown" UriSource="/Graphics/Icons/unknown48.png" />
+    <m:BitmapImage x:Key="IconVolcano" UriSource="/Graphics/Icons/volcano.png" />
+    <m:BitmapImage x:Key="IconWheat" UriSource="/Graphics/Icons/wheat.png" />
+    <m:BitmapImage x:Key="IconClayPort" UriSource="/Graphics/Icons/clayport.png" />
+    <m:BitmapImage x:Key="IconSheepPort" UriSource="/Graphics/Icons/sheepport.png" />
+    <m:BitmapImage x:Key="IconWheatPort" UriSource="/Graphics/Icons/wheatport.png" />
+    <m:BitmapImage x:Key="IconOrePort" UriSource="/Graphics/Icons/oreport.png" />
+    <m:BitmapImage x:Key="IconTimberPort" UriSource="/Graphics/Icons/timberport.png" />
+    <m:BitmapImage x:Key="IconMouseSelect" UriSource="/Graphics/Icons/16x16/mouseselect.png" />
+    <m:BitmapImage x:Key="Icon16Chit2" UriSource="/Graphics/Icons/16x16/chit2.png" />
+    <m:BitmapImage x:Key="Icon16Chit3" UriSource="/Graphics/Icons/16x16/chit3.png" />
+    <m:BitmapImage x:Key="Icon16Chit4" UriSource="/Graphics/Icons/16x16/chit4.png" />
+    <m:BitmapImage x:Key="Icon16Chit5" UriSource="/Graphics/Icons/16x16/chit5.png" />
+    <m:BitmapImage x:Key="Icon16Chit6" UriSource="/Graphics/Icons/16x16/chit6.png" />
+    <m:BitmapImage x:Key="Icon16Chit8" UriSource="/Graphics/Icons/16x16/chit8.png" />
+    <m:BitmapImage x:Key="Icon16Chit9" UriSource="/Graphics/Icons/16x16/chit9.png" />
+    <m:BitmapImage x:Key="Icon16Chit10" UriSource="/Graphics/Icons/16x16/chit10.png" />
+    <m:BitmapImage x:Key="Icon16Chit11" UriSource="/Graphics/Icons/16x16/chit11.png" />
+    <m:BitmapImage x:Key="Icon16Chit12" UriSource="/Graphics/Icons/16x16/chit12.png" />
+    <m:BitmapImage x:Key="Icon32Chit" UriSource="/Graphics/Icons/chit.png" />
+
+    <m:BitmapImage x:Key="IconChat48" UriSource="/Graphics/Icons/48x48/Chat48.png" />
+    <m:BitmapImage x:Key="IconGameLog48" UriSource="/Graphics/Icons/48x48/GameLog48.png" />
+    
+    <m:BitmapImage x:Key="IconClayCard" UriSource="/Graphics/Icons/clay.png" />
+    <m:BitmapImage x:Key="IconWheatCard" UriSource="/Graphics/Icons/wheat.png" />
+    <m:BitmapImage x:Key="IconOreCard" UriSource="/Graphics/Icons/ore.png" />
+    <m:BitmapImage x:Key="IconSheepCard" UriSource="/Graphics/Icons/sheep.png" />
+    <m:BitmapImage x:Key="IconTimberCard" UriSource="/Graphics/Icons/timber.png" />
+    <m:BitmapImage x:Key="IconDiscoveryCard" UriSource="/Graphics/Icons/jungle.png" />
+    
+    <!-- Icons Devcards -->
+    <m:BitmapImage x:Key="IconRobber48" UriSource="/Graphics/Icons/48x48/robber.png"/>
+    <m:BitmapImage x:Key="IconVp48" UriSource="/Graphics/Icons/48x48/vp.png"/>
+    <m:BitmapImage x:Key="IconRb48" UriSource="/Graphics/Icons/48x48/rb.png"/>
+    <m:BitmapImage x:Key="IconMono48" UriSource="/Graphics/Icons/48x48/mono.png"/>
+    <m:BitmapImage x:Key="IconYop48" UriSource="/Graphics/Icons/48x48/yop.png"/>
+    <m:BitmapImage x:Key="IconBuyDevcard48" UriSource="/Graphics/Icons/48x48/buydevcard.png"/>
+    
+    <!-- Icons Rules -->
+    <m:BitmapImage x:Key="IconWarning16" UriSource="/Graphics/Icons/16x16/warning.png"/>
+    <m:BitmapImage x:Key="IconError16" UriSource="/Graphics/Icons/16x16/error.png"/>
+    <m:BitmapImage x:Key="IconInformation16" UriSource="/Graphics/Icons/16x16/info.png"/>
+    
+    <!-- Icons Various -->
+    <m:BitmapImage x:Key="IconYes" UriSource="/Graphics/Icons/yes.png" />
+    <m:BitmapImage x:Key="IconNo" UriSource="/Graphics/Icons/no.png" />
+    <m:BitmapImage x:Key="IconRule" UriSource="/Graphics/Icons/rule.png" />
+    <m:BitmapImage x:Key="Sea3D" UriSource="/Graphics/Icons/Cities3D.png" />
+    <m:BitmapImage x:Key="Town3D" UriSource="/Graphics/Icons/48x48/Town48.png" />
+    <m:BitmapImage x:Key="Road48" UriSource="/Graphics/Icons/48x48/Road48.png" />
+    <m:BitmapImage x:Key="Ship48" UriSource="/Graphics/Icons/48x48/ship48.png" />
+    <m:BitmapImage x:Key="IconRandomPort" UriSource="/Graphics/Icons/randomport.png" />
+    <m:BitmapImage x:Key="Icon24MainLand" UriSource="/Graphics/Icons/24x24/mainland.png" />
+    <m:BitmapImage x:Key="Icon24IsLand" UriSource="/Graphics/Icons/24x24/island.png" />
+    
+    <!-- Icons Generic -->
+    <m:BitmapImage x:Key="Save" UriSource="/Graphics/Icons/Save16.png"/>
+    <m:BitmapImage x:Key="Validate16" UriSource="/Graphics/Icons/16x16/validate.png"/>
+    <m:BitmapImage x:Key="Validate24" UriSource="/Graphics/Icons/24x24/validate.png"/>
+    <m:BitmapImage x:Key="New16" UriSource="/Graphics/Icons/16x16/new.png"/>
+    <m:BitmapImage x:Key="New24" UriSource="/Graphics/Icons/24x24/new.png"/>
+    <m:BitmapImage x:Key="New32" UriSource="/Graphics/Icons/32x32/new.png"/>
+    <m:BitmapImage x:Key="Properties24" UriSource="/Graphics/Icons/24x24/properties.png"/>
+    <m:BitmapImage x:Key="Spinner" UriSource="/Graphics/Icons/spinner3-black.gif"/>
+    
+    <!-- Gam UI -->
+    <m:BitmapImage x:Key="Bank24" UriSource="/Graphics/Icons/24x24/bank.png"/>
+    <m:BitmapImage x:Key="IconVP48" UriSource="/Graphics/Icons/48x48/cup.png"/>
+    <m:BitmapImage x:Key="IconMax7Cards48" UriSource="/Graphics/Icons/48x48/Max7Cards48.png"/>
+    <m:BitmapImage x:Key="IconMax8Cards48" UriSource="/Graphics/Icons/48x48/Max8Cards48.png"/>
+    <m:BitmapImage x:Key="IconMax9Cards48" UriSource="/Graphics/Icons/48x48/Max9Cards48.png"/>
+    <m:BitmapImage x:Key="IconMax10Cards48" UriSource="/Graphics/Icons/48x48/Max10Cards48.png"/>
+    <m:BitmapImage x:Key="IconMax11Cards48" UriSource="/Graphics/Icons/48x48/Max11Cards48.png"/>
+    <m:BitmapImage x:Key="IconMax12Cards48" UriSource="/Graphics/Icons/48x48/Max12Cards48.png"/>
+    <m:BitmapImage x:Key="IconMax13Cards48" UriSource="/Graphics/Icons/48x48/Max13Cards48.png"/>
+    <m:BitmapImage x:Key="IconMax1TradePerTurn48" UriSource="/Graphics/Icons/48x48/Max1TradePerTurn48.png"/>
+    <m:BitmapImage x:Key="IconMax2TradePerTurn48" UriSource="/Graphics/Icons/48x48/Max2TradePerTurn48.png"/>
+    <m:BitmapImage x:Key="IconMax3TradePerTurn48" UriSource="/Graphics/Icons/48x48/Max3TradePerTurn48.png"/>
+    <m:BitmapImage x:Key="IconMax4TradePerTurn48" UriSource="/Graphics/Icons/48x48/Max4TradePerTurn48.png"/>
+    <m:BitmapImage x:Key="IconMax5TradePerTurn48" UriSource="/Graphics/Icons/48x48/Max5TradePerTurn48.png"/>
+    <m:BitmapImage x:Key="IconMaxUnlimitedTradePerTurn48" UriSource="/Graphics/Icons/48x48/MaxUnlimitedTradePerTurn48.png"/>
+    <m:BitmapImage x:Key="IconNoRobberSeven48" UriSource="/Graphics/Icons/48x48/NoRobberSeven48.png"/>
+    <m:BitmapImage x:Key="IconNoRobbingplayers2VP48" UriSource="/Graphics/Icons/48x48/NoRobbingplayers2VP48.png"/>
+    <m:BitmapImage x:Key="IconNoTsr48" UriSource="/Graphics/Icons/48x48/NoTsr48.png"/>
+    <m:BitmapImage x:Key="IconPirate48" UriSource="/Graphics/Icons/48x48/pirate48.png"/>
+    <m:BitmapImage x:Key="IconRobber248" UriSource="/Graphics/Icons/48x48/Robber48.png"/>
+    <m:BitmapImage x:Key="IconTradingAfterBuilding48" UriSource="/Graphics/Icons/48x48/TradingAfterBuilding.png"/>
+    <m:BitmapImage x:Key="IconTsr48" UriSource="/Graphics/Icons/48x48/Tsr48.png"/>
+
+    <!-- Territory images -->
+    <m:BitmapImage x:Key="IconIsland148" UriSource="/Graphics/Images/island1.png"/>
+    <m:BitmapImage x:Key="IconIsland248" UriSource="/Graphics/Images/island2.png"/>
+    <m:BitmapImage x:Key="IconIsland348" UriSource="/Graphics/Images/island3.png"/>
+    <m:BitmapImage x:Key="IconIsland448" UriSource="/Graphics/Images/island4.png"/>
+    <m:BitmapImage x:Key="IconIsland548" UriSource="/Graphics/Images/island5.png"/>
+    <m:BitmapImage x:Key="IconIsland648" UriSource="/Graphics/Images/island6.png"/>
+    <m:BitmapImage x:Key="IconMainland48" UriSource="/Graphics/Images/mainland.png"/>
+    <m:BitmapImage x:Key="IconIsland48" UriSource="/Graphics/Images/island.png"/>
+    <m:BitmapImage x:Key="IconTrade48" UriSource="/Graphics/Icons/48x48/Trade.png"/>
+
+    <m:BitmapImage x:Key="IconTradePlayer48" UriSource="/Graphics/Icons/48x48/TradePlayer48.png"/>
+    <m:BitmapImage x:Key="IconLongestRoad48" UriSource="/Graphics/Icons/48x48/LongestRoad48.png"/>
+    <m:BitmapImage x:Key="IconEndTurn32" UriSource="/Graphics/Icons/32x32/EndTurn.png"/>
+
+    <m:BitmapImage x:Key="IconWaitAnswer48" UriSource="/Graphics/Icons/48x48/WaitingOffer48.png"/>
+    <m:BitmapImage x:Key="IconRejectOffer48" UriSource="/Graphics/Icons/48x48/RejectOffer48.png"/>
+    <m:BitmapImage x:Key="IconAcceptOffer48" UriSource="/Graphics/Icons/48x48/AcceptOffer48.png"/>
+    <m:BitmapImage x:Key="IconCounterOffer48" UriSource="/Graphics/Icons/48x48/CounterOffer48.png"/>
+    <m:BitmapImage x:Key="IconAddTerritory48" UriSource="/Graphics/Icons/48x48/AddTerritory48.png"/>
+    <m:BitmapImage x:Key="IconRemoveTerritory48" UriSource="/Graphics/Icons/48x48/RemoveTerritory48.png"/>
+    <m:BitmapImage x:Key="IconCheck48" UriSource="/Graphics/Icons/48x48/Check48.png"/>
+    <m:BitmapImage x:Key="IconError48" UriSource="/Graphics/Icons/48x48/Check48.png"/>
+
+    <m:BitmapImage x:Key="IconMoveShip48" UriSource="/Graphics/Icons/48x48/MoveShip48.png"/>
+    
+    <!-- Micellaneous-->
+    <m:BitmapImage x:Key="IconPlay48" UriSource="/Graphics/Icons/48x48/Play48.png"/>
+    <m:BitmapImage x:Key="IconUserLeft48" UriSource="/Graphics/Icons/48x48/UserLeft48.png"/>
+    <m:BitmapImage x:Key="IconStarterDetermined48" UriSource="/Graphics/Icons/48x48/StarterDetermined48.png"/>
+    <m:BitmapImage x:Key="IconBankTrade48" UriSource="/Graphics/Icons/48x48/BankTrade48.png"/>
+
+</ResourceDictionary>
